@@ -1,4 +1,4 @@
-package Controller;
+package Logic_tier;
 
 import java.io.*;
 import jakarta.servlet.http.*;
