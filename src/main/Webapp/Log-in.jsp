@@ -13,7 +13,6 @@
 
 <body>
 
-
 <main>
 
         <!-- Controlla c'è stato un tentativo di accesso errato, visualizza un messaggio di errore -->
@@ -22,7 +21,9 @@
 
             <% String logInStatus = (String) request.getAttribute("logInStatus");
                 if (logInStatus != null && logInStatus.equals("errato")) {%>
+
             <h1 id="errore">CREDENZIALI ERRATE</h1><%}%>
+
             <form action="login" method="post" onsubmit="return validate()">
                 <input required id="email" type="email" name="email" placeholder="Email"><br><br>
                 <input required type="password" name="pswd" placeholder="Password"><br><br>
