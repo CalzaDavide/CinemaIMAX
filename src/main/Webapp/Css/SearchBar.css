@@ -1,4 +1,25 @@
+@media screen and (max-width: 1200px){
+    header{
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+
+}
+@media screen and (max-width: 800px){
+    header{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+
+
 /*    Search bar    */
+
+header{
+    margin-left: 30%;
+    margin-right: 30%;
+}
 
 #searchbar {
     margin: 1% auto 1% auto;
@@ -18,10 +39,10 @@
 
 #cerca {
     float: right;
-    margin: 5px 3px 5px 3px;
+    margin: 5px 3px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
-}
+}       /* Lente di ingrandimento della searchbar*/
 
 #cercaForm {
     display: flex;

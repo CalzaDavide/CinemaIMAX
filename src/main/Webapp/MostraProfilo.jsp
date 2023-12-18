@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head><title>Home Page</title>
-    <link rel="stylesheet" type="text/css"     href="Css/mostraProfilo.css">
+    <link rel="stylesheet" type="text/css"     href="Css/MostraProfilo.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

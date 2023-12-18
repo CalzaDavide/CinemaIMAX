@@ -15,9 +15,7 @@
     <div id="searchbar">
         <form action="mostra-prodotti" id="cercaForm">
             <input type="text" name="ricerca" id="cercaInput">
-            <button id="cerca">
-                <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca">
-            </button>
+            <button id="cerca"> <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca"></button>
         </form>
     </div>
 
