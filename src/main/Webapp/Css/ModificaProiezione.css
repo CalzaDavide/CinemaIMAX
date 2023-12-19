@@ -11,23 +11,23 @@
     grid-auto-columns: 1fr;
     grid-auto-rows: 9% 82% 9%;
     grid-template-areas:
-    "AggiungiProiezioneTextDiv"
-    "AggiungiProiezione"
+    "ModificaProiezioneTextDiv"
+    "ModificaProiezione"
     "InvioDiv";
 }
 
-#AggiungiProiezioneTextDiv:nth-child(1) {
-    grid-area: AggiungiProiezioneTextDiv;
+#ModificaProiezioneTextDiv:nth-child(1) {
+    grid-area: ModificaProiezioneTextDiv;
     text-align: center;
 }
 
 #CaricaCopertinaDiv:nth-child(2) {
-    grid-area: AggiungiProiezione;
+    grid-area: ModificaProiezione;
 }
 
 
-#AggiungiProiezioneContainer:nth-child(2) {
-    grid-area: AggiungiProiezione;
+#ModificaProiezioneContainer:nth-child(2) {
+    grid-area: ModificaProiezione;
     margin-top: 2%;
     margin-bottom: auto;
     display: grid;
@@ -46,7 +46,7 @@
     margin: 0 auto 1% auto;
 }
 
-#AggiungiProiezioneContainer > div {
+#ModificaProiezioneContainer > div {
     text-align: center;
     padding: 1%;
 }
@@ -72,7 +72,7 @@ button:hover {
     color: #5d5d5d;
 }
 
-#AggiungiProiezioneContainer input, select, textarea {
+#ModificaProiezioneContainer input, select, textarea {
     background: #add8e6;
     width: 40%;
     padding: 10px;
@@ -81,11 +81,11 @@ button:hover {
     margin: auto;
 }
 
-#AggiungiProiezioneContainer select{
+#ModificaProiezioneContainer select{
     margin-top: 5px;
 }
 
-#AggiungiProiezioneContainer label {
+#ModificaProiezioneContainer label {
     color: black;
     font-size: 30px;
     margin-bottom: 12px;

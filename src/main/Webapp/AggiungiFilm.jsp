@@ -13,9 +13,9 @@
 
 <div id="Contenitore">
 
-    <!-- H1 "Aggiungi Spettacolo" -->
-    <div id="AggiungiSpettacoloTextDiv">
-        <h1>Aggiungi Spettacolo</h1>
+    <!-- H1 "Aggiungi Film" -->
+    <div id="AggiungiFilmTextDiv">
+        <h1>Aggiungi Film</h1>
     </div>
 
 

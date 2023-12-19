@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Aggiungi Film</title>
-    <link rel="stylesheet" href="Css/AggiungiProiezione.css">
+    <title>Modifica Film</title>
+    <link rel="stylesheet" href="Css/ModificaProiezione.css">
 </head>
 
 
@@ -13,14 +13,14 @@
 
 <div id="Contenitore">
 
-    <!-- H1 "Aggiungi Proiezione" -->
-    <div id="AggiungiProiezioneTextDiv">
-        <h1>Aggiungi Proiezione</h1>
+    <!-- H1 "Modifica Proiezione" -->
+    <div id="ModificaProiezioneTextDiv">
+        <h1>Modifica Proiezione</h1>
     </div>
 
 
 
-    <form id="AggiungiProiezioneContainer" action="aggiungi-prodotto">
+    <form id="ModificaProiezioneContainer" action="Modifica-prodotto">
 
 
 
@@ -69,7 +69,7 @@
 
     <script>
         document.getElementById('pulsanteInvio').addEventListener('click', function() {
-            document.getElementById('AggiungiFilmContainer').submit();
+            document.getElementById('ModificaFilmContainer').submit();
         });
     </script>
 
