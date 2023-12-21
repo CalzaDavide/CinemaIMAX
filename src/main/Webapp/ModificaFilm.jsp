@@ -62,7 +62,7 @@
         <!-- Descrizione <input required type="text" id="descrizione" name="descrizione" placeholder="Descrizione del film"> -->
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
-            <textarea id="descrizione" rows="10" cols="60" placeholder="Descrizione"></textarea>
+            <textarea required id="descrizione" rows="10" cols="60" placeholder="Descrizione"></textarea>
         </div>
 
     </form>

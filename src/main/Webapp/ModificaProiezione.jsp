@@ -26,7 +26,7 @@
 
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
-            <select id="Film" name="Film">
+            <select required id="Film" name="Film">
                 <option value="0">Film 1</option>
                 <option value="1">Film 2</option>
                 <option value="2">Film 3</option>
@@ -50,7 +50,7 @@
         <!-- Sala -->
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>
-            <select id="Sala" name="Sala">
+            <select required id="Sala" name="Sala">
                 <option value="1">Sala 1</option>
                 <option value="2">Sala 2</option>
                 <option value="3">Sala 3</option>
