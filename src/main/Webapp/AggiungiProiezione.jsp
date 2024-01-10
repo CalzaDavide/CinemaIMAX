@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Aggiungi Film</title>
+    <title>Aggiungi Proiezione</title>
     <link rel="stylesheet" href="Css/AggiungiProiezione.css">
 </head>
 

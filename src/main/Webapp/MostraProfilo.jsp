@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head><title>Home Page</title>
+<head><title>Mostra Profilo</title>
     <link rel="stylesheet" type="text/css" href="Css/MostraProfilo.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
