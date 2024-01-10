@@ -24,9 +24,9 @@
 
             <h1 id="errore">CREDENZIALI ERRATE</h1><%}%>
 
-            <form action="login" method="post" onsubmit="return validate()">
+            <form action="login-servlet" >
                 <input required id="email" type="email" name="email" placeholder="Email"><br><br>
-                <input required type="password" name="pswd" placeholder="Password"><br><br>
+                <input required type="password" name="password" placeholder="Password"><br><br>
                 <button>Accesso</button>
             </form>
         </div>
