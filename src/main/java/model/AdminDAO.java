@@ -13,6 +13,7 @@ public class AdminDAO {
         Connection con = ConPool.getConnection();
 
 
+
         //TEST
         String insert = "INSERT INTO ADMIN(Nome, Cognome, Pswd, Email) VALUES\n" +
                 "('papa', 'francesco', SHA1('gerusalemme'), 'ave.maria@cinemaimax.it');";
