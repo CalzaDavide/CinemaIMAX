@@ -12,14 +12,16 @@ public class AdminDAO {
     {
         Connection con = ConPool.getConnection();
 
+
+        //TEST
         String insert = "INSERT INTO ADMIN(Nome, Cognome, Pswd, Email) VALUES\n" +
-                "('fab', 'dan', SHA1('AlfredinoTattico10'), 'fab.buonvino@cinemaimax.it');";
+                "('papa', 'francesco', SHA1('gerusalemme'), 'ave.maria@cinemaimax.it');";
 
         con.createStatement().executeUpdate(insert);
 
     }
 
-    public static boolean isRegistered(String email, String password) throws  SQLException{
+    public static boolean isRegisteredAdmin(String email, String password) throws  SQLException{
 
         Connection con = ConPool.getConnection();
 
@@ -30,9 +32,6 @@ public class AdminDAO {
         return rs.next();
     }
 
-    public static void addMod(){
-
-    }
 
     public static void modifyAccount(){
 

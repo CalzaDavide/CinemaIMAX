@@ -1,4 +1,4 @@
-package model;
+package Data_tier;
 
 public class Admin {
 

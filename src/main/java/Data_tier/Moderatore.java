@@ -1,6 +1,6 @@
 package Data_tier;
 
-public class Gestore {
+public class Moderatore {
     int id;
     String email;
     String password;

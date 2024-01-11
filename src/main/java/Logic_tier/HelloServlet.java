@@ -1,17 +1,15 @@
 package Logic_tier;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import model.AdminDAO;
-import Data_tier.ConPool;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import static model.AdminDAO.addAdmin;
-
+import static model.ModeratoreDAO.addModeratore;
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     public String message;
@@ -34,6 +32,7 @@ public class HelloServlet extends HttpServlet {
 
         try {
             addAdmin();
+            addModeratore();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
