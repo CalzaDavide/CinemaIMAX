@@ -11,6 +11,26 @@ public class Proiezione {
     int posti;
     Sala sala;
 
+    public void setData_ora(GregorianCalendar data_ora) {
+        this.data_ora = data_ora;
+    }
+
+    public void setCosto(float costo) {
+        this.costo = costo;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
+
+    public void setPosti(int posti) {
+        this.posti = posti;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
     public int getId() {
         return id;
     }
@@ -35,11 +55,11 @@ public class Proiezione {
         return sala;
     }
 
-    public void modifica(GregorianCalendar data_ora, float costo, Film film, int posti, Sala sala){
+    /*public void modifica(GregorianCalendar data_ora, float costo, Film film, int posti, Sala sala){
         this.data_ora = data_ora;
         this.costo = costo;
         this.posti = posti;
         this.sala = sala;
         this.film = film;
-    }
+    }*/
 }

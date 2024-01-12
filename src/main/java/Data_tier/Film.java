@@ -10,6 +10,26 @@ public class Film {
     int durata;
     String genere;
 
+    public void setAttori(ArrayList<String> attori) {
+        this.attori = attori;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
     public int getId() {
         return id;
     }
@@ -34,11 +54,11 @@ public class Film {
         return genere;
     }
 
-    public void modifica(String titolo,String descrizione,ArrayList<String> attori,String genere,int durata){
+    /*public void modifica(String titolo,String descrizione,ArrayList<String> attori,String genere,int durata){
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.attori = attori;
         this.genere = genere;
         this.durata = durata;
-    }
+    }*/
 }
