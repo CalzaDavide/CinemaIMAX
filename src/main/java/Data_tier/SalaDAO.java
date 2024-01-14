@@ -1,4 +1,4 @@
-package model;
+package Data_tier;
 
 import Data_tier.ConPool;
 import Data_tier.Sala;
@@ -10,6 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SalaDAO {
+    public static Sala doRetriveById(String sala) {
+        return null;
+    }
+
     public ArrayList<Sala> doRetrieveAll() {
         ArrayList<Sala> sala = new ArrayList<>();
 

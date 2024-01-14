@@ -9,10 +9,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.FilmDAO;
-import model.SalaDAO;
+import Data_tier.FilmDAO;
+import Data_tier.SalaDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.GregorianCalendar;
 
 @WebServlet
@@ -21,7 +22,14 @@ public class AggiungiProiezioneServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Proiezione proiezione = new Proiezione();
         proiezione.setCosto(Integer.parseInt(req.getParameter("costo")));
-        Film film = FilmDAO.doRetriveById(req.getParameter("film"));
+        Film film = null;
+
+        try {
+            film = FilmDAO.doRetriveById(Integer.parseInt(req.getParameter("film")));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }//forzato da programma, dubbio//
+
         proiezione.setFilm(film);
         Sala sala = SalaDAO.doRetriveById(req.getParameter("sala"));
         proiezione.setSala(sala);

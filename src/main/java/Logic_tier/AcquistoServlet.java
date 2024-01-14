@@ -8,10 +8,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.BigliettoDAO;
-import model.ProiezioneDAO;
+import Data_tier.BigliettoDAO;
+import Data_tier.ProiezioneDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "acquistoServlet", value = "/acquisto-servlet")
 public class AcquistoServlet extends HttpServlet {
@@ -20,7 +21,11 @@ public class AcquistoServlet extends HttpServlet {
         BigliettoDAO bigliettoDAO = new BigliettoDAO();
         ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
         int proiezioneId = Integer.parseInt(req.getParameter("proiezione"));
-        Proiezione proiezione = proiezioneDAO.doRetriveById(proiezioneId);
+        try {
+            Proiezione proiezione = proiezioneDAO.doRetriveById(proiezioneId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         //if(proiezione.getPosti>0){
             Biglietto biglietto = new Biglietto();
             biglietto.setNome(req.getParameter("nome"));

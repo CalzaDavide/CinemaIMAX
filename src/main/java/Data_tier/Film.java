@@ -10,6 +10,12 @@ public class Film {
     int durata;
     String genere;
 
+    String locandina;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     public void setAttori(ArrayList<String> attori) {
         this.attori = attori;
     }
@@ -32,6 +38,10 @@ public class Film {
 
     public int getId() {
         return id;
+    }
+
+    public void setLocandina(String locandina) {
+        this.locandina = locandina;
     }
 
     public String getTitolo() {

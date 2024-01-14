@@ -19,4 +19,9 @@ public class Sala {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getPosti() {
+
+        return  maxPosti;
+    }
 }

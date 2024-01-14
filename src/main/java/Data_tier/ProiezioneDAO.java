@@ -1,4 +1,4 @@
-package model;
+package Data_tier;
 
 import Data_tier.ConPool;
 import Data_tier.Moderatore;

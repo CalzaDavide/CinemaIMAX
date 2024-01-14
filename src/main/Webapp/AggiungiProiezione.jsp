@@ -1,5 +1,5 @@
 <%@ page import="Data_tier.Sala" %>
-<%@ page import="model.SalaDAO" %>
+<%@ page import="Data_tier.SalaDAO" %>
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
