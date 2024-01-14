@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.FilmDAO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +26,8 @@ public class AggiungiFilmServlet extends HttpServlet {
         film.setGenere(req.getParameter("genere"));
         film.setTitolo(req.getParameter("titolo"));
 
-        //new FilmDAO.AddFilm(film);
+        FilmDAO filmDAO = new FilmDAO();
+        //filmDAO.addFilm(film);
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
         dispatcher.forward(req, resp);
     }

@@ -8,6 +8,10 @@ public class Moderatore {
     String cognome;
     boolean isAdmin = false;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }

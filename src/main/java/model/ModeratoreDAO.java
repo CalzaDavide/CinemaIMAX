@@ -50,6 +50,11 @@ public class ModeratoreDAO {
         ResultSet rs = con.createStatement().executeQuery(query);
         if(rs.next()){
             Moderatore moderatore = new Moderatore();
+            moderatore.setId(rs.getInt(1));
+            moderatore.setNome(rs.getString(2));
+            moderatore.setCognome(rs.getString(3));
+            moderatore.setPassword(rs.getString(4));
+            moderatore.setEmail(rs.getString(5));
             return moderatore;
         }
         return null;

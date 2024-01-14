@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.ModeratoreDAO;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class AggiungiModeratoreServlet extends HttpServlet {
         moderatore.setCognome(req.getParameter("Cognome"));
         moderatore.setEmail(req.getParameter("Email"));
         moderatore.setPassword(req.getParameter("Pswd"));
-        //new ModeratoreDAO.AddModeratore(moderatore);
+        //new ModeratoreDAO().addModeratore(moderatore);
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
         dispatcher.forward(req, resp);
     }
