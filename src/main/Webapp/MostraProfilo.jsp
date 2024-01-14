@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="Data_tier.Moderatore" %>
 <!DOCTYPE html>
 <html>
 <head><title>Mostra Profilo</title>
@@ -14,24 +15,24 @@
 </header>
 
 <main>
-    <%-- <% Cliente cliente = (Cliente) session.getAttribute("utente"); %> --%> <%--  --%>
+     <% Moderatore moderatore = (Moderatore) session.getAttribute("utente"); %>  <%--  --%>
 
     <div id="MostraProfilo">
         <div id="Benvenuto">
-            <h1>Benvenuto, Michele !</h1> <%-- <%= cliente.getNome()%> --%>
+            <h1>Benvenuto, <%= Moderatore.getNome()%> !</h1> <%-- <%= cliente.getNome()%> --%>
         </div>
 
         <div id="InformazioniPersonali">
             <h2>NOME</h2>
-            <p>Michele</p>
+            <p><%= Moderatore.getNome()%></p>
             <br>
 
             <h2>COGNOME</h2>
-            <p>Battista</p>
+            <p><%= Moderatore.getCognome()%></p>
             <br>
 
             <h2>EMAIL</h2>
-            <p>Michele@cinemaimax.it</p> <%-- <%= cliente.getEmail()%> --%>
+            <p><%= Moderatore.getEmail()%></p> <%-- <%= cliente.getEmail()%> --%>
             <br>
 
             <h2>PASSWORD</h2>

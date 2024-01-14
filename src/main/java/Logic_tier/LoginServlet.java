@@ -10,9 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.ModeratoreDAO;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import static model.ModeratoreDAO.isRegisteredModeratore;
 @WebServlet(name = "loginServlet", value = "/login-servlet")
 public class LoginServlet extends HttpServlet {
     public String message;
