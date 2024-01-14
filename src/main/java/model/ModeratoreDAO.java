@@ -1,6 +1,7 @@
 package model;
 
 import Data_tier.ConPool;
+import Data_tier.Moderatore;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -33,18 +34,25 @@ public class ModeratoreDAO {
         return rs.next();
     }
 
-    public static boolean deleteModeratore(String email, String password) throws  SQLException{
+    public static boolean doDeleteById(int id) throws  SQLException{
         Connection con = ConPool.getConnection();
 
-        String query = "DELETE FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = '" + password.toLowerCase() + "'";
+        String query = "DELETE FROM moderatore WHERE id = " + id;
 
         ResultSet rs = con.createStatement().executeQuery(query);
 
         return rs.next();
     }
 
-    public static void modifyAccount(){
-
+    public static Moderatore doRetriveByEmail(String email) throws  SQLException{
+        Connection con = ConPool.getConnection();
+        String query = "SELECT * FROM moderatore WHERE Email = '" + email.toLowerCase() + "'";
+        ResultSet rs = con.createStatement().executeQuery(query);
+        if(rs.next()){
+            Moderatore moderatore = new Moderatore();
+            return moderatore;
+        }
+        return null;
     }
 
 

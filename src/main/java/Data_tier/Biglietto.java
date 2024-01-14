@@ -7,6 +7,22 @@ public class Biglietto {
     int posto;
     Proiezione proiezione;
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public void setPosto(int posto) {
+        this.posto = posto;
+    }
+
+    public void setProiezione(Proiezione proiezione) {
+        this.proiezione = proiezione;
+    }
+
     public int getId() {
         return id;
     }
