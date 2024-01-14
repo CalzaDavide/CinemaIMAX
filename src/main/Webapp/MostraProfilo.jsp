@@ -19,20 +19,20 @@
 
     <div id="MostraProfilo">
         <div id="Benvenuto">
-            <h1>Benvenuto, <%= Moderatore.getNome()%> !</h1> <%-- <%= cliente.getNome()%> --%>
+            <h1>Benvenuto, <%= moderatore.getNome()%> !</h1> <%-- --%>
         </div>
 
         <div id="InformazioniPersonali">
             <h2>NOME</h2>
-            <p><%= Moderatore.getNome()%></p>
+            <p><%= moderatore.getNome()%></p>
             <br>
 
             <h2>COGNOME</h2>
-            <p><%= Moderatore.getCognome()%></p>
+            <p><%= moderatore.getCognome()%></p>
             <br>
 
             <h2>EMAIL</h2>
-            <p><%= Moderatore.getEmail()%></p> <%-- <%= cliente.getEmail()%> --%>
+            <p><%= moderatore.getEmail()%></p> <%-- --%>
             <br>
 
             <h2>PASSWORD</h2>
