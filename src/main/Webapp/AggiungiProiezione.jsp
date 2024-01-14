@@ -55,7 +55,7 @@
             <label for="Sala">Sala</label><br>
             <select required id="Sala" name="Sala">
                 <%for (Sala s : sala){%>
-                <option value=<%= s.getId() %> >Sala <%= s.getId() %> (Numero posti: <%= s.getMaxPosti() %></option><%}%>
+                <option value=<%=s.getId()%> >Sala <%= s.getId() %> (Numero posti: <%= s.getMaxPosti() %></option><%}%>
             </select>
 
         </div>
