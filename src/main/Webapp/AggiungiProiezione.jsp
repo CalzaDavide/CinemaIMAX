@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Data_tier.Sala" %>
+<%@ page import="model.SalaDAO" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <title>Aggiungi Proiezione</title>
@@ -7,8 +9,11 @@
 
 
 <body>
+    <% ArrayList<Sala> sala = (new SalaDAO()).doRetrieveAll(); %>
 
-<header><jsp:include page="SearchBar.jsp"/></header>
+<header>
+    <jsp:include page="SearchBar.jsp"/>
+</header>
 
 
 <div id="Contenitore">
@@ -19,14 +24,12 @@
     </div>
 
 
-
     <form id="AggiungiProiezioneContainer" action="aggiungi-prodotto">
-
 
 
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
-            <select required id="Film" name="Film" >
+            <select required id="Film" name="Film">
                 <option value="0">Film 1</option>
                 <option value="1">Film 2</option>
                 <option value="2">Film 3</option>
@@ -51,13 +54,10 @@
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>
             <select required id="Sala" name="Sala">
-                <option value="1">Sala 1</option>
-                <option value="2">Sala 2</option>
-                <option value="3">Sala 3</option>
-                <option value="4">Sala 4</option>
-                <option value="5">Sala 5</option>
-                <option value="6">Sala 6</option>
+                <%for (Sala s : sala){%>
+                <option value=<%= s.getId() %> >Sala <%= s.getId() %> (Numero posti: <%= s.getMaxPosti() %></option><%}%>
             </select>
+
         </div>
 
     </form>
@@ -68,15 +68,13 @@
     </div>
 
     <script>
-        document.getElementById('pulsanteInvio').addEventListener('click', function() {
+        document.getElementById('pulsanteInvio').addEventListener('click', function () {
             document.getElementById('AggiungiFilmContainer').submit();
         });
     </script>
-
 
 
 </div>
 </body>
 
 </html>
-

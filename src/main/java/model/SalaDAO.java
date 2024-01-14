@@ -1,4 +1,48 @@
 package model;
 
+import Data_tier.ConPool;
+import Data_tier.Sala;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class SalaDAO {
+    public ArrayList<Sala> doRetrieveAll() {
+        ArrayList<Sala> sala = new ArrayList<>();
+
+        Statement statement;
+
+        ResultSet resultSet;
+
+        Sala s;
+
+        try (Connection con = ConPool.getConnection()) {
+
+            statement = con.createStatement();
+
+            resultSet = statement.executeQuery("SELECT * FROM cinemaimax.sala");
+
+            while (resultSet.next()) {
+
+                s = new Sala();
+
+                s.setId(resultSet.getInt(1));
+
+                s.setMaxPosti(resultSet.getInt(2));
+
+                sala.add(s);
+            }
+
+            con.close();
+
+            return sala;
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+    }
 }
+

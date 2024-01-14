@@ -11,4 +11,12 @@ public class Sala {
     public int getMaxPosti() {
         return maxPosti;
     }
+
+    public void setMaxPosti(int maxPosti) {
+        this.maxPosti = maxPosti;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
