@@ -17,7 +17,6 @@ public class AggiungiProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Proiezione proiezione = new Proiezione();
-        proiezione.setCosto(Integer.parseInt(req.getParameter("costo")));
         Film film = null;
 
         try {

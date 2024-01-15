@@ -23,11 +23,10 @@ public class ProiezioneDAO {
         Connection con = ConPool.getConnection();
 
         PreparedStatement statement = con.prepareStatement(
-                "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Costo_Bisglietto, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
-                        "(?, ?, ?, ?, ?, ?, ?)");
+                "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
+                        "(?, ?, ?, ?, ?, ?)");
         //statement.setString(1, p.getData_ora());
         //statement.setString(2, p.getData_ora());
-        statement.setFloat(3, p.getCosto());
         statement.setInt(4,p.getPosti());
         statement.setInt(5,p.film.getId());
         statement.setInt(6,p.sala.getId());
@@ -71,10 +70,9 @@ public class ProiezioneDAO {
                 //pro.setData_ora(resultSet.getString(2));
                 //DA GESTIRE
                 //pro.setData_ora(resultSet.getString(2));
-                pro.setCosto(resultSet.getInt(4));
-                pro.setPosti(resultSet.getInt(5));
-                pro.film.setId(resultSet.getInt(6));
-                pro.sala.setId(resultSet.getInt(7));
+                pro.setPosti(resultSet.getInt(4));
+                pro.film.setId(resultSet.getInt(5));
+                pro.sala.setId(resultSet.getInt(6));
                 proiezioni.add(pro);
             }
             con.close();

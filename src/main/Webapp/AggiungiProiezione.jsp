@@ -1,5 +1,7 @@
 <%@ page import="Data_tier.Sala" %>
 <%@ page import="Data_tier.SalaDAO" %>
+<%@ page import="Data_tier.Film" %>
+<%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
@@ -28,13 +30,18 @@
     <form id="AggiungiProiezioneContainer" action="aggiungi-prodotto">
 
 
+
+
+        <% ArrayList<Film> film = (new FilmDAO()).doRetrieveTitoloAll(); %>
+        <!-- Film -->
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
             <select required id="Film" name="Film">
-                <option value="0">Film 1</option>
-                <option value="1">Film 2</option>
-                <option value="2">Film 3</option>
+                <% for (Film f : film){%>
+                <option value="<%=f.getId()%>" >Id: (<%=f.getId()%>) <%=f.getTitolo()%></option>
+                <%}%>
             </select>
+
         </div>
 
 

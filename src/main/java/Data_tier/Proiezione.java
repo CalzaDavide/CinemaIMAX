@@ -6,7 +6,6 @@ public class Proiezione {
 
     int id;
     GregorianCalendar data_ora;
-    float costo;
     Film film;
     int posti;
     Sala sala;
@@ -15,9 +14,6 @@ public class Proiezione {
         this.data_ora = data_ora;
     }
 
-    public void setCosto(float costo) {
-        this.costo = costo;
-    }
 
     public void setFilm(Film film) {
         this.film = film;
@@ -43,9 +39,6 @@ public class Proiezione {
         return data_ora;
     }
 
-    public float getCosto() {
-        return costo;
-    }
 
     public Film getFilm() {
         return film;
@@ -59,9 +52,8 @@ public class Proiezione {
         return sala;
     }
 
-    /*public void modifica(GregorianCalendar data_ora, float costo, Film film, int posti, Sala sala){
+    /*public void modifica(GregorianCalendar data_ora, Film film, int posti, Sala sala){
         this.data_ora = data_ora;
-        this.costo = costo;
         this.posti = posti;
         this.sala = sala;
         this.film = film;

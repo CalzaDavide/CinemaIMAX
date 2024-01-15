@@ -78,5 +78,30 @@ public class FilmDAO {
         }
     }
 
+    public ArrayList<Film> doRetrieveTitoloAll() { //davide: mi serviva pullare i film senza la locandina, da eliminare
+        ArrayList<Film> films = new ArrayList<>();
+        Statement statement;
+        ResultSet resultSet;
+        Film f;
+
+        try{
+            Connection con = ConPool.getConnection();
+            statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM film");
+
+            while (resultSet.next()) {
+                f = new Film();
+                f.setId(resultSet.getInt(1));
+                f.setTitolo(resultSet.getString(2));
+                films.add(f);
+            }
+            con.close();
+            return films;
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
