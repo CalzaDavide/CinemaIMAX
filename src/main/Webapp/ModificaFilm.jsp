@@ -3,6 +3,7 @@
 <head>
     <title>Modifica Film</title>
     <link rel="stylesheet" href="Css/ModificaFilm.css">
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 
 

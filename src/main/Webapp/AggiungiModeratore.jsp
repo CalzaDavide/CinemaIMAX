@@ -3,6 +3,7 @@
 <head>
     <title>Aggiungi Moderatore</title>
     <link rel="stylesheet" href="Css/AggiungiModeratore.css">
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 
 

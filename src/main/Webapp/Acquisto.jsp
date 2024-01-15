@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="icon"       type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 <body>
 

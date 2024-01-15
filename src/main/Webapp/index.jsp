@@ -4,7 +4,8 @@
 <html>
 
 <head>
-    <title>JSP - Hello World</title>
+    <title>Homepage</title>
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 
 

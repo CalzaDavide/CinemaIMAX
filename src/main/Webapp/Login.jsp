@@ -6,6 +6,7 @@
     <title>Log-in</title>
     <link rel="stylesheet" type="text/css" href="Css/CssGlobale.css">
     <link rel="stylesheet" type="text/css" href="Css/Log-in.css">
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

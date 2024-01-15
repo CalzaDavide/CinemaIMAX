@@ -3,6 +3,7 @@
 <head>
     <title>Lista Moderatori</title>
     <link rel="stylesheet" href="Css/ListaModeratori.css">
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 <body>
     <header>
