@@ -45,7 +45,7 @@
 
         <!-- Orario -->
         <div id="OrarioDiv">
-            <label for="Orario">Regista</label><br>
+            <label for="Orario">Orario</label><br>
             <input required type="text" id="Orario" name="Orario" placeholder="Orario del film (separare con una virgola)">
         </div>
 
@@ -56,8 +56,7 @@
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>
             <select required id="Sala" name="Sala">
-                <option>Sala 1</option>
-                <%for (Sala s : sala){%>
+                <% for (Sala s : sala){%>
                 <option value="<%=s.getId()%>" > Sala <%=s.getId()%> (Numero posti: <%=s.getMaxPosti()%>)</option>
                 <%}%>
             </select>

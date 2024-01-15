@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             Moderatore moderatore = service.doRetriveByEmail(email);
             if (moderatore != null && moderatore.getPassword().equals(pass))
                 request.getSession().setAttribute("utente", moderatore);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Webapp/index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }catch(SQLException e){
             //ERRORE
