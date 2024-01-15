@@ -1,9 +1,5 @@
 package Data_tier;
 
-import Data_tier.ConPool;
-import Data_tier.Moderatore;
-import Data_tier.Proiezione;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

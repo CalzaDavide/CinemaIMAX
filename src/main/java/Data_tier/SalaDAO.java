@@ -1,8 +1,5 @@
 package Data_tier;
 
-import Data_tier.ConPool;
-import Data_tier.Sala;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

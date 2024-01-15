@@ -9,7 +9,7 @@
 
 
 <body>
-    <% ArrayList<Sala> sala = (new SalaDAO()).doRetrieveAll(); %>
+
 
 <header>
     <jsp:include page="SearchBar.jsp"/>
@@ -50,12 +50,16 @@
         </div>
 
 
+
+        <% ArrayList<Sala> sala = (new SalaDAO()).doRetrieveAll(); %>
         <!-- Sala -->
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>
             <select required id="Sala" name="Sala">
+                <option>Sala 1</option>
                 <%for (Sala s : sala){%>
-                <option value=<%=s.getId()%> >Sala <%= s.getId() %> (Numero posti: <%= s.getMaxPosti() %></option><%}%>
+                <option value="<%=s.getId()%>" > Sala <%=s.getId()%> (Numero posti: <%=s.getMaxPosti()%>)</option>
+                <%}%>
             </select>
 
         </div>

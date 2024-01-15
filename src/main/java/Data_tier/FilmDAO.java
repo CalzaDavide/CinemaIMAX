@@ -1,8 +1,5 @@
 package Data_tier;
 
-import Data_tier.ConPool;
-import Data_tier.Film;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,4 +36,5 @@ public class FilmDAO {
         return null;
 
     }
+
 }
