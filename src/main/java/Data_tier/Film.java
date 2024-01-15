@@ -9,6 +9,9 @@ public class Film {
     String attori;
     int durata;
     String genere;
+    String regista;
+
+
 
     String locandina;
     public void setId(int id) {
@@ -67,6 +70,9 @@ public class Film {
     public String getGenere() {
         return genere;
     }
+    public void setRegista(String regista) { this.regista = regista; }
+
+    public String getRegista() { return regista; }
 
     /*public void modifica(String titolo,String descrizione,ArrayList<String> attori,String genere,int durata){
         this.titolo = titolo;
