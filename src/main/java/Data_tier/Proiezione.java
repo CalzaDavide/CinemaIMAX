@@ -35,6 +35,10 @@ public class Proiezione {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public GregorianCalendar getData_ora() {
         return data_ora;
     }

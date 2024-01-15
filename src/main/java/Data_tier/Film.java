@@ -56,6 +56,10 @@ public class Film {
         return attori;
     }
 
+    public String getLocandina() {
+        return locandina;
+    }
+
     public int getDurata() {
         return durata;
     }

@@ -1,16 +1,12 @@
 package Logic_tier;
 
-import Data_tier.Film;
-import Data_tier.Proiezione;
-import Data_tier.Sala;
+import Data_tier.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import Data_tier.FilmDAO;
-import Data_tier.SalaDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -46,6 +42,12 @@ public class AggiungiProiezioneServlet extends HttpServlet {
                 Integer.parseInt(oraArray[1]));
         proiezione.setData_ora(data_ora);
         //new ProiezioneDAO.AddProiezione(proiezione);
+        ProiezioneDAO proD = new ProiezioneDAO();
+        try {
+            proD.addProiezione(proiezione);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
         dispatcher.forward(req, resp);

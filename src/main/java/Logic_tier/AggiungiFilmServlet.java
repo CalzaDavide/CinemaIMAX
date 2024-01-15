@@ -7,9 +7,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import Data_tier.FilmDAO;
+import Data_tier.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,15 +19,19 @@ public class AggiungiFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Film film = new Film();
-        String attoriString = req.getParameter("attori");
+        //String attoriString = req.getParameter("attori");
         film.setAttori(req.getParameter("attori"));
         film.setDurata(Integer.parseInt(req.getParameter("durata")));
         film.setDescrizione(req.getParameter("descrizione"));
         film.setGenere(req.getParameter("genere"));
         film.setTitolo(req.getParameter("titolo"));
 
-        FilmDAO filmDAO = new FilmDAO();
-        //filmDAO.addFilm(film);
+        FilmDAO filmD = new FilmDAO();
+        try {
+            filmD.addFilm(film);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
         dispatcher.forward(req, resp);
     }

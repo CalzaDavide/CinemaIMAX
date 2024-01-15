@@ -1,20 +1,31 @@
 package Data_tier;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class FilmDAO {
 
-    public static void addFilm() throws SQLException{
+    public void addFilm(Film f) throws SQLException{
 
         Connection con = ConPool.getConnection();
         //TEST
-        String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
-                "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
+        //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
+        //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
-        con.createStatement().executeUpdate(insert);
+        PreparedStatement statement = con.prepareStatement(
+                "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
+                "(?, ?, ?, ?, ?, ?, ?)");
+        statement.setString(1, f.getTitolo());
+        statement.setString(2, f.getDescrizione());
+        statement.setString(3, f.getAttori());
+        statement.setString(4, f.getGenere());
+        statement.setInt(5, f.getDurata());
+        statement.setString(6, f.getLocandina());
+
+        if(statement.executeUpdate() != 1){
+            throw new SQLException("Errore nell'acquisto");
+        }
+        con.close();
     }
 
     public static Film doRetriveById(int id) throws SQLException{
@@ -34,7 +45,36 @@ public class FilmDAO {
             return film;
         }
         return null;
-
     }
+
+    public ArrayList<Film> doRetrieveAll() {
+        ArrayList<Film> films = new ArrayList<>();
+        Statement statement;
+        ResultSet resultSet;
+        Film f;
+
+        try{
+            Connection con = ConPool.getConnection();
+            statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM film");
+
+            while (resultSet.next()) {
+                f = new Film();
+                f.setId(resultSet.getInt(1));
+                f.setTitolo(resultSet.getString(2));
+                f.setDescrizione(resultSet.getString(3));
+                f.setGenere(resultSet.getString(4));
+                f.setDurata(Integer.parseInt(resultSet.getString(5)));
+                f.setLocandina(resultSet.getString(6));
+                films.add(f);
+            }
+            con.close();
+            return films;
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
