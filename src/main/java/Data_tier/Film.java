@@ -6,7 +6,7 @@ public class Film {
     int id;
     String titolo;
     String descrizione;
-    ArrayList<String> attori;
+    String attori;
     int durata;
     String genere;
 
@@ -16,7 +16,7 @@ public class Film {
     }
 
 
-    public void setAttori(ArrayList<String> attori) {
+    public void setAttori(String attori) {
         this.attori = attori;
     }
 
@@ -52,7 +52,7 @@ public class Film {
         return descrizione;
     }
 
-    public ArrayList<String> getAttori() {
+    public String getAttori() {
         return attori;
     }
 

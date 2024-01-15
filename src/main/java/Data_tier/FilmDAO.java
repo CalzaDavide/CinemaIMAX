@@ -12,7 +12,7 @@ public class FilmDAO {
         Connection con = ConPool.getConnection();
         //TEST
         String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
-                "('King Kong', 'la scimmia gigante', 'Dwayne Johnson', 'azione', 120, 'bimbumbam')";
+                "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
         con.createStatement().executeUpdate(insert);
     }
@@ -27,7 +27,7 @@ public class FilmDAO {
             film.setId(rs.getInt(1));
             film.setTitolo(rs.getString(2));
             film.setDescrizione(rs.getString(3));
-            film.setAttori((ArrayList<String>) rs.getArray(4));//dubbio
+            film.setAttori(rs.getString(4));
             film.setGenere(rs.getString(5));
             film.setDurata(rs.getInt(6));
             film.setLocandina(rs.getString(7));

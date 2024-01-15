@@ -19,8 +19,7 @@ public class AggiungiFilmServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Film film = new Film();
         String attoriString = req.getParameter("attori");
-        ArrayList<String> attoriList = new ArrayList<String>(Arrays.asList(attoriString.split(",")));
-        film.setAttori(attoriList);
+        film.setAttori(req.getParameter("attori"));
         film.setDurata(Integer.parseInt(req.getParameter("durata")));
         film.setDescrizione(req.getParameter("descrizione"));
         film.setGenere(req.getParameter("genere"));
