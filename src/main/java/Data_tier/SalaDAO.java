@@ -20,11 +20,12 @@ public class SalaDAO {
 
         Sala s;
 
-        try (Connection con = ConPool.getConnection()) {
+        try{
+            Connection con = ConPool.getConnection();
 
             statement = con.createStatement();
 
-            resultSet = statement.executeQuery("SELECT * FROM cinemaimax.sala");
+            resultSet = statement.executeQuery("SELECT * FROM sala");
 
             while (resultSet.next()) {
 
