@@ -5,6 +5,7 @@
 <head>
     <title>Aggiungi Proiezione</title>
     <link rel="stylesheet" href="Css/AggiungiProiezione.css">
+    <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 
 
