@@ -1,25 +1,32 @@
 package Data_tier;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ModeratoreDAO {
 
-    public static void addModeratore() throws SQLException
+    public static void addModeratore(Moderatore m) throws SQLException
     {
         Connection con = ConPool.getConnection();
 
         //SERVE PAGINA DOVE INSERIRE I DATI
+        PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n" +
+        "(?, ?, SHA1(?), ?, ?)");
+        statement.setString(1, m.getNome());
+        statement.setString(2,m.getCognome());
+        statement.setString(3,m.getPassword());
+        statement.setString(4,m.getEmail());
+        statement.setBoolean(5,false);
 
 
         //TEST
         String insert = "INSERT INTO MODERATORE(Nome, Cognome, Pswd, Email) VALUES\n" +
                 "('silvio', 'berlusconi', SHA1('silvietto'), 'mio.padre@cinemaimax.it');";
 
-        con.createStatement().executeUpdate(insert);
+        if(statement.executeUpdate() != 1){
+            throw new SQLException("Errore nellaggiunta del moderatore");
+        }
+        con.close();
 
     }
 
@@ -44,10 +51,16 @@ public class ModeratoreDAO {
         return rs.next();
     }
 
-    public static Moderatore doRetriveByEmail(String email) throws  SQLException{
+    public static Moderatore doRetriveByEmailPass(String email, String pass) throws  SQLException{
         Connection con = ConPool.getConnection();
-        String query = "SELECT * FROM moderatore WHERE Email = '" + email.toLowerCase() + "'";
-        ResultSet rs = con.createStatement().executeQuery(query);
+        //String query = "SELECT * FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = SHA1(" + pass.toLowerCase() + ")";
+        //String query = "SELECT * FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = '" + pass.toLowerCase() + "'";
+
+        PreparedStatement query = con.prepareStatement("SELECT * FROM moderatore WHERE LOWER(Email) = ? AND LOWER(Pswd) = SHA1(?)");
+        query.setString(1,email);
+        query.setString(2,pass);
+
+        ResultSet rs = query.executeQuery();
         if(rs.next()){
             Moderatore moderatore = new Moderatore();
             moderatore.setId(rs.getInt(1));
