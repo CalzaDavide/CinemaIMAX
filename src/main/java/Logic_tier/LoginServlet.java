@@ -27,13 +27,20 @@ public class LoginServlet extends HttpServlet {
 
         try {
             ModeratoreDAO service = new ModeratoreDAO();
-            Moderatore moderatore = service.doRetriveByEmail(email);
-            if (moderatore != null && moderatore.getPassword().equals(pass))
+            Moderatore moderatore = ModeratoreDAO.doRetriveByEmailPass(email,pass);
+            System.out.println("aooo");
+
+            if (moderatore != null){
                 request.getSession().setAttribute("utente", moderatore);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-            dispatcher.forward(request, response);
+                System.out.println("sessione");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                dispatcher.forward(request, response);
+
+            }
         }catch(SQLException e){
             //ERRORE
+            e.printStackTrace();
+            System.out.println("err");
         }
     }
 

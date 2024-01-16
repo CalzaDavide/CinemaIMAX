@@ -6,7 +6,16 @@ public class Moderatore {
     String password;
     String nome;
     String cognome;
-    boolean isAdmin = false;
+
+    boolean isAdmin;
+
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 
     public void setId(int id) {
         this.id = id;

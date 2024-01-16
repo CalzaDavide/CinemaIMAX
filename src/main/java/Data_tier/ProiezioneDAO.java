@@ -24,12 +24,11 @@ public class ProiezioneDAO {
 
         PreparedStatement statement = con.prepareStatement(
                 "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
-                        "(?, ?, ?, ?, ?, ?)");
-        //statement.setString(1, p.getData_ora());
-        //statement.setString(2, p.getData_ora());
-        statement.setInt(4,p.getPosti());
-        statement.setInt(5,p.film.getId());
-        statement.setInt(6,p.sala.getId());
+                        "(?, ?, ?, ?, ?)");
+        statement.setDate(1, p.getData_ora());
+        statement.setInt(2,p.getPosti());
+        statement.setInt(3,p.film.getId());
+        statement.setInt(4,p.sala.getId());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");
