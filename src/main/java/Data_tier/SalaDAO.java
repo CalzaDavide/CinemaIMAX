@@ -1,9 +1,8 @@
 package Data_tier;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
+
+import java.sql.*;
 import java.util.ArrayList;
 
 public class SalaDAO {
@@ -41,6 +40,31 @@ public class SalaDAO {
             con.close();
 
             return sala;
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Sala doRetrieveById(int id) {
+        try{
+            Connection con = ConPool.getConnection();
+
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM sala WHERE Id_Sala = ?");
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            Sala s = null;
+            if(rs.next()) {
+                s = new Sala();
+
+                s.setId(rs.getInt(1));
+
+                s.setMaxPosti(rs.getInt(2));
+            }
+
+            con.close();
+
+            return s;
         } catch (SQLException e) {
 
             throw new RuntimeException(e);

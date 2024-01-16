@@ -29,7 +29,7 @@ public class FilmDAO {
         con.close();
     }
 
-    public static Film doRetriveById(int id) throws SQLException{
+    public Film doRetriveById(int id) throws SQLException{
 
         Connection con = ConPool.getConnection() ;
         String query = "SELECT * FROM film WHERE Id = '" + id + "'";

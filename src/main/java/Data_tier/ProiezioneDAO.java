@@ -16,7 +16,11 @@ public class ProiezioneDAO {
             p.setId(rs.getInt(1));
             p.setData(rs.getDate(2));
             p.setOrario(rs.getTime(3));
-            //p.setP
+            p.setPosti(rs.getInt(4));
+            FilmDAO filmDAO = new FilmDAO();
+            SalaDAO salaDAO = new SalaDAO();
+            p.setFilm(filmDAO.doRetriveById(rs.getInt(5)));
+            p.setSala(salaDAO.doRetrieveById(rs.getInt(6)));
             return p;
         }
         return null;
@@ -32,8 +36,8 @@ public class ProiezioneDAO {
         statement.setDate(1, p.getData());
         statement.setTime(2, p.getOrario());
         statement.setInt(3,p.getPosti());
-        statement.setInt(4,p.film.getId());
-        statement.setInt(5,p.sala.getId());
+        statement.setInt(4,p.getFilm().getId());
+        statement.setInt(5,p.getSala().getId());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");

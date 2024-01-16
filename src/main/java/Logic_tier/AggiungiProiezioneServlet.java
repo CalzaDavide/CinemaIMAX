@@ -9,7 +9,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.GregorianCalendar;
 
 @WebServlet
@@ -20,31 +26,21 @@ public class AggiungiProiezioneServlet extends HttpServlet {
         Film film = null;
 
         try {
-            film = FilmDAO.doRetriveById(Integer.parseInt(req.getParameter("film")));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }//forzato da programma, dubbio//
+            FilmDAO filmDAO = new FilmDAO();
+            film = filmDAO.doRetriveById(Integer.parseInt(req.getParameter("film")));
 
-        proiezione.setFilm(film);
-        Sala sala = SalaDAO.doRetriveById(req.getParameter("sala"));
-        proiezione.setSala(sala);
-        proiezione.setPosti(sala.getPosti());
-        String data = req.getParameter("Data");
-        String[] dataArray = data.split(",");
-        String ora = req.getParameter("Orario");
-        String[] oraArray = ora.split(":");
-        GregorianCalendar data_ora = new GregorianCalendar(
-                Integer.parseInt(dataArray[2]),
-                Integer.parseInt(dataArray[1]),
-                Integer.parseInt(dataArray[0]),
-                Integer.parseInt(oraArray[0]),
-                Integer.parseInt(oraArray[1]));
-        proiezione.setData_ora(data_ora);
-        //new ProiezioneDAO.AddProiezione(proiezione);
-        ProiezioneDAO proD = new ProiezioneDAO();
-        try {
+            proiezione.setFilm(film);
+            Sala sala = SalaDAO.doRetriveById(req.getParameter("sala"));
+            proiezione.setSala(sala);
+            proiezione.setPosti(sala.getMaxPosti());
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            java.util.Date data = dateFormat.parse(req.getParameter("Data"));
+            proiezione.setData((Date) data);
+            proiezione.setOrario(Time.valueOf(req.getParameter("Orario")));
+
+            ProiezioneDAO proD = new ProiezioneDAO();
             proD.addProiezione(proiezione);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
