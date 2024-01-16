@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Data_tier.Moderatore" %>
+<%@ page import="Data_tier.ModeratoreDAO" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <title>Lista Moderatori</title>
@@ -12,82 +14,24 @@
 
     <div id="Contenitore">
 
-        <%-- !%><%ArrayList<Cliente> clienti = (new ClienteDAO()).doRetrieveAll();%> --%>
+        <%ArrayList<Moderatore> moderatori = (new ModeratoreDAO()).doRetrieveModeratori();%>
         <div id="ListaModeratori">
             <table>
                 <tr>
                     <th>NOME</th>
                     <th>COGNOME</th>
                     <th>E-MAIL</th>
-                    <th>ELIMINA</th>
+                    <th>RUOLO</th>
                 </tr>
 
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-                <tr>
-                    <td>Giacomo </td>
-                    <td>Favino </td>
-                    <td>Giacomo.favino@cinemaimax.it </td>
-                    <td><button class="Elimina">Elimina</button> </td>
-                </tr>
-
-
-
-
-                <%--
-                <!--Mostra le informazioni per ogni cliente-->
-                <%for (Cliente c : clienti) {%>
-                <tr>
-                    <td><%= c.getNome() + " " + c.getCognome()%></td>
-                    <td><%=c.getEmail() %></td>
-                    <td><%=c.getIndirizzo_Via()%> <%=c.getN_Civico()%> , <%=c.getCodice_Postale()%> , ITALIA</td>
-                    <%if (c.isAdmin()) {%>
-                    <td id="isAdmin"></td>
-                    <%} else {%>
-                    <td id="isNotAdmin"></td>
-                    <td id="elimina"><form action="elimina-cliente">
-                        <input type="hidden" name="cliente" value="<%=c.getEmail()%>">
-                        <input type="submit" value="elimina">
-                    </form></td>
-                    <%}%>
-                </tr>
+                <% for (Moderatore m : moderatori){%>
+                    <tr>
+                        <td><%= m.getNome() %> </td>
+                        <td><%= m.getCognome() %> </td>
+                        <td><%= m.getEmail() %> </td>
+                        <td>    Moderatore      </td>
+                    </tr>
                 <%}%>
-
-                --%>
             </table>
         </div>
 

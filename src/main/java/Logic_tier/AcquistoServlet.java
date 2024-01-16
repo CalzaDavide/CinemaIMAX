@@ -29,7 +29,7 @@ public class AcquistoServlet extends HttpServlet {
                 String cognome = req.getParameter("cognome");
                 int nPosti = Integer.parseInt(req.getParameter("numeroPosti"));
                 proiezioneDAO.acquistBiglietto(email, nome, cognome, proiezione, nPosti);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/AcquistoEffettuato.jsp");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("AcquistoEffettuato.jsp");
                 dispatcher.forward(req, resp);
             }
         } catch (SQLException e) {
