@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Aggiungi Moderatore</title>
@@ -57,7 +56,7 @@
 
     <script>
         document.getElementById('pulsanteInvio').addEventListener('click', function() {
-            document.getElementById('AggiungiFilmContainer').submit();
+            document.getElementById('AggiungiModeratoreContainer').submit();
         });
     </script>
 

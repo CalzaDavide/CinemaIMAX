@@ -41,20 +41,19 @@
                 <option value="<%=f.getId()%>" >Id: (<%=f.getId()%>) <%=f.getTitolo()%></option>
                 <%}%>
             </select>
-
         </div>
 
 
         <!-- Data -->
         <div id="DataDiv">
             <label for="Data">Data</label><br>
-            <input required type="text" id="Data" name="Data" placeholder="Data del film (separare con una virgola)">
+            <input required type="text" id="Data" name="Data" placeholder="Data del film (giorno-mese-anno)">
         </div>
 
         <!-- Orario -->
         <div id="OrarioDiv">
             <label for="Orario">Orario</label><br>
-            <input required type="text" id="Orario" name="Orario" placeholder="Orario del film (separare con una virgola)">
+            <input required type="text" id="Orario" name="Orario" placeholder="Orario del film (ora-minuti-secondi)">
         </div>
 
 

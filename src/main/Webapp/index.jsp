@@ -1,4 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="Data_tier.Proiezione" %>
+<%@ page import="Data_tier.ProiezioneDAO" %>
+<%@ page import="Data_tier.Film" %>
+<%@ page import="Data_tier.FilmDAO" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 
 <html>
@@ -15,6 +19,44 @@
     <jsp:include page="SearchBar.jsp"/>
 </header>
 
+<%ArrayList<Film> film = (new FilmDAO()).doRetrieveAll();%>
+
+<% for (Film f : film){%>
+
+<div id="ContenitoreFilm">
+
+    <div id="ContenitoreTitolo">
+        <h1><%= f.getTitolo() %></h1>
+    </div>
+
+    <div id="ContenitoreLocandinaFilm">
+        <img src="<%= f.getLocandina() %>" alt="LocandinaFilm">
+    </div>
+
+    <div id="ContenitoreDescrizione">
+        <p><%= f.getDescrizione() %></p>
+    </div>
+
+    <div id="ContenitoreProiezione">
+        <%ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveById(f.getId());%>
+        <p><%= f.getDescrizione() %></p>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<%}%>
 
 
 
