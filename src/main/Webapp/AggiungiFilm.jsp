@@ -36,7 +36,7 @@
     <%} else {%>
 
 
-    <form id="AggiungiFilmContainer" action="aggiungi-prodotto">
+    <form id="AggiungiFilmContainer" action="aggiungi-film-servlet">
 
         <div id="DivVuoto">
             <br>
@@ -76,7 +76,7 @@
         <!-- Descrizione <input required type="text" id="descrizione" name="descrizione" placeholder="Descrizione del film"> -->
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
-            <textarea required id="descrizione" rows="10" cols="60" placeholder="Descrizione"></textarea>
+            <textarea required id="descrizione" rows="10" cols="60" placeholder="Descrizione" name="descrizione"></textarea>
         </div>
 
 

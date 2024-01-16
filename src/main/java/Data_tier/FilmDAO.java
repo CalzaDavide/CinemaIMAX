@@ -13,14 +13,15 @@ public class FilmDAO {
         //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
         PreparedStatement statement = con.prepareStatement(
-                "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
+                "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Genere, Durata, Locandina) VALUES\n" +
                 "(?, ?, ?, ?, ?, ?, ?)");
         statement.setString(1, f.getTitolo());
         statement.setString(2, f.getDescrizione());
-        statement.setString(3, f.getAttori());
-        statement.setString(4, f.getGenere());
-        statement.setInt(5, f.getDurata());
-        statement.setString(6, f.getLocandina());
+        statement.setString(3, f.getRegista());
+        statement.setString(4, f.getAttori());
+        statement.setString(5, f.getGenere());
+        statement.setInt(6, f.getDurata());
+        statement.setString(7, f.getLocandina());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");
@@ -37,11 +38,12 @@ public class FilmDAO {
             Film film = new Film();
             film.setId(rs.getInt(1));
             film.setTitolo(rs.getString(2));
-            film.setDescrizione(rs.getString(3));
-            film.setAttori(rs.getString(4));
-            film.setGenere(rs.getString(5));
-            film.setDurata(rs.getInt(6));
-            film.setLocandina(rs.getString(7));
+            film.setRegista(rs.getString(3));
+            film.setDescrizione(rs.getString(4));
+            film.setAttori(rs.getString(5));
+            film.setGenere(rs.getString(6));
+            film.setDurata(rs.getInt(7));
+            film.setLocandina(rs.getString(8));
             return film;
         }
         return null;
@@ -66,6 +68,31 @@ public class FilmDAO {
                 f.setGenere(resultSet.getString(4));
                 f.setDurata(Integer.parseInt(resultSet.getString(5)));
                 f.setLocandina(resultSet.getString(6));
+                films.add(f);
+            }
+            con.close();
+            return films;
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Film> doRetrieveTitoloAll() { //davide: mi serviva pullare i film senza la locandina, da eliminare
+        ArrayList<Film> films = new ArrayList<>();
+        Statement statement;
+        ResultSet resultSet;
+        Film f;
+
+        try{
+            Connection con = ConPool.getConnection();
+            statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM film");
+
+            while (resultSet.next()) {
+                f = new Film();
+                f.setId(resultSet.getInt(1));
+                f.setTitolo(resultSet.getString(2));
                 films.add(f);
             }
             con.close();

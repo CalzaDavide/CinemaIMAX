@@ -11,20 +11,18 @@ import Data_tier.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @WebServlet(name = "aggiunguFilmServlet", value = "/aggiungi-film-servlet")
 public class AggiungiFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Film film = new Film();
-        //String attoriString = req.getParameter("attori");
         film.setAttori(req.getParameter("attori"));
         film.setDurata(Integer.parseInt(req.getParameter("durata")));
         film.setDescrizione(req.getParameter("descrizione"));
         film.setGenere(req.getParameter("genere"));
         film.setTitolo(req.getParameter("titolo"));
+        film.setRegista(req.getParameter("regista"));
 
         FilmDAO filmD = new FilmDAO();
         try {
@@ -32,7 +30,7 @@ public class AggiungiFilmServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
     }
 

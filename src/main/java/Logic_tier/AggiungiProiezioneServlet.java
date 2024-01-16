@@ -17,7 +17,6 @@ public class AggiungiProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Proiezione proiezione = new Proiezione();
-        proiezione.setCosto(Integer.parseInt(req.getParameter("costo")));
         Film film = null;
 
         try {
@@ -49,7 +48,7 @@ public class AggiungiProiezioneServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
     }
 
