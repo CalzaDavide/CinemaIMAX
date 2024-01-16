@@ -1,19 +1,25 @@
 package Data_tier;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.GregorianCalendar;
 
 public class Proiezione {
 
     int id;
-    GregorianCalendar data_ora;
+    Date data;
+    Time orario;
     Film film;
     int posti;
     Sala sala;
 
-    public void setData_ora(GregorianCalendar data_ora) {
-        this.data_ora = data_ora;
+    public void setData(Date data) {
+        this.data = data;
     }
 
+    public void setOrario(Time orario) {
+        this.orario = orario;
+    }
 
     public void setFilm(Film film) {
         this.film = film;
@@ -35,10 +41,13 @@ public class Proiezione {
         this.id = id;
     }
 
-    public GregorianCalendar getData_ora() {
-        return data_ora;
+    public Date getData() {
+        return data;
     }
 
+    public Time getOrario() {
+        return orario;
+    }
 
     public Film getFilm() {
         return film;

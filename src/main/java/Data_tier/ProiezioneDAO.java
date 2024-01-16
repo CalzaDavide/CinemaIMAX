@@ -2,6 +2,8 @@ package Data_tier;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ProiezioneDAO {
 
@@ -10,9 +12,12 @@ public class ProiezioneDAO {
         String query = "SELECT * FROM proiezione WHERE Id = " + id;
         ResultSet rs = con.createStatement().executeQuery(query);
         if(rs.next()){
-            Proiezione proiezione = new Proiezione();
-            //impostare valori
-            return proiezione;
+            Proiezione p = new Proiezione();
+            p.setId(rs.getInt(1));
+            p.setData(rs.getDate(2));
+            p.setOrario(rs.getTime(3));
+            //p.setP
+            return p;
         }
         return null;
     }
@@ -21,14 +26,14 @@ public class ProiezioneDAO {
     public void addProiezione(Proiezione p) throws SQLException {
 
         Connection con = ConPool.getConnection();
-
         PreparedStatement statement = con.prepareStatement(
                 "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
                         "(?, ?, ?, ?, ?)");
-        statement.setDate(1, p.getData_ora());
-        statement.setInt(2,p.getPosti());
-        statement.setInt(3,p.film.getId());
-        statement.setInt(4,p.sala.getId());
+        statement.setDate(1, p.getData());
+        statement.setTime(2, p.getOrario());
+        statement.setInt(3,p.getPosti());
+        statement.setInt(4,p.film.getId());
+        statement.setInt(5,p.sala.getId());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");
@@ -44,7 +49,7 @@ public class ProiezioneDAO {
         statement.setInt(1, proiezione.getPosti() - n);
         statement.setInt(2, proiezione.getId());
         //manda email
-        System.out.println(nome + " " + cognome + "\n" + email + "\n" + proiezione.getId() + " " + proiezione.getSala() + " " + proiezione.getData_ora().toString());
+        System.out.println(nome + " " + cognome + "\n" + email + "\n" + proiezione.getId() + " " + proiezione.getSala() + " " + proiezione.getData().toString() + proiezione.getOrario().toString());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");
@@ -66,9 +71,8 @@ public class ProiezioneDAO {
             while (resultSet.next()) {
                 pro = new Proiezione();
                 pro.setId(resultSet.getInt(1));
-                //pro.setData_ora(resultSet.getString(2));
-                //DA GESTIRE
-                //pro.setData_ora(resultSet.getString(2));
+                pro.setData(resultSet.getDate(2));
+                pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
                 pro.film.setId(resultSet.getInt(5));
                 pro.sala.setId(resultSet.getInt(6));
