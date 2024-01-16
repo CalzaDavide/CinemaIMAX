@@ -10,6 +10,11 @@
 <head>
     <title>Homepage</title>
     <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
+    <link rel="stylesheet" href="Css/Index.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 
@@ -23,34 +28,48 @@
 
 <% for (Film f : film){%>
 
-<div id="ContenitoreFilm">
+<div class="row text-center" id="ContenitoreFilm">
 
-    <div id="ContenitoreTitolo">
+    <div class="col-4"></div>
+
+    <div class="col-8" id="ContenitoreTitolo">
         <h1><%= f.getTitolo() %></h1>
     </div>
 
-    <div id="ContenitoreLocandinaFilm">
+    <div class="col-4" id="ContenitoreLocandinaFilm">
         <img src="<%= f.getLocandina() %>" alt="LocandinaFilm">
     </div>
 
-    <div id="ContenitoreDescrizione">
+    <div class="col-8" id="ContenitoreDescrizione">
         <p><%= f.getDescrizione() %></p>
     </div>
 
-    <div id="ContenitoreProiezione">
-        <%ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveById(f.getId());%>
-        <p><%= f.getDescrizione() %></p>
+    <div class="col-4 " id="ContenitoreProiezione">
+        <p>Proiezioni:</p>
     </div>
 
+    <% ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm('1'));%>
 
-
-
-
+    <div class="col-8">
+        <% for (Proiezione p : proiezioni){%>
+            <p>Orario: <%= p.getData_ora() %> Sala: p.<%= p.getSala() %> Posti rimanenti: <%= p.getPosti() %> </p> <%-- Convertirlo in solo data --%>
+        <%}%>
+    </div>
 
 </div>
 
 
 
+
+
+<%--
+<div id="ContenitoreProiezione">
+pisello
+
+<%ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveByIdFilm(f.getId())%>
+<p><%= f.getDescrizione() %></p>
+    </div>
+--%>
 
 
 
