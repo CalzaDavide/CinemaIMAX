@@ -88,6 +88,16 @@ public class ProiezioneDAO {
         }
     }
 
+    public static boolean doDeleteById(int id) throws  SQLException{
+        Connection con = ConPool.getConnection();
+
+        String query = "DELETE FROM proiezione WHERE id = " + id;
+
+        ResultSet rs = con.createStatement().executeQuery(query);
+
+        return rs.next();
+    }
+
     public ArrayList<Proiezione> doRetrieveByIdFilm(int id) {
         ArrayList<Data_tier.Proiezione> proiezioni = new ArrayList<>();
         Statement statement;
