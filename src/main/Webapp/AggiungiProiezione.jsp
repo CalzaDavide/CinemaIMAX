@@ -32,7 +32,7 @@
 
 
 
-        <% ArrayList<Film> film = (new FilmDAO()).doRetrieveTitoloAll(); %>
+        <% ArrayList<Film> film = (new FilmDAO()).doRetrieveAll(); %>
         <!-- Film -->
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
