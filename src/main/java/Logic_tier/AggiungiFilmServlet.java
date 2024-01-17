@@ -23,7 +23,7 @@ public class AggiungiFilmServlet extends HttpServlet {
         film.setGenere(req.getParameter("genere"));
         film.setTitolo(req.getParameter("titolo"));
         film.setRegista(req.getParameter("regista"));
-
+        film.setLocandina((String)req.getAttribute("locandina"));
         FilmDAO filmD = new FilmDAO();
         try {
             filmD.addFilm(film);
