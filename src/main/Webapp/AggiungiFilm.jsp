@@ -35,9 +35,6 @@
     <!-- Dopodichè si inseriscono gli altri parametri relativi al nuovo prodotto -->
     <%} else {%>
 
-    <% request.setAttribute( (String) request.getAttribute("uploaded"), "locandina"); %>
-
-
     <form id="AggiungiFilmContainer" action="aggiungi-film-servlet">
 
         <div id="DivVuoto">
