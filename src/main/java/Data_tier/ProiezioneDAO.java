@@ -9,10 +9,16 @@ public class ProiezioneDAO {
         Connection con = ConPool.getConnection();
         String query = "SELECT * FROM proiezione WHERE Id = " + id;
         ResultSet rs = con.createStatement().executeQuery(query);
+        Proiezione pro;
         if(rs.next()){
-            Proiezione proiezione = new Proiezione();
-            //impostare valori
-            return proiezione;
+            pro = new Proiezione();
+            pro.setId(rs.getInt(1));
+            pro.setData(rs.getDate(2));
+            pro.setOrario(rs.getTime(3));
+            pro.setPosti(rs.getInt(4));
+            pro.film.setId(rs.getInt(5));
+            pro.sala.setId(rs.getInt(6));
+            return pro;
         }
         return null;
     }
@@ -26,9 +32,10 @@ public class ProiezioneDAO {
                 "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
                         "(?, ?, ?, ?, ?)");
         statement.setDate(1, p.getData());
-        statement.setInt(2,p.getPosti());
-        statement.setInt(3,p.film.getId());
-        statement.setInt(4,p.sala.getId());
+        statement.setTime(2, p.getOrario());
+        statement.setInt(3,p.getPosti());
+        statement.setInt(4,p.film.getId());
+        statement.setInt(5,p.sala.getId());
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nell'acquisto");
@@ -66,9 +73,8 @@ public class ProiezioneDAO {
             while (resultSet.next()) {
                 pro = new Proiezione();
                 pro.setId(resultSet.getInt(1));
-                //pro.setData_ora(resultSet.getString(2));
-                //DA GESTIRE
-                //pro.setData_ora(resultSet.getString(2));
+                pro.setData(resultSet.getDate(2));
+                pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
                 pro.film.setId(resultSet.getInt(5));
                 pro.sala.setId(resultSet.getInt(6));
@@ -96,9 +102,8 @@ public class ProiezioneDAO {
             while (resultSet.next()) {
                 pro = new Data_tier.Proiezione();
                 pro.setId(resultSet.getInt(1));
-                //pro.setData_ora(resultSet.getString(2));
-                //DA GESTIRE
-                //pro.setData_ora(resultSet.getString(3));
+                pro.setData(resultSet.getDate(2));
+                pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
                 pro.film.setId(resultSet.getInt(5));
                 pro.sala.setId(resultSet.getInt(6));
