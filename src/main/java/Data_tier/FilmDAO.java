@@ -65,9 +65,11 @@ public class FilmDAO {
                 f.setId(resultSet.getInt(1));
                 f.setTitolo(resultSet.getString(2));
                 f.setDescrizione(resultSet.getString(3));
-                f.setGenere(resultSet.getString(4));
-                f.setDurata(Integer.parseInt(resultSet.getString(5)));
-                f.setLocandina(resultSet.getString(6));
+                f.setRegista(resultSet.getString(4));
+                f.setAttori(resultSet.getString(5));
+                f.setGenere(resultSet.getString(6));
+                f.setDurata(Integer.parseInt(resultSet.getString(7)));
+                f.setLocandina(resultSet.getString(8));
                 films.add(f);
             }
             con.close();
@@ -77,31 +79,5 @@ public class FilmDAO {
             throw new RuntimeException(e);
         }
     }
-
-    public ArrayList<Film> doRetrieveTitoloAll() { //davide: mi serviva pullare i film senza la locandina, da eliminare
-        ArrayList<Film> films = new ArrayList<>();
-        Statement statement;
-        ResultSet resultSet;
-        Film f;
-
-        try{
-            Connection con = ConPool.getConnection();
-            statement = con.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM film");
-
-            while (resultSet.next()) {
-                f = new Film();
-                f.setId(resultSet.getInt(1));
-                f.setTitolo(resultSet.getString(2));
-                films.add(f);
-            }
-            con.close();
-            return films;
-        } catch (SQLException e) {
-
-            throw new RuntimeException(e);
-        }
-    }
-
 
 }

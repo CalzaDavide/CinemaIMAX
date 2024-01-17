@@ -35,6 +35,8 @@
     <!-- Dopodichè si inseriscono gli altri parametri relativi al nuovo prodotto -->
     <%} else {%>
 
+    <% request.setAttribute( (String) request.getAttribute("uploaded"), "locandina"); %>
+
 
     <form id="AggiungiFilmContainer" action="aggiungi-film-servlet">
 
@@ -46,6 +48,8 @@
         <div id="TitoloDiv">
             <label for="titolo">Titolo</label><br>
             <input required type="text" id="titolo" name="titolo" placeholder="Titolo del film">
+            <h1>Path: <%=immagine%></h1>
+            <img src="<%=immagine%>" alt="Piero">
         </div>
 
         <!-- Regista -->

@@ -48,13 +48,17 @@
         <p>Proiezioni:</p>
     </div>
 
-    <% ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm('1'));%>
+    <%-- Convertirlo in solo data
+    <% //ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveById(f.getId()));%>
 
     <div class="col-8">
         <% for (Proiezione p : proiezioni){%>
-            <p>Orario: <%= p.getData_ora() %> Sala: p.<%= p.getSala() %> Posti rimanenti: <%= p.getPosti() %> </p> <%-- Convertirlo in solo data --%>
+            <span id="proiezione">
+                <p>Orario: <%= p.getData() %> Sala: p.<%= p.getSala() %> Posti rimanenti: <%= p.getPosti() %> </p> <%-- Convertirlo in solo data
+            </span>
         <%}%>
     </div>
+    --%>
 
 </div>
 
