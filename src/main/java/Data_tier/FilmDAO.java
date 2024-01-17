@@ -29,10 +29,11 @@ public class FilmDAO {
         con.close();
     }
 
+
     public Film doRetriveById(int id) throws SQLException{
 
         Connection con = ConPool.getConnection() ;
-        String query = "SELECT * FROM film WHERE Id = '" + id + "'";
+        String query = "SELECT * FROM film WHERE Id_film = '" + id + "'";
         ResultSet rs = con.createStatement().executeQuery(query);
         if(rs.next()){
             Film film = new Film();
