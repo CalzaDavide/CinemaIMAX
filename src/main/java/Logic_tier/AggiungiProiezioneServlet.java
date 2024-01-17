@@ -18,7 +18,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.GregorianCalendar;
 
-@WebServlet
+@WebServlet(name = "aggiungiProiezioneServlet", value = "/aggiungi-Proiezione-Servlet")
 public class AggiungiProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,10 +27,12 @@ public class AggiungiProiezioneServlet extends HttpServlet {
 
         try {
             FilmDAO filmDAO = new FilmDAO();
-            film = filmDAO.doRetriveById(Integer.parseInt(req.getParameter("film")));
+            film = filmDAO.doRetriveById(Integer.parseInt(req.getParameter("Film")));
 
             proiezione.setFilm(film);
-            Sala sala = SalaDAO.doRetriveById(req.getParameter("sala"));
+            SalaDAO saladao = new SalaDAO();
+
+            Sala sala = saladao.doRetrieveById(Integer.parseInt(req.getParameter("Sala")));
             proiezione.setSala(sala);
             proiezione.setPosti(sala.getMaxPosti());
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

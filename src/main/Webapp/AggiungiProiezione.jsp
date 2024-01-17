@@ -27,7 +27,7 @@
     </div>
 
 
-    <form id="AggiungiProiezioneContainer" action="aggiungi-prodotto">
+    <form id="AggiungiProiezioneContainer" action="aggiungi-Proiezione-Servlet">
 
 
 
@@ -79,7 +79,7 @@
 
     <script>
         document.getElementById('pulsanteInvio').addEventListener('click', function () {
-            document.getElementById('AggiungiFilmContainer').submit();
+            document.getElementById('AggiungiProiezioneContainer').submit();
         });
     </script>
 

@@ -6,9 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SalaDAO {
-    public static Sala doRetriveById(String sala) {
-        return null;
-    }
 
     public ArrayList<Sala> doRetrieveAll() {
         ArrayList<Sala> sala = new ArrayList<>();
