@@ -35,7 +35,8 @@ public class AggiungiProiezioneServlet extends HttpServlet {
             proiezione.setPosti(sala.getMaxPosti());
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date data = dateFormat.parse(req.getParameter("Data"));
-            proiezione.setData((Date) data);
+            Date dataSQL = new Date(data.getTime());
+            proiezione.setData(dataSQL);
             proiezione.setOrario(Time.valueOf(req.getParameter("Orario")));
 
             ProiezioneDAO proD = new ProiezioneDAO();
