@@ -46,7 +46,7 @@
         <h1><%= f.getTitolo() %></h1>
     </div>
 
-    <div class="col-3" id="ContenitoreLocandinaFilm">
+    <div class="col-3 align-items-center" id="ContenitoreLocandinaFilm">
         <img src="<%= f.getLocandina() %>" alt="LocandinaFilm">
     </div>
 
@@ -61,29 +61,23 @@
 
     <div class="col-5">
         <h1 style="font-size: 35px" >Proiezioni:</h1><br>
+
         <% for (Proiezione p : proiezioni){%>
-
-            <a href="PaginaProiezione.jsp">
-                <%  %>
-                <div id="proiezione">
-                    <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %> Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
-                </div>
-            </a>
-
+                <form id="ViusalizzaPaginaProiezione" action="visualizza-pagina-proiezione">
+                    <div id="proiezione" onclick="inviaForm()">
+                        <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %> Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
+                        <input type="hidden" name="idProiezione" value="<%= p.getId() %>">
+                    </div>
+                </form>
         <%}%>
 
-        <script>
-            document.getElementById('proiezione').addEventListener('click', function () {
-                document.getElementById('SelezionaProiezione').submit();
-            });
-        </script>
+
+
     </div>
 
 </div>
 
 <%}%>
-
-
 
 <a href="AggiungiFilm.jsp">Aggiungi Film</a><br>
 <a href="AggiungiProiezione.jsp">Aggiungi Proiezione</a><br>
@@ -93,7 +87,14 @@
 <a href="ModificaProiezione.jsp">Modifica Proiezione</a><br>
 <a href="MostraProfilo.jsp">Mostra Profilo</a><br>
 
+<script>
+    // Funzione che gestisce il clic sul div "proiezione"
+    function inviaForm() {
+        var form = document.getElementById('ViusalizzaPaginaProiezione');
+        form.submit();
+    }
 
+</script>
 
 </body>
 
