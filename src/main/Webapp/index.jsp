@@ -30,54 +30,46 @@
 
 <div class="row text-center" id="ContenitoreFilm">
 
-    <div class="col-4"></div>
+    <div class="col-3"></div>
 
-    <div class="col-8" id="ContenitoreTitolo">
+    <div class="col-9" id="ContenitoreTitolo">
         <h1><%= f.getTitolo() %></h1>
     </div>
 
-    <div class="col-4" id="ContenitoreLocandinaFilm">
+    <div class="col-3" id="ContenitoreLocandinaFilm">
         <img src="<%= f.getLocandina() %>" alt="LocandinaFilm">
     </div>
 
-    <div class="col-8" id="ContenitoreDescrizione">
+    <div class="col-9" id="ContenitoreDescrizione">
         <p><%= f.getDescrizione() %></p>
     </div>
 
-    <div class="col-4 " id="ContenitoreProiezione">
-        <p>Proiezioni:</p>
-    </div>
+    <div class="col-5"></div>
 
-    <%-- Convertirlo in solo data
-    <% //ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveById(f.getId()));%>
 
-    <div class="col-8">
+    <% ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm(f.getId()));%>
+
+    <div class="col-5">
+        <h1 style="font-size: 35px" >Proiezioni:</h1><br>
         <% for (Proiezione p : proiezioni){%>
-            <span id="proiezione">
-                <p>Orario: <%= p.getData() %> Sala: p.<%= p.getSala() %> Posti rimanenti: <%= p.getPosti() %> </p> <%-- Convertirlo in solo data
-            </span>
+
+            <a href="PaginaProiezione.jsp">
+                <%  %>
+                <div id="proiezione">
+                    <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %> Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
+                </div>
+            </a>
+
         <%}%>
+
+        <script>
+            document.getElementById('proiezione').addEventListener('click', function () {
+                document.getElementById('SelezionaProiezione').submit();
+            });
+        </script>
     </div>
-    --%>
 
 </div>
-
-
-
-
-
-<%--
-<div id="ContenitoreProiezione">
-pisello
-
-<%ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetriveByIdFilm(f.getId())%>
-<p><%= f.getDescrizione() %></p>
-    </div>
---%>
-
-
-
-
 
 <%}%>
 
