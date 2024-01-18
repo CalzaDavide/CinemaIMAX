@@ -28,7 +28,7 @@
             </div>
 
             <div id="ContenitoreOrario">
-                <p id="ContenitoreOrarioSpettacolo">Orario spettacolo: <%= proiezione.getData_ora() %></p>
+                <p id="ContenitoreOrarioSpettacolo">Orario spettacolo: <%= proiezione.getOrario() %></p>
             </div>
 
             <div id="ContenitoreNumeroBiglietti">
