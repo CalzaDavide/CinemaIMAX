@@ -16,8 +16,8 @@ public class ProiezioneDAO {
             pro.setData(rs.getDate(2));
             pro.setOrario(rs.getTime(3));
             pro.setPosti(rs.getInt(4));
-            pro.film.setId(rs.getInt(5));
-            pro.sala.setId(rs.getInt(6));
+            pro.setFilm((new FilmDAO()).doRetriveById(rs.getInt(5)));
+            pro.setSala((new SalaDAO()).doRetrieveById(rs.getInt(6)));
             return pro;
         }
         return null;
