@@ -14,7 +14,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
 </head>
 
 
@@ -24,7 +25,16 @@
     <jsp:include page="SearchBar.jsp"/>
 </header>
 
-<%ArrayList<Film> film = (new FilmDAO()).doRetrieveAll();%>
+<%  ArrayList<Film> film = (ArrayList<Film>)request.getAttribute("film");
+    if(film== null)
+        film = (new FilmDAO()).doRetrieveAll();%>
+<form action="filtra-film">
+    <h1>filtri:</h1>
+    <input name="filtroTitolo" type="text" placeholder="titolo">
+    <input name="filtroGenere" type="text" placeholder="genere1, genere2, genere3,...">
+    <input type="submit" value="FILTRA">
+</form>
+
 
 <% for (Film f : film){%>
 
