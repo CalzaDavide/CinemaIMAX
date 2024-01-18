@@ -1,6 +1,5 @@
 package Logic_tier;
 
-import Data_tier.Film;
 import Data_tier.FilmDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
