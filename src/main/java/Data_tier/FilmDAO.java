@@ -5,28 +5,33 @@ import java.util.ArrayList;
 
 public class FilmDAO {
 
-    public void addFilm(Film f) throws SQLException{
+    public void addFilm(Film f) throws SQLException {
 
-        Connection con = ConPool.getConnection();
-        //TEST
-        //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
-        //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
+        if (!DataChecker.checkFilmData(f.getTitolo())) {
+            Connection con = ConPool.getConnection();
+            //TEST
+            //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
+            //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
-        PreparedStatement statement = con.prepareStatement(
-                "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Genere, Durata, Locandina) VALUES\n" +
-                "(?, ?, ?, ?, ?, ?, ?)");
-        statement.setString(1, f.getTitolo());
-        statement.setString(2, f.getDescrizione());
-        statement.setString(3, f.getRegista());
-        statement.setString(4, f.getAttori());
-        statement.setString(5, f.getGenere());
-        statement.setInt(6, f.getDurata());
-        statement.setString(7, f.getLocandina());
+            PreparedStatement statement = con.prepareStatement(
+                    "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Genere, Durata, Locandina) VALUES\n" +
+                            "(?, ?, ?, ?, ?, ?, ?)");
+            statement.setString(1, f.getTitolo());
+            statement.setString(2, f.getDescrizione());
+            statement.setString(3, f.getRegista());
+            statement.setString(4, f.getAttori());
+            statement.setString(5, f.getGenere());
+            statement.setInt(6, f.getDurata());
+            statement.setString(7, f.getLocandina());
 
-        if(statement.executeUpdate() != 1){
-            throw new SQLException("Errore nell'aggiunta");
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("Errore nell'aggiunta");
+            }
+            con.close();
+        } else {
+            //errore popup
+            System.out.println("errore film già esistente");
         }
-        con.close();
     }
 
 

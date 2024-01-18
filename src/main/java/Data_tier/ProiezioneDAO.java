@@ -26,21 +26,27 @@ public class ProiezioneDAO {
 
     public void addProiezione(Proiezione p) throws SQLException {
 
-        Connection con = ConPool.getConnection();
+        if(DataChecker.checkProiezioneData(p)) {
 
-        PreparedStatement statement = con.prepareStatement(
-                "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
-                        "(?, ?, ?, ?, ?)");
-        statement.setDate(1, p.getData());
-        statement.setTime(2, p.getOrario());
-        statement.setInt(3,p.getPosti());
-        statement.setInt(4,p.film.getId());
-        statement.setInt(5,p.sala.getId());
+            Connection con = ConPool.getConnection();
 
-        if(statement.executeUpdate() != 1){
-            throw new SQLException("Errore nell'acquisto");
+            PreparedStatement statement = con.prepareStatement(
+                    "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
+                            "(?, ?, ?, ?, ?)");
+            statement.setDate(1, p.getData());
+            statement.setTime(2, p.getOrario());
+            statement.setInt(3, p.getPosti());
+            statement.setInt(4, p.film.getId());
+            statement.setInt(5, p.sala.getId());
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("Errore nell'acquisto");
+            }
+            con.close();
+        }else{
+            //popup di errore
+            System.out.println("errore proiezione non inseribile in questa fascia oraria");
         }
-        con.close();
     }
 
 

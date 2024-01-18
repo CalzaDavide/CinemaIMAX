@@ -2,7 +2,7 @@ package Data_tier;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+import Data_tier.DataChecker;
 public class ModeratoreDAO {
 
     public static void addModeratore(Moderatore m) throws SQLException
@@ -10,25 +10,32 @@ public class ModeratoreDAO {
         Connection con = ConPool.getConnection();
 
         //SERVE PAGINA DOVE INSERIRE I DATI
-        PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n" +
-        "(?, ?, SHA1(?), ?, ?)");
-        statement.setString(1, m.getNome());
-        statement.setString(2,m.getCognome());
-        statement.setString(3,m.getPassword());
-        statement.setString(4,m.getEmail());
-        statement.setBoolean(5,false);
+
+        if(!DataChecker.checkModeratoreData(m.getEmail())) {
+            PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n" +
+                    "(?, ?, SHA1(?), ?, ?)");
+            statement.setString(1, m.getNome());
+            statement.setString(2, m.getCognome());
+            statement.setString(3, m.getPassword());
+            statement.setString(4, m.getEmail());
+            statement.setBoolean(5, false);
 
 
-        //TEST
-        String insert = "INSERT INTO MODERATORE(Nome, Cognome, Pswd, Email) VALUES\n" +
-                "('silvio', 'berlusconi', SHA1('silvietto'), 'mio.padre@cinemaimax.it');";
+            //TEST
+            String insert = "INSERT INTO MODERATORE(Nome, Cognome, Pswd, Email) VALUES\n" +
+                    "('silvio', 'berlusconi', SHA1('silvietto'), 'mio.padre@cinemaimax.it');";
 
-        if(statement.executeUpdate() != 1){
-            throw new SQLException("Errore nellaggiunta del moderatore");
+            if(statement.executeUpdate() != 1){
+                throw new SQLException("Errore nellaggiunta del moderatore");
+            }
+            con.close();
+        }else{
+            //popup email già presa
+            System.out.println("Mail già esistente.");
         }
-        con.close();
 
     }
+
 
     public static boolean isRegisteredModeratore(String email, String password) throws  SQLException{
 
