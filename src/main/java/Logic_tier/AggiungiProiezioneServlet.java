@@ -39,7 +39,9 @@ public class AggiungiProiezioneServlet extends HttpServlet {
             java.util.Date data = dateFormat.parse(req.getParameter("Data"));
             Date dataSQL = new Date(data.getTime());
             proiezione.setData(dataSQL);
-            proiezione.setOrario(Time.valueOf(req.getParameter("Orario")));
+            String orario = req.getParameter("Orario");
+            orario = orario.concat(":00");
+            proiezione.setOrario(Time.valueOf(orario));
 
             ProiezioneDAO proD = new ProiezioneDAO();
             proD.addProiezione(proiezione);
