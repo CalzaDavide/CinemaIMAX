@@ -9,72 +9,80 @@
     <title>Acquista</title>
     <link rel="stylesheet" href="Css/PaginaProiezione.css">
     <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
     <% Proiezione proiezione = (Proiezione) session.getAttribute("proiezione"); %>
-
-    <div id="ContenitoreFilm">
-
-        <div id="CopertinaFilm">
-            <img src="<%= proiezione.getFilm().getLocandina() %>" alt="CopertinaFilm">
-        </div>
+    <% Film film = proiezione.getFilm(); %>
 
 
-        <form id="AcqusitaBiglietti">
-        <div id="InformazioniFilmDiv">
-            <div id="ContenitoreSala">
-                <p id="ContenitoreNumeroSala">Sala spettacolo: <%= proiezione.getSala() %></p>
-            </div>
+<div class="row">
 
-            <div id="ContenitoreOrario">
-                <p id="ContenitoreOrarioSpettacolo">Orario spettacolo: <%= proiezione.getOrario() %></p>
-            </div>
+    <div class="col-3"></div>
 
-            <div id="ContenitoreNumeroBiglietti">
-                <label for="ContenitoreNumeroNumeroBiglietti" id="numeroBiglietti">Numero biglietti:</label>
-                <input type="number" name="numeroBiglietti" required id="ContenitoreNumeroNumeroBiglietti" value="1" min="1" max="<%= proiezione.getSala().getPosti()%>">
-            </div>
+    <div class="col-9 text-center" id="ContenitoreTitolo">
+        <h1><%= film.getTitolo() %></h1>
+    </div>
 
-            <div id="ContenitoreMetodoDiPagamento">
-                <label for="MetodoDiPagamento">Metodo Di Pagamento:</label>
-                <select required id="MetodoDiPagamento" name="MetodoDiPagamento">
-                    <option>Paypal</option>
-                    <option>Carta di credito</option>
-                    <option>Contanti</option>
-                </select>
-            </div>
+    <div class="col-3 align-content-center" id="ContenitoreLocandinaFilm">
+        <img src="<%= film.getLocandina() %>" alt="LocandinaFilm">
+    </div>
 
-            <div id="ContenitoreAcquistaBiglietti">
-                <input type="submit">
-            </div>
-        </div>
+    <div class="col-9 text-center" id="ContenitoreDescrizione">
+        <p><%= film.getDescrizione() %></p>
+    </div>
 
+    <div class="col-7">
+        <form class="row" id="AcquistoBiglietto" action="acquisto-servlet">
+            <p class="col-9">Sala Spettacolo:</p>                           <p class="col-3"><%= proiezione.getSala()%> </p>
+            <p class="col-9">Orario Spettacolo:</p>                         <p class="col-3"><%= proiezione.getOrario()%> </p>
+            <label class="col-9" for="numeroBiglietti">Numero Biglietti:    </label> <input class="col-3" type="number" required name="numeroBiglietti" id="numeroBiglietti" placeholder="1" min="1" max="<%= proiezione.getPosti() %>" oninput="calcoloCostoBiglietti()"/>
+            <p class="col-9">Costo Biglietti:</p>                           <p class="col-3" id="costoBiglietti">7</p>
+            <p class="col-9">Metodo di pagamento:</p>                       <p class="col-3">Paypal</p>
+            <div class="col-4"></div> <input class="col-4 text-center" type="submit" value="Acquista Biglietti"><div class="col-4"></div>
         </form>
-
-        <div id="ContenitoreTitoloDescrizione">
-            <h1 id="Titolo"><%= proiezione.getFilm().getTitolo() %></h1>
-            <p id="Descrizione"><%= proiezione.getFilm().getDescrizione() %></p>
-        </div>
-
-        <div id="ContenitoreGeneriAttoriRegista">
-            <div id="ContenitoreGeneri">
-                <p>Generi: <%= proiezione.getFilm().getGenere() %></p>
-            </div>
-
-            <div id="ContenitoreAttori">
-                <p>Attori: <%= proiezione.getFilm().getAttori() %></p>
-            </div>
-
-            <div id="ContenitoreRegista">
-                <p>Regista: <%= proiezione.getFilm().getRegista() %></p>
-            </div>
-
-        </div>
-
-
     </div>
 
 
+
+
+
+
+    <div class="col-5" id="ContenitoreInformazioniFilm">
+        <h1>Generi:</h1> <p><%= film.getGeneri()%></p>
+        <h1>Attori:</h1> <p><%= film.getGeneri()%></p>
+        <h1>Regista:</h1> <p><%= film.getRegista()%></p>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+    <script>
+        function calcoloCostoBiglietti() {
+            // Ottieni il valore inserito dall'utente
+            var numeroBiglietti = document.getElementById('numeroBiglietti').value;
+
+            // Verifica se l'input è un numero valido
+            if (isNaN(numeroBiglietti)) {
+                document.getElementById('costoBiglietti').innerText = 'Inserisci un numero valido';
+                return;
+            }
+
+            // Effettua la moltiplicazione per 7
+            var risultato = numeroBiglietti * 7;
+
+            // Mostra il risultato senza aggiornare la pagina
+            document.getElementById('costoBiglietti').innerText = risultato;
+        }
+    </script>
 </body>
 </html>

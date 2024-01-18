@@ -25,7 +25,7 @@ public class VisualizzaPaginaProiezioneServlet extends HttpServlet {
         }
         req.setAttribute("proiezione", p);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("PaginaProiezione.jsp");
         dispatcher.forward(req, resp);
     }
 

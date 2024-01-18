@@ -20,7 +20,7 @@ public class FilmDAO {
             statement.setString(2, f.getDescrizione());
             statement.setString(3, f.getRegista());
             statement.setString(4, f.getAttori());
-            statement.setString(5, f.getGenere());
+            statement.setString(5, f.getGeneri());
             statement.setInt(6, f.getDurata());
             statement.setString(7, f.getLocandina());
 

@@ -25,7 +25,7 @@
     <jsp:include page="SearchBar.jsp"/>
 </header>
 
-<%  ArrayList<Film> film = (ArrayList<Film>)request.getAttribute("film");
+<%  ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
     if(film== null)
         film = (new FilmDAO()).doRetrieveAll();%>
 <form action="filtra-film">
@@ -71,8 +71,6 @@
                 </form>
         <%}%>
 
-
-
     </div>
 
 </div>
@@ -90,7 +88,7 @@
 <script>
     // Funzione che gestisce il clic sul div "proiezione"
     function inviaForm() {
-        var form = document.getElementById('ViusalizzaPaginaProiezione');
+        let form = document.getElementById('ViusalizzaPaginaProiezione');
         form.submit();
     }
 

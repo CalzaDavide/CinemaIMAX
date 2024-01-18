@@ -24,7 +24,7 @@ public class FiltraFilmServlet extends HttpServlet {
         String[] generiArray = filtroGenere.trim().split(",");
         for(Film f : film){
             boolean toBeRemoved = false;
-            String gen = f.getGenere().toLowerCase();
+            String gen = f.getGeneri().toLowerCase();
             for(String g : generiArray)
                 if(!gen.contains(g.toLowerCase())){
                     toBeRemoved = true;

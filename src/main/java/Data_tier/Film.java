@@ -67,7 +67,7 @@ public class Film {
         return durata;
     }
 
-    public String getGenere() {
+    public String getGeneri() {
         return genere;
     }
     public void setRegista(String regista) { this.regista = regista; }

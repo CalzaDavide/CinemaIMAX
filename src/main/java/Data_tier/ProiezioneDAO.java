@@ -7,13 +7,8 @@ public class ProiezioneDAO {
 
     public Proiezione doRetriveById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
-        ResultSet rs = null;
-        String query = "SELECT * FROM proiezione WHERE Id = " + id;
-        try {
-            rs = con.createStatement().executeQuery(query);
-        }catch(SQLException e){
-            throw new SQLException(e);
-        }
+        String query = "SELECT * FROM proiezione WHERE Id_Proiezione = " + id;
+        ResultSet rs = con.createStatement().executeQuery(query);
         Proiezione pro;
         if(rs.next()){
             pro = new Proiezione();

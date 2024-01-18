@@ -53,7 +53,7 @@
         <!-- Orario -->
         <div id="OrarioDiv">
             <label for="Orario">Orario</label><br>
-            <input required type="text" id="Orario" name="Orario" placeholder="Orario del film (ora-minuti-secondi)">
+            <input required type="text" id="Orario" name="Orario" placeholder="Orario del film (ora:minuti)">
         </div>
 
 
