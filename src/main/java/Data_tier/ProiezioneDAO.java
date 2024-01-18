@@ -115,8 +115,8 @@ public class ProiezioneDAO {
                 pro.setData(resultSet.getDate(2));
                 pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
-                pro.film.setId(resultSet.getInt(5));
-                pro.sala.setId(resultSet.getInt(6));
+                pro.setFilm((new FilmDAO()).doRetriveById(resultSet.getInt(5)));
+                pro.setSala((new SalaDAO()).doRetrieveById(resultSet.getInt(6)));
                 proiezioni.add(pro);
             }
             con.close();
