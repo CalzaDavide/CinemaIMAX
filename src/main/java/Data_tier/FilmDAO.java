@@ -24,7 +24,7 @@ public class FilmDAO {
         statement.setString(7, f.getLocandina());
 
         if(statement.executeUpdate() != 1){
-            throw new SQLException("Errore nell'acquisto");
+            throw new SQLException("Errore nell'aggiunta");
         }
         con.close();
     }
@@ -89,5 +89,25 @@ public class FilmDAO {
 
             throw new RuntimeException(e);
         }
+    }
+
+    public void doUpdateById(int id, String titolo, String descrizione, String regista, String attori, String genere, int durata, String locandina) throws SQLException{
+
+        Connection con = ConPool.getConnection();
+        PreparedStatement statement = con.prepareStatement(
+                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Genere = ?, Durata = ?, Locandina = ? WHERE id_film = ?");
+        statement.setInt(8, id);
+        statement.setString(1, titolo);
+        statement.setString(2, descrizione);
+        statement.setString(3, regista);
+        statement.setString(4, attori);
+        statement.setString(5, genere);
+        statement.setInt(6, durata);
+        statement.setString(7, locandina);
+
+        if(statement.executeUpdate() != 1){
+            throw new SQLException("Errore nella modifica");
+        }
+        con.close();
     }
 }
