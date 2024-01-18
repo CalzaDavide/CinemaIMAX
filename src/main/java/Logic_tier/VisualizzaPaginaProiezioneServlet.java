@@ -19,7 +19,7 @@ public class VisualizzaPaginaProiezioneServlet extends HttpServlet {
         ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
         Proiezione p = null;
         try{
-            p =proiezioneDAO.doRetriveById(Integer.parseInt(req.getParameter("idProiezione")));
+            p = proiezioneDAO.doRetriveById(Integer.parseInt(req.getParameter("idProiezione")));
         }catch(SQLException e){
             e.printStackTrace();
         }

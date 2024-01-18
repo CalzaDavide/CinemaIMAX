@@ -61,10 +61,4 @@ public class Proiezione {
         return sala;
     }
 
-    /*public void modifica(GregorianCalendar data_ora, Film film, int posti, Sala sala){
-        this.data_ora = data_ora;
-        this.posti = posti;
-        this.sala = sala;
-        this.film = film;
-    }*/
 }
