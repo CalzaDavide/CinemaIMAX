@@ -38,6 +38,7 @@ public class DataChecker {
         Statement statement;
         ResultSet resultSet;
         Proiezione pro;
+
         boolean check = false;
         try{
             Connection con = ConPool.getConnection();
@@ -45,7 +46,7 @@ public class DataChecker {
             resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_sala = '" + p.getSala().getId() + "' AND " +
                     " Data_Proiezione = '" + p.getData() + "' ORDER BY Orario_Proiezione");
             //resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_sala = 1 AND " +
-            //        " Data_Proiezione = '11-11-22' ORDER BY Orario_Proiezione");
+            //        " Data_Proiezione = '22-11-11' ORDER BY Orario_Proiezione");
 
             while (resultSet.next()) {
                 pro = new Proiezione();
@@ -53,27 +54,38 @@ public class DataChecker {
                 pro.setData(resultSet.getDate(2));
                 pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
-                pro.film.setId(resultSet.getInt(5));
-                pro.sala.setId(resultSet.getInt(6));
+                pro.setFilm((new FilmDAO()).doRetriveById(resultSet.getInt(5)));
+                pro.setSala((new SalaDAO()).doRetrieveById(resultSet.getInt(6)));
                 proiezioni.add(pro);
+
             }
             con.close();
-
         } catch (SQLException e) {
-
             throw new RuntimeException(e);
         }
 
-        int numeroCheck = 0;
-        for (Proiezione itVar : proiezioni)
-        {
 
-            if(orarioParser(String.valueOf(p.getOrario())) + (p.getFilm().getDurata()/60)*100 < orarioParser(String.valueOf(itVar.getOrario()))){
-                if(numeroCheck < orarioParser(String.valueOf(p.getOrario()))){
-                    check = true;
+        int numeroCheck = 0;
+        if(!resultSet.next()) {
+            //se la resultset non è positiva, ovvero non trova spettacoli in quella data e quella sala
+            //siginifica che la sala in quel giorno è vuota di spettacoli, e automaticamente
+            //può essere inserito una proiezione
+            check = true;
+
+        }else{
+
+            //altrimenti controlla per ogni proiezione gia inserita
+            for (Proiezione itVar : proiezioni)
+            {
+
+                if(orarioParser(String.valueOf(p.getOrario())) + (p.getFilm().getDurata()/60)*100 < orarioParser(String.valueOf(itVar.getOrario()))){
+                    //se gli orari non danno problemi
+                    if(numeroCheck < orarioParser(String.valueOf(p.getOrario()))){
+                        check = true;
+                    }
                 }
+                numeroCheck = orarioParser(String.valueOf(itVar.getOrario()) + itVar.getFilm().getDurata()/60)*100;
             }
-            numeroCheck = orarioParser(String.valueOf(itVar.getOrario()) + itVar.getFilm().getDurata()/60)*100;
         }
 
         return check;
