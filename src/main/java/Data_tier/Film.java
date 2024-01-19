@@ -1,14 +1,12 @@
 package Data_tier;
 
-import java.util.ArrayList;
-
 public class Film {
     int id;
     String titolo;
     String descrizione;
     String attori;
     int durata;
-    String genere;
+    String generi;
     String regista;
 
 
@@ -31,8 +29,8 @@ public class Film {
         this.durata = durata;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGeneri(String generi) {
+        this.generi = generi;
     }
 
     public void setTitolo(String titolo) {
@@ -68,7 +66,7 @@ public class Film {
     }
 
     public String getGeneri() {
-        return genere;
+        return generi;
     }
     public void setRegista(String regista) { this.regista = regista; }
 

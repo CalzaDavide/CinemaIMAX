@@ -47,7 +47,7 @@ public class FilmDAO {
             film.setRegista(rs.getString(3));
             film.setDescrizione(rs.getString(4));
             film.setAttori(rs.getString(5));
-            film.setGenere(rs.getString(6));
+            film.setGeneri(rs.getString(6));
             film.setDurata(rs.getInt(7));
             film.setLocandina(rs.getString(8));
             return film;
@@ -83,7 +83,7 @@ public class FilmDAO {
                 f.setDescrizione(resultSet.getString(3));
                 f.setRegista(resultSet.getString(4));
                 f.setAttori(resultSet.getString(5));
-                f.setGenere(resultSet.getString(6));
+                f.setGeneri(resultSet.getString(6));
                 f.setDurata(Integer.parseInt(resultSet.getString(7)));
                 f.setLocandina(resultSet.getString(8));
                 films.add(f);
