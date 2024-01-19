@@ -45,8 +45,6 @@
         <div id="TitoloDiv">
             <label for="titolo">Titolo</label><br>
             <input required type="text" id="titolo" name="titolo" placeholder="Titolo del film">
-            <h1>Path: <%=immagine%></h1>
-            <img src="<%=immagine%>" alt="Piero">
         </div>
 
         <!-- Regista -->
@@ -63,14 +61,14 @@
 
         <!-- Genere -->
         <div id="GenereDiv">
-            <label for="genere">Genere</label><br>
-            <input required type="text" id="genere" name="genere" placeholder="Generi (separati da una virgola)">
+            <label for="generi">Genere</label><br>
+            <input required type="text" id="generi" name="generi" placeholder="Generi (separati da una virgola)">
         </div>
 
         <!-- Durata -->
         <div id="DurataDiv">
             <label for="durata">Durata</label><br>
-            <input required type="number" id="durata" name="durata">
+            <input required type="number" id="durata" name="durata" placeholder="60">
         </div>
 
 

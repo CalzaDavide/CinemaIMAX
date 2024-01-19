@@ -24,7 +24,7 @@ public class DataChecker {
 
         Connection con = ConPool.getConnection();
 
-        String query = "SELECT id FROM film WHERE Titolo = '" + titolo + "'";
+        String query = "SELECT * FROM film WHERE Titolo = '" + titolo + "'";
 
         ResultSet rs = con.createStatement().executeQuery(query);
 

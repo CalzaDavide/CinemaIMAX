@@ -49,7 +49,7 @@
             <label class="col-9" for="email">Numero Biglietti:    </label>  <input class="col-3" type="email" required name="email" id="email" placeholder="E-mail"/>
             <p class="col-9">Costo Biglietti:</p>                           <p class="col-3" id="costoBiglietti">7 euro</p>
             <p class="col-9">Metodo di pagamento:</p>                       <p class="col-3">Paypal</p>
-            <input type="hidden" value="<%= proiezione.getId() %>">
+            <input type="hidden" name="proiezione" value="<%= proiezione.getId() %>">
             <div class="col-4"></div> <input class="col-4 text-center" type="submit" value="Acquista Biglietti"><div class="col-4"></div>
         </form>
     </div>

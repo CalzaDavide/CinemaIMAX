@@ -20,7 +20,7 @@
 
 
 
-    <form id="AggiungiModeratoreContainer" action="aggiungi-prodotto">
+    <form id="AggiungiModeratoreContainer" action="aggiungi-moderatore">
 
         <!-- Nome -->
         <div id="NomeDiv">

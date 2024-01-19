@@ -21,7 +21,7 @@
                     <th>NOME</th>
                     <th>COGNOME</th>
                     <th>E-MAIL</th>
-                    <th>RUOLO</th>
+                    <th>Eliminare</th>
                 </tr>
 
                 <% for (Moderatore m : moderatori){%>
@@ -29,7 +29,10 @@
                         <td><%= m.getNome() %> </td>
                         <td><%= m.getCognome() %> </td>
                         <td><%= m.getEmail() %> </td>
-                        <td>    Moderatore      </td>
+                        <td id="elimina"><form action="elimina-moderatore">
+                            <input type="hidden" name="id" value="<%=m.getId()%>">
+                            <input type="submit" value="elimina">
+                        </form></td>
                     </tr>
                 <%}%>
             </table>

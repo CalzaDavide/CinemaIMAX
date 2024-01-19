@@ -24,6 +24,7 @@
 <header>
     <jsp:include page="SearchBar.jsp"/>
 </header>
+<%  ArrayList<Proiezione> proiezioni;%>
 
 <%  ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
     if(film== null)
@@ -57,14 +58,14 @@
     <div class="col-5"></div>
 
 
-    <% ArrayList<Proiezione> proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm(f.getId()));%>
+    <% proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm(f.getId()));%>
 
     <div class="col-5">
         <h1 style="font-size: 35px" >Proiezioni:</h1><br>
 
         <% for (Proiezione p : proiezioni){%>
-                <form id="ViusalizzaPaginaProiezione" action="visualizza-pagina-proiezione">
-                    <div id="proiezione" onclick="inviaForm()">
+                <form id="ViusalizzaPaginaProiezione<%= p.getId() %>" action="visualizza-pagina-proiezione">
+                    <div id="proiezione" onclick="inviaForm(<%= p.getId() %>)">
                         <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %> Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
                         <input type="hidden" name="idProiezione" value="<%= p.getId() %>">
                     </div>
@@ -84,11 +85,13 @@
 <a href="ModificaFilm.jsp">Modifica Film</a><br>
 <a href="ModificaProiezione.jsp">Modifica Proiezione</a><br>
 <a href="MostraProfilo.jsp">Mostra Profilo</a><br>
+<a href="AggiungiModeratore.jsp">Aggiungi Moderatore</a><br>
 
 <script>
     // Funzione che gestisce il clic sul div "proiezione"
-    function inviaForm() {
-        let form = document.getElementById('ViusalizzaPaginaProiezione');
+    function inviaForm(id) {
+
+        let form = document.getElementById('ViusalizzaPaginaProiezione' + id);
         form.submit();
     }
 

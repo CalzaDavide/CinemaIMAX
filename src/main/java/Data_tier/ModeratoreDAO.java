@@ -49,13 +49,22 @@ public class ModeratoreDAO {
     }
 
     public static boolean doDeleteById(int id) throws  SQLException{
-        Connection con = ConPool.getConnection();
 
-        String query = "DELETE FROM moderatore WHERE id = " + id;
+        try{
+            Connection con = ConPool.getConnection();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM moderatore WHERE id =?");
+            ps.setString(1, String.valueOf(id));
 
-        ResultSet rs = con.createStatement().executeQuery(query);
+            con.close();
+            if (ps.executeUpdate() != 1) {
+                return false;
+            }
+            return true;
 
-        return rs.next();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
     }
 
     public static Moderatore doRetriveByEmailPass(String email, String pass) throws  SQLException{

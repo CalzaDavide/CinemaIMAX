@@ -14,7 +14,7 @@ public class FilmDAO {
             //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
             PreparedStatement statement = con.prepareStatement(
-                    "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Genere, Durata, Locandina) VALUES\n" +
+                    "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Generi, Durata, Locandina) VALUES\n" +
                             "(?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, f.getTitolo());
             statement.setString(2, f.getDescrizione());
@@ -100,7 +100,7 @@ public class FilmDAO {
 
         Connection con = ConPool.getConnection();
         PreparedStatement statement = con.prepareStatement(
-                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Genere = ?, Durata = ?, Locandina = ? WHERE id_film = ?");
+                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Genere = ?, Durata = ?, Locandina = ? WHERE Id_film = ?");
         statement.setInt(8, id);
         statement.setString(1, titolo);
         statement.setString(2, descrizione);

@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.Moderatore;
+import Data_tier.ModeratoreDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name="AggiungiModeratore", value = "/aggiungi-moderatore")
 public class AggiungiModeratoreServlet extends HttpServlet {
@@ -20,8 +22,15 @@ public class AggiungiModeratoreServlet extends HttpServlet {
         moderatore.setEmail(req.getParameter("Email"));
         moderatore.setPassword(req.getParameter("Pswd"));
 
-        //new ModeratoreDAO().addModeratore(moderatore);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/index.jsp");
+        ModeratoreDAO modD = new ModeratoreDAO();
+
+        try {
+            modD.addModeratore(moderatore);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
     }
 
