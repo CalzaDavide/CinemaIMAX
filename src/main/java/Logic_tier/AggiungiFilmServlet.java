@@ -20,7 +20,7 @@ public class AggiungiFilmServlet extends HttpServlet {
         film.setAttori(req.getParameter("attori"));
         film.setDurata(Integer.parseInt(req.getParameter("durata")));
         film.setDescrizione(req.getParameter("descrizione"));
-        film.setGenere(req.getParameter("generi"));
+        film.setGeneri(req.getParameter("generi"));
         film.setTitolo(req.getParameter("titolo"));
         film.setRegista(req.getParameter("regista"));
         film.setLocandina(req.getParameter("immagine"));
