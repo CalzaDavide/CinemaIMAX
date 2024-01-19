@@ -51,9 +51,7 @@ public class Film {
         return titolo;
     }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
+    public String getDescrizione() {return descrizione;}
 
     public String getAttori() {
         return attori;
@@ -73,12 +71,4 @@ public class Film {
     public void setRegista(String regista) { this.regista = regista; }
 
     public String getRegista() { return regista; }
-
-    /*public void modifica(String titolo,String descrizione,ArrayList<String> attori,String genere,int durata){
-        this.titolo = titolo;
-        this.descrizione = descrizione;
-        this.attori = attori;
-        this.genere = genere;
-        this.durata = durata;
-    }*/
 }

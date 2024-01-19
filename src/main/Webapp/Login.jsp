@@ -14,6 +14,10 @@
 
 <body>
 
+<header>
+    <jsp:include page="Header.jsp"/>
+</header>
+
 <main>
 
         <!-- Controlla c'è stato un tentativo di accesso errato, visualizza un messaggio di errore -->

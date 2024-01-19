@@ -12,30 +12,21 @@
     }
 }
 
-
-
-/*    Search bar    */
-
-header{
-    margin-left: 30%;
-    margin-right: 30%;
+#logoSito img{
+    margin: auto;
+    padding: 15px 0 0 15px;
 }
 
-#searchbar {
-    margin: 1% auto 1% auto;
-    background-color: lightblue;
-    border-radius: 25px;
-}
 
-#searchbar input[type="text"] {
+#cercaForm input[type="text"] {
     margin: 1% 0 1% 4%;
-    font-size: 30px;
+    font-size: 25px;
     border: none;
     outline: none;
-    width: 80%;
-    height: 90%;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
 }
+
 
 #cerca {
     float: right;
@@ -45,12 +36,16 @@ header{
 }       /* Lente di ingrandimento della searchbar*/
 
 #cercaForm {
+    margin: 1% auto 1% auto;
+    background-color: lightblue;
+    border-radius: 25px;
     display: flex;
 }
 
 #cercaInput {
     flex: 1; /* E'utilizzato per far sì che un elemento flessibile si espanda e si contragga in modo dinamico all'interno del flex container, occupando tutto lo spazio disponibile*/
 }
+
 
 
 

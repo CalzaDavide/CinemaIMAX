@@ -16,6 +16,10 @@
 </head>
 <body>
 
+<header>
+    <jsp:include page="Header.jsp"/>
+</header>
+
     <% Proiezione proiezione = (Proiezione) request.getAttribute("proiezione"); %>
     <% Film film = proiezione.getFilm(); %>
 
@@ -41,22 +45,23 @@
 
     <div class="col-4" style="margin-left: 1%">
         <form class="row" id="AcquistoBiglietto" action="acquisto-servlet">
-            <p class="col-9">Sala Spettacolo:</p>                           <p class="col-3"><%= proiezione.getSala().getId()%> </p>
-            <p class="col-9">Orario Spettacolo:</p>                         <p class="col-3"><%=  proiezione.getOrario().toString().substring(0,5) %> </p>
-            <label class="col-9" for="numeroBiglietti">Numero Biglietti:    </label> <input class="col-3" type="number" required name="numeroBiglietti" id="numeroBiglietti" placeholder="1" min="1" max="<%= proiezione.getPosti() %>" oninput="calcoloCostoBiglietti()"/>
-            <label class="col-9" for="nome">Numero Biglietti:    </label>   <input class="col-3" type="text" required name="nome" id="nome" placeholder="Nome"/>
-            <label class="col-9" for="cognome">Numero Biglietti:  </label>  <input class="col-3" type="text" required name="cognome" id="cognome" placeholder="Cognome"/>
-            <label class="col-9" for="email">Numero Biglietti:    </label>  <input class="col-3" type="email" required name="email" id="email" placeholder="E-mail"/>
-            <p class="col-9">Costo Biglietti:</p>                           <p class="col-3" id="costoBiglietti">7 euro</p>
-            <p class="col-9">Metodo di pagamento:</p>                       <p class="col-3">Paypal</p>
+            <p class="col-8">Sala Spettacolo:</p>                                     <p class="col-3" ><%= proiezione.getSala().getId()%> </p><p class="col-1"></p>
+            <p class="col-8">Orario Spettacolo:</p>                                   <p class="col-3" ><%=  proiezione.getOrario().toString().substring(0,5) %> </p><p class="col-1"></p>
+            <p class="col-8">Numero posti disponibili: </p>                           <p class="col-3" ><%= proiezione.getPosti()%></p><p class="col-1"></p>
+            <label class="col-8" for="numeroBiglietti">Numero Biglietti:    </label>  <input class="col-3" type="number" required name="numeroBiglietti" id="numeroBiglietti" placeholder="1" min="1" max="<%= proiezione.getPosti() %>" oninput="calcoloCostoBiglietti()" />  <p class="col-1"></p>
+            <label class="col-8" for="nome">Nome:                           </label>  <input class="col-3" type="text" required name="nome" id="nome" placeholder="Nome"/><p class="col-1"></p>
+            <label class="col-8" for="cognome">Cognome:                     </label>  <input class="col-3" type="text" required name="cognome" id="cognome" placeholder="Cognome"/><p class="col-1"></p>
+            <label class="col-8" for="email">Email:                         </label>  <input class="col-3" type="email" required name="email" id="email" placeholder="E-mail"/><p class="col-1"></p>
+            <p class="col-8">Costo Biglietti:</p>                                     <p class="col-3" id="costoBiglietti" >7 euro</p><p class="col-1"></p>
+            <p class="col-8">Metodo di pagamento:</p>                                 <p class="col-3" >Paypal</p><p class="col-1"></p>
             <input type="hidden" name="proiezione" value="<%= proiezione.getId() %>">
-            <div class="col-4"></div> <input class="col-4 text-center" type="submit" value="Acquista Biglietti"><div class="col-4"></div>
+            <div class="col-4"></div> <input id="pulsanteAcquista" class="col-4 text-center" type="submit" value="Acquista Biglietti"><div class="col-4"></div>
         </form>
     </div>
 
-    <div class="col-3 "></div>
+    <div class="col-1 "></div>
 
-    <div class="col-3 ">
+    <div class="col-4 ">
         <div class="row" id="ContenitoreInformazioniFilm">
             <p class="col-6 big">Generi:</p>  <p class="col-6"><%= film.getGeneri()%></p>
             <p class="col-6 big">Attori:</p>  <p class="col-6"><%= film.getAttori()%></p>

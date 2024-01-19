@@ -12,7 +12,7 @@
 <body>
 
 <header>
-    <jsp:include page="SearchBar.jsp"/>
+    <jsp:include page="Header.jsp"/>
 </header>
 
 <main>
@@ -37,7 +37,7 @@
             <br>
 
             <h2>PASSWORD</h2>
-            <p>**********</p>
+            <p><%= moderatore.getPassword()%></p>
 
         </div>
 

@@ -10,9 +10,8 @@
 <body>
 
 <header>
-    <jsp:include page="SearchBar.jsp"/>
+    <jsp:include page="Header.jsp"/>
 </header>
-
 
 <div id="Contenitore">
 

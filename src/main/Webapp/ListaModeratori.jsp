@@ -8,9 +8,10 @@
     <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 </head>
 <body>
-    <header>
-        <jsp:include page="SearchBar.jsp"/>
-    </header>
+
+<header>
+    <jsp:include page="Header.jsp"/>
+</header>
 
     <div id="Contenitore">
 

@@ -21,7 +21,7 @@ public class AcquistoServlet extends HttpServlet {
         Proiezione proiezione;
         try {
             proiezione = proiezioneDAO.doRetriveById(proiezioneId);
-            if (proiezione != null && proiezione.getPosti() >= Integer.parseInt(req.getParameter("numeroPosti"))) {
+            if (proiezione != null && proiezione.getPosti() >= Integer.parseInt(req.getParameter("numeroBiglietti"))) {
                 String email = req.getParameter("email");
                 String nome = req.getParameter("nome");
                 String cognome = req.getParameter("cognome");

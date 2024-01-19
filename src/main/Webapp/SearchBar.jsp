@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -12,11 +11,16 @@
 </head>
 <body>
     <%-- Searchbar --%>
-    <div id="searchbar">
-        <form action="mostra-prodotti" id="cercaForm">
-            <input type="text" name="ricerca" id="cercaInput">
-            <button id="cerca"> <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca"></button>
+
+    <div class="row">
+        <a class="col-1" id="logoSito"  href="index.jsp"><img src="Images/LogoRettangolare.jpeg" alt="Homepage" style="width:113px;height:100px;"></a>
+        <p class="col-2"></p>
+        <form class="row col-6" action="filtra-film" id="cercaForm">
+                <input class="col-5"  type="text" name="filtroTitolo" id="cercaInput" placeholder="Filtro per Titolo">
+                <input class="col-5" name="filtroGenere" type="text" id="filtroGenere" placeholder="Filtro per Genere">
+                <button class="col-1" id="cerca"> <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca"></button>
         </form>
+        <p class="col-3"></p>
     </div>
 
 </body>
