@@ -19,7 +19,7 @@ public class ModificaFilmServlet extends HttpServlet {
         String attori = req.getParameter("attori");
         String titolo = req.getParameter("titolo");
         String descrizione = req.getParameter("descrizione");
-        String genere = req.getParameter("genere");
+        String genere = req.getParameter("generi");
         int id = Integer.parseInt(req.getParameter("id"));
         String regista = req.getParameter("regista");
         int durata = Integer.parseInt(req.getParameter("durata"));

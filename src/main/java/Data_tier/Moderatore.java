@@ -9,7 +9,7 @@ public class Moderatore {
 
     boolean isAdmin;
 
-    public boolean getIsAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 
@@ -32,6 +32,7 @@ public class Moderatore {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public void setAdmin(Boolean isAdmin) {this.isAdmin = isAdmin;}
 
     public void setPassword(String password) {
         this.password = password;

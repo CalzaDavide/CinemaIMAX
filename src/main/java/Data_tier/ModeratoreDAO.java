@@ -100,6 +100,7 @@ public class ModeratoreDAO {
                 moderatore.setCognome(rs.getString(3));
                 moderatore.setPassword(rs.getString(4));
                 moderatore.setEmail(rs.getString(5));
+                moderatore.setAdmin(rs.getBoolean(6));
                 return moderatore;
             }
 

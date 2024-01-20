@@ -11,8 +11,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 
@@ -39,14 +39,18 @@
     <div class="col-9" id="ContenitoreTitolo">
         <h1><%= f.getTitolo() %></h1>
 
-        <%if ( moderatore != null && !moderatore.getIsAdmin()) { %>
+        <%if ( moderatore != null && !moderatore.isAdmin()) { %>
+            <a href="PaginaProiezione.jsp" id="linkProiezione" onclick="modifica(<%= film %>)"><i class="fa-solid fa-pen-to-square"></i> </a>
+
+
+<!--
         <form id="ModificaFilm<%= f.getId() %>" action="modifica-film" >
             <div id="modificaFilm" onclick="inviaFormModificaFilm(<%= f.getId() %>)">
-                <img src="Images/IconaModifica.png" alt="iconaModifica" style="width: 40px">
-                <input type="hidden" name="idFilm" value="<%= f.getId() %>">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <input type="hidden" name="film" value="<%= film %>">
             </div>
         </form>
-
+-->
         <%} else{} %>
     </div>
 
@@ -82,14 +86,6 @@
 <%}%>
 
 
-<a href="AggiungiFilm.jsp">Aggiungi Film</a><br>
-<a href="AggiungiProiezione.jsp">Aggiungi Proiezione</a><br>
-<a href="ListaModeratori.jsp">Lista Moderatori</a><br>
-<a href="Login.jsp">Login</a><br>
-<a href="ModificaFilm.jsp">Modifica Film</a><br>
-<a href="MostraProfilo.jsp">Mostra Profilo</a><br>
-<a href="AggiungiModeratore.jsp">Aggiungi Moderatore</a><br>
-
 <script>
     // Funzione che gestisce il clic sul div "proiezione"
     function inviaFormProiezione(id) {
@@ -98,10 +94,15 @@
         form.submit();
     }
 
+
     function inviaFormModificaFilm(id) {
 
         let form = document.getElementById('ModificaFilm' + id);
         form.submit();
+    }
+
+    function modifica(film){
+        sessionStorage.setItem('filmModifica', film);
     }
 
 
