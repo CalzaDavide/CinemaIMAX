@@ -1,15 +1,15 @@
+<%@ page import="Data_tier.Moderatore" %>
 <!DOCTYPE html>
 <html lang="it">
 
 <head>
-    <title>Header </title>
-    <link rel="stylesheet" type="text/css"     href="Css/CssGlobale.css">
+    <title>Searchbar</title>
     <link rel="stylesheet" type="text/css"     href="Css/SearchBar.css">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
-<body>
+
+<% Moderatore moderatore = (Moderatore) session.getAttribute("utente");%>
+
     <%-- Searchbar --%>
 
     <div class="row">
@@ -20,8 +20,46 @@
                 <input class="col-5" name="filtroGenere" type="text" id="filtroGenere" placeholder="Filtro per Genere">
                 <button class="col-1" id="cerca"> <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca"></button>
         </form>
-        <p class="col-3"></p>
+
+        <p class="col-2"></p>
+
+
+        <%if (moderatore != null){ %>
+        <div id="menu-btn" onclick="openNav()" class="col-1 fs-2"><i class="fa-solid fa-bars"></i></div>
+        <div id="sidebar" class="col-1">
+            <a class="btn" href="#" onclick="closeNav()">Chiudi</a>
+            <%if (moderatore.isAdmin()){%>
+                <a href="AggiungiModeratore.jsp">Aggiungi Moderatore</a><br>
+                <a href="ListaModeratori.jsp">Lista Moderatori</a><br>
+            <% } else{%>
+                <a href="AggiungiFilm.jsp">Aggiungi Film</a><br>
+                <a href="AggiungiProiezione.jsp">Aggiungi Proiezione</a><br>
+                <a href="ModificaFilm.jsp">Modifica Film</a><br>
+            <%}%>
+
+            <a href="MostraProfilo.jsp">Mostra Profilo</a><br>
+
+            <form action="logout">
+                <button id="logOutButton" >LogOut</button></form>
+
+        </div>
+        <%} else{%>
+            <p class="col-1"></p>
+        <%}%>
+
     </div>
 
-</body>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("menu-btn").style.display="none";
+        }
+
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("menu-btn").style.display="block";
+        }
+    </script>
+
+
 </html>

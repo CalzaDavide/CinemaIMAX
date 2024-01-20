@@ -20,7 +20,7 @@
     var film = JSON.parse(sessionStorage.getItem("filmModifica"))
 </script>
 
-<% Film film = (Film) "${film}" ; %>
+<% //Film film = (Film) "${film}" ; %>
 
 
 <div id="Contenitore">
