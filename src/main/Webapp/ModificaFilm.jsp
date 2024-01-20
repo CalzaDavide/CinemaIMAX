@@ -16,11 +16,9 @@
     <jsp:include page="Header.jsp"/>
 </header>
 
-<script>
-    var film = JSON.parse(sessionStorage.getItem("filmModifica"))
-</script>
 
-<% //Film film = (Film) "${film}" ; %>
+<% Film film = new FilmDAO().doRetriveById( (Integer) session.getAttribute("idFilm")); %>
+<% Film ape = (Film) session.getAttribute("film"); %>
 
 
 <div id="Contenitore">
@@ -56,10 +54,10 @@
             <input required type="text" id="attori" name="attori" value="<%= film.getAttori() %>">
         </div>
 
-        <!-- Genere -->
-        <div id="GenereDiv">
-            <label for="genere">Genere</label><br>
-            <input required type="text" id="genere" name="generi" value="<%= film.getGeneri() %>">
+        <!-- Generi -->
+        <div id="GeneriDiv">
+            <label for="generi">Generi</label><br>
+            <input required type="text" id="generi" name="generi" value="<%= film.getGeneri() %>">
         </div>
 
         <!-- Durata -->
@@ -72,10 +70,9 @@
         <!-- Descrizione <input required type="text" id="descrizione" name="descrizione" placeholder="Descrizione del film"> -->
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
-            <textarea required id="descrizione" rows="10" cols="60" ><%= film.getDescrizione() %></textarea>
+            <textarea required id="descrizione" rows="10" cols="60" name="descrizione" ><%= film.getDescrizione() %></textarea>
         </div>
 
-        <p><%= film.getId() %> </p>
         <input type="hidden" value="<%= film.getId() %>" name="id">
 
     </form>

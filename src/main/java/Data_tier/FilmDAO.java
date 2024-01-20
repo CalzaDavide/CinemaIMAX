@@ -10,7 +10,7 @@ public class FilmDAO {
         if (!DataChecker.checkFilmData(f.getTitolo())) {
             Connection con = ConPool.getConnection();
             //TEST
-            //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Genere, Durata, Locandina) VALUES\n" +
+            //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Generi, Durata, Locandina) VALUES\n" +
             //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
             PreparedStatement statement = con.prepareStatement(
@@ -96,19 +96,18 @@ public class FilmDAO {
         }
     }
 
-    public void doUpdateById(int id, String titolo, String descrizione, String regista, String attori, String genere, int durata, String locandina) throws SQLException{
+    public void doUpdateById(int id, String titolo, String descrizione, String regista, String attori, String generi, int durata) throws SQLException{
 
         Connection con = ConPool.getConnection();
         PreparedStatement statement = con.prepareStatement(
-                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Genere = ?, Durata = ?, Locandina = ? WHERE Id_film = ?");
-        statement.setInt(8, id);
+                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Generi = ?, Durata = ?, WHERE Id_film = ?");
+        statement.setInt(7, id);
         statement.setString(1, titolo);
         statement.setString(2, descrizione);
         statement.setString(3, regista);
         statement.setString(4, attori);
-        statement.setString(5, genere);
+        statement.setString(5, generi);
         statement.setInt(6, durata);
-        statement.setString(7, locandina);
 
         if(statement.executeUpdate() != 1){
             throw new SQLException("Errore nella modifica");

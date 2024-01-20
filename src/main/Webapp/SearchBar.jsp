@@ -17,7 +17,7 @@
         <p class="col-2"></p>
         <form class="row col-6" action="filtra-film" id="cercaForm">
                 <input class="col-5"  type="text" name="filtroTitolo" id="cercaInput" placeholder="Filtro per Titolo">
-                <input class="col-5" name="filtroGenere" type="text" id="filtroGenere" placeholder="Filtro per Genere">
+                <input class="col-5" name="filtroGeneri" type="text" id="filtroGeneri" placeholder="Filtro per Genere">
                 <button class="col-1" id="cerca"> <img style="transform: scaleX(-1);" src="Images/iconaCerca.png" alt="Cerca"></button>
         </form>
 

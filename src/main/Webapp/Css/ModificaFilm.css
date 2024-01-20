@@ -33,7 +33,7 @@
     grid-row-gap: 0;
     grid-auto-columns: 1fr;
     grid-template-areas:
-    "DivVuoto   GenereDiv"
+    "DivVuoto   GeneriDiv"
     "DivVuoto   DurataDiv"
     "TitoloDiv  DescrizioneDiv"
     "RegistaDiv DescrizioneDiv"
@@ -68,8 +68,8 @@
     grid-area: AttoriDiv;
 }
 
-#GenereDiv:nth-child(5) {
-    grid-area: GenereDiv;
+#GeneriDiv:nth-child(5) {
+    grid-area: GeneriDiv;
 }
 
 #DurataDiv:nth-child(6) {

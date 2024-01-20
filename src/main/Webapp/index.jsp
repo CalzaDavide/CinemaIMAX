@@ -40,17 +40,13 @@
         <h1><%= f.getTitolo() %></h1>
 
         <%if ( moderatore != null && !moderatore.isAdmin()) { %>
-            <a href="PaginaProiezione.jsp" id="linkProiezione" onclick="modifica(<%= film %>)"><i class="fa-solid fa-pen-to-square"></i> </a>
-
-
-<!--
-        <form id="ModificaFilm<%= f.getId() %>" action="modifica-film" >
-            <div id="modificaFilm" onclick="inviaFormModificaFilm(<%= f.getId() %>)">
+           <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i> </a>
+        <!--
+            <div id="modificaFilm" onclick="<% session.setAttribute("idFilm", f.getId());%>">
                 <i class="fa-solid fa-pen-to-square"></i>
-                <input type="hidden" name="film" value="<%= film %>">
             </div>
-        </form>
--->
+        -->
+
         <%} else{} %>
     </div>
 
@@ -93,19 +89,6 @@
         let form = document.getElementById('ViusalizzaPaginaProiezione' + id);
         form.submit();
     }
-
-
-    function inviaFormModificaFilm(id) {
-
-        let form = document.getElementById('ModificaFilm' + id);
-        form.submit();
-    }
-
-    function modifica(film){
-        sessionStorage.setItem('filmModifica', film);
-    }
-
-
 </script>
 
 </body>

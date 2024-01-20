@@ -20,8 +20,8 @@ public class FiltraFilmServlet extends HttpServlet {
         ArrayList<Film> film = filmDAO.doRetrieveAll();
         ArrayList<Film> filmFiltrati = new ArrayList<>();
         String filtroTitolo = req.getParameter("filtroTitolo");
-        String filtroGenere = req.getParameter("filtroGenere");
-        String[] generiArray = filtroGenere.trim().split(",");
+        String filtroGeneri = req.getParameter("filtroGeneri");
+        String[] generiArray = filtroGeneri.trim().split(",");
         for(Film f : film){
             boolean toBeRemoved = false;
             String gen = f.getGeneri().toLowerCase();
