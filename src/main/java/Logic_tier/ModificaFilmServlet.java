@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.FilmDAO;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -31,6 +32,9 @@ public class ModificaFilmServlet extends HttpServlet {
         System.out.println("durata "+durata);
         try {
             filmDAO.doUpdateById(id, titolo, descrizione, regista, attori, generi, durata);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+            dispatcher.forward(req, resp);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

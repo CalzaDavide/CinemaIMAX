@@ -100,7 +100,7 @@ public class FilmDAO {
 
         Connection con = ConPool.getConnection();
         PreparedStatement statement = con.prepareStatement(
-                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Generi = ?, Durata = ?, WHERE Id_film = ?");
+                "UPDATE film SET Titolo = ?, Descrizione= ?, Regista = ?, Attori = ?, Generi = ?, Durata = ? WHERE Id_film = ?");
         statement.setInt(7, id);
         statement.setString(1, titolo);
         statement.setString(2, descrizione);
