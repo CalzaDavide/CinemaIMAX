@@ -28,7 +28,7 @@ public class ModeratoreDAO {
                     "('silvio', 'berlusconi', SHA1('silvietto'), 'mio.padre@cinemaimax.it');";
 
             if(statement.executeUpdate() != 1){
-                throw new SQLException("Errore nellaggiunta del moderatore");
+                throw new SQLException("Errore nell'aggiunta del moderatore");
             }
             con.close();
         }else{

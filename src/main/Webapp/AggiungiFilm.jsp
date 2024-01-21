@@ -63,7 +63,7 @@
 
         <!-- Genere -->
         <div id="GenereDiv">
-            <label for="generi">Genere</label><br>
+            <label for="generi">Generi</label><br>
             <input required type="text" id="generi" name="generi" placeholder="Generi (separati da una virgola)">
         </div>
 
