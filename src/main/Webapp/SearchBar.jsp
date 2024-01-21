@@ -10,6 +10,7 @@
 
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");%>
 
+
     <%-- Searchbar --%>
 
     <div class="row">
@@ -40,7 +41,8 @@
             <a href="MostraProfilo.jsp">Mostra Profilo</a><br>
 
             <form action="logout">
-                <button id="logOutButton" >LogOut</button></form>
+                <button id="logOutButton" >LogOut</button>
+            </form>
 
         </div>
         <%} else{%>

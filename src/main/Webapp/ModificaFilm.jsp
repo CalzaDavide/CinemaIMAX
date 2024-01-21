@@ -1,6 +1,7 @@
 <%@ page import="Data_tier.Film" %>
 <%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="Data_tier.Moderatore" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,6 +12,12 @@
 
 
 <body>
+
+<!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore è admin, si viene reindirizzati alla homepage-->
+<% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
+    if(moderatore==null || moderatore.isAdmin()){%>
+        <jsp:forward page="index.jsp"></jsp:forward>
+<%}%>
 
 <header>
     <jsp:include page="Header.jsp"/>

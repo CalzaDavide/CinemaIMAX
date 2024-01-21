@@ -1,8 +1,5 @@
-<%@ page import="Data_tier.Sala" %>
-<%@ page import="Data_tier.SalaDAO" %>
-<%@ page import="Data_tier.Film" %>
-<%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="Data_tier.*" %>
 <html>
 <head>
     <title>Aggiungi Proiezione</title>
@@ -17,6 +14,11 @@
     <jsp:include page="Header.jsp"/>
 </header>
 
+<!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore è admin, si viene reindirizzati alla homepage-->
+<% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
+    if(moderatore==null || moderatore.isAdmin()){%>
+<jsp:forward page="index.jsp"></jsp:forward>
+<%}%>
 
 <div id="Contenitore">
 

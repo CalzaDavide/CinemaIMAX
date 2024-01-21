@@ -14,9 +14,15 @@
 <header>
     <jsp:include page="Header.jsp"/>
 </header>
+<% Moderatore moderatore = (Moderatore) session.getAttribute("utente"); %>
+
+<!-- Se si accede a questa pagina senza aver effettuato l'accesso, si viene reindirizzati alla homepage-->
+<%  if(moderatore==null){%>
+    <jsp:forward page="index.jsp"></jsp:forward>
+<%}%>
 
 <main>
-     <% Moderatore moderatore = (Moderatore) session.getAttribute("utente"); %>  <%--  --%>
+
 
     <div id="MostraProfilo">
         <div id="Benvenuto">
@@ -37,7 +43,7 @@
             <br>
 
             <h2>PASSWORD</h2>
-            <p><%= moderatore.getPassword()%></p>
+            <p> *********** </p>
 
         </div>
 
