@@ -45,7 +45,7 @@
     height: 80%;
     position: relative;
     background: rgba(208, 208, 208, 0.85);
-    margin: 5% auto 3% auto;
+    margin: 3% auto 3% auto;
     padding: 5% 3% 4% 3%;
     text-align: center;
     border-radius: 60px;
@@ -85,7 +85,7 @@ button:hover {
 }
 
 #errore {
-    margin: 3% auto 3% auto;
-    color: #ff3838;
+    margin: 0 auto 5% auto;
+    color: #818181;
     font-size: 40px;
 }

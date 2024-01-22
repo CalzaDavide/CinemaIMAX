@@ -11,9 +11,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -43,11 +41,15 @@
         </h1>
 
         <%if (moderatore != null && !moderatore.isAdmin()) { %>
-        <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i
-                class="fa-solid fa-pen-to-square"></i> </a
-        <%
-            } else {}
-        %>
+        <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i></a>
+
+        <form id="eliminaFilmForm" action="elimina-film">
+            <input type="hidden" value="<%=f.getId()%>" name="film">
+            <i id="EliminaFilmPulsante"  class="fa-regular fa-trash-can"></i>
+        </form>
+
+
+        <%} else {}%>
     </div>
 
     <div class="col-3 align-items-center" id="ContenitoreLocandinaFilm">
@@ -75,6 +77,15 @@
                     <input type="hidden" name="idProiezione" value="<%= p.getId() %>">
             </div>
         </form>
+            <%if (moderatore != null && !moderatore.isAdmin()) { %>
+
+            <form id="eliminaProiezioneForm" action="elimina-proiezione">
+                <input type="hidden" value="<%=p.getId()%>" name="proiezione">
+                <i id="EliminaProiezionePulsante"  class="fa-regular fa-trash-can"></i>
+            </form>
+
+
+        <%} else {}%>
         <%}%>
     </div>
 
@@ -90,7 +101,22 @@
         let form = document.getElementById('ViusalizzaPaginaProiezione' + id);
         form.submit();
     }
+
+
+        document.getElementById('EliminaFilmPulsante').addEventListener('click', function () {
+        document.getElementById('eliminaFilmForm').submit();
+        });
+
+        document.getElementById('EliminaProiezionePulsante').addEventListener('click', function () {
+        document.getElementById('eliminaProiezioneForm').submit();
+        });
+
+
+
+
 </script>
+
+
 
 </body>
 

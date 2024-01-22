@@ -38,7 +38,7 @@
     </div>
 
     <div class="col-9 text-center" id="ContenitoreDescrizione">
-        <p><%= film.getDescrizione() %>
+        <p><%= film.getRegista() %>
         </p>
     </div>
 
@@ -67,7 +67,7 @@
         <div class="row" id="ContenitoreInformazioniFilm">
             <p class="col-6 big">Generi:</p>  <p class="col-6"><%= film.getGeneri()%></p>
             <p class="col-6 big">Attori:</p>  <p class="col-6"><%= film.getAttori()%></p>
-            <p class="col-6 big">Regista:</p> <p class="col-6"><%= film.getRegista()%></p>
+            <p class="col-6 big">Regista:</p> <p class="col-6"><%= film.getDescrizione()%></p>
         </div>
     </div>
 
