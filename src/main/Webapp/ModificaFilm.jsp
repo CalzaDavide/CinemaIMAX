@@ -1,8 +1,6 @@
 <%@ page import="Data_tier.Film" %>
 <%@ page import="Data_tier.FilmDAO" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="Data_tier.Moderatore" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Modifica Film</title>
@@ -37,7 +35,7 @@
 
     <!-- Dopodichè si inseriscono gli altri parametri relativi al nuovo prodotto -->
 
-    <form id="ModificaFilmContainer" action="modifica-film">
+    <form id="ModificaFilmContainer" action="modifica-film" method="post">
 
         <div id="DivVuoto">
             <br>

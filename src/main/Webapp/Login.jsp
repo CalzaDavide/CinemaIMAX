@@ -1,10 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Log-in</title>
-    <link rel="stylesheet" type="text/css" href="Css/CssGlobale.css">
     <link rel="stylesheet" type="text/css" href="Css/Log-in.css">
     <link rel="icon" type="image/x-icon" href="Images/LogoCircolare.jpeg">
 
@@ -29,7 +27,7 @@
 
         <h1 id="errore">CREDENZIALI ERRATE</h1><%}%>
 
-        <form action="login-servlet">
+        <form action="login-servlet" method="post">
             <input required id="email" type="email" name="email" placeholder="Email"><br><br>
             <input required type="password" name="password" placeholder="Password"><br><br>
             <button>Accesso</button>

@@ -40,7 +40,7 @@
                 <td><%= m.getEmail() %>
                 </td>
                 <td id="elimina">
-                    <form action="elimina-moderatore">
+                    <form action="elimina-moderatore" method="post">
                         <input type="hidden" name="id" value="<%=m.getId()%>">
                         <input type="submit" value="elimina">
                     </form>

@@ -43,7 +43,7 @@
         <%if (moderatore != null && !moderatore.isAdmin()) { %>
         <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i></a>
 
-        <form id="eliminaFilmForm" action="elimina-film">
+        <form id="eliminaFilmForm" action="elimina-film" method="post">
             <input type="hidden" value="<%=f.getId()%>" name="film">
             <i id="EliminaFilmPulsante"  class="fa-regular fa-trash-can"></i>
         </form>
@@ -70,7 +70,7 @@
         <h1 style="font-size: 35px">Proiezioni:</h1><br>
 
         <% for (Proiezione p : proiezioni) {%>
-        <form id="ViusalizzaPaginaProiezione<%= p.getId() %>" action="visualizza-pagina-proiezione">
+        <form id="ViusalizzaPaginaProiezione<%= p.getId() %>" action="visualizza-pagina-proiezione" method="post">
             <div id="proiezione" onclick="inviaFormProiezione(<%= p.getId() %>)">
                 <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %>
                     Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
@@ -79,7 +79,7 @@
         </form>
             <%if (moderatore != null && !moderatore.isAdmin()) { %>
 
-            <form id="eliminaProiezioneForm" action="elimina-proiezione">
+            <form id="eliminaProiezioneForm" action="elimina-proiezione" method="post">
                 <input type="hidden" value="<%=p.getId()%>" name="proiezione">
                 <i id="EliminaProiezionePulsante"  class="fa-regular fa-trash-can"></i>
             </form>

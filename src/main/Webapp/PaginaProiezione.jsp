@@ -1,8 +1,5 @@
 <%@ page import="Data_tier.Proiezione" %>
-<%@ page import="Data_tier.ProiezioneDAO" %>
 <%@ page import="Data_tier.Film" %>
-<%@ page import="Data_tier.FilmDAO" %>
-<%@ page import="java.util.ArrayList" %>
 
 <html>
 <head>
@@ -46,7 +43,7 @@
 
 
     <div class="col-4" style="margin-left: 1%">
-        <form class="row" id="AcquistoBiglietto" action="acquisto-servlet">
+        <form class="row" id="AcquistoBiglietto" action="acquisto-servlet" method="post">
             <p class="col-8">Sala Spettacolo:</p>                                     <p class="col-3" ><%= proiezione.getSala().getId()%> </p><p class="col-1"></p>
             <p class="col-8">Orario Spettacolo:</p>                                   <p class="col-3" ><%=  proiezione.getOrario().toString().substring(0,5) %> </p><p class="col-1"></p>
             <p class="col-8">Numero posti disponibili: </p>                           <p class="col-3" ><%= proiezione.getPosti()%></p><p class="col-1"></p>
