@@ -22,6 +22,11 @@ import java.nio.file.Paths;
 public class UploadServlet extends HttpServlet {
     private static final String CARTELLA_UPLOAD = "upload";
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // String descrizione = request.getParameter("descrizione");
 
