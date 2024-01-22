@@ -40,6 +40,17 @@ main {
     margin: 2% auto 2% 1%;
 }
 
+#modificaForm input {
+    background: #add8e6;
+    width: 20%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 1% auto;
+}
+
+
+
 
 @media screen and (max-width: 1200px) {
     main {
