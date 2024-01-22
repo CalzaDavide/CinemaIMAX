@@ -43,9 +43,9 @@
         <%if (moderatore != null && !moderatore.isAdmin()) { %>
         <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i></a>
 
-        <form id="eliminaFilmForm" action="elimina-film" method="post">
+        <form id="eliminaFilmForm<%=f.getId()%>" action="elimina-film" method="post">
             <input type="hidden" value="<%=f.getId()%>" name="film">
-            <i id="EliminaFilmPulsante"  class="fa-regular fa-trash-can"></i>
+            <i id="EliminaFilmPulsante"  class="fa-regular fa-trash-can" onclick="eliminaFilm(<%=f.getId()%>)"></i>
         </form>
 
 
@@ -79,9 +79,9 @@
         </form>
             <%if (moderatore != null && !moderatore.isAdmin()) { %>
 
-            <form id="eliminaProiezioneForm" action="elimina-proiezione" method="post">
+            <form id="eliminaProiezioneForm<%=p.getId()%>" action="elimina-proiezione" method="post" >
                 <input type="hidden" value="<%=p.getId()%>" name="proiezione">
-                <i id="EliminaProiezionePulsante"  class="fa-regular fa-trash-can"></i>
+                <i id="EliminaProiezionePulsante"  class="fa-regular fa-trash-can" onclick="eliminaProiezione(<%=p.getId()%>)"></i>
             </form>
 
 
@@ -102,17 +102,13 @@
         form.submit();
     }
 
+    function eliminaFilm(id) {
+        document.getElementById('eliminaFilmForm' + id).submit();
+    }
 
-        document.getElementById('EliminaFilmPulsante').addEventListener('click', function () {
-        document.getElementById('eliminaFilmForm').submit();
-        });
-
-        document.getElementById('EliminaProiezionePulsante').addEventListener('click', function () {
-        document.getElementById('eliminaProiezioneForm').submit();
-        });
-
-
-
+    function eliminaProiezione(id) {
+        document.getElementById('eliminaProiezioneForm' + id).submit();
+    }
 
 </script>
 

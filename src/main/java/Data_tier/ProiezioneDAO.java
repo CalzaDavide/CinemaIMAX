@@ -100,7 +100,7 @@ public class ProiezioneDAO {
 
         PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE Id_Proiezione = ?");
         ps.setInt(1, id);
-        if(ps.executeUpdate() != 1)
+        if(ps.executeUpdate() == 0)
             throw new RuntimeException("Errore nell'eliminazione della proiezione");
         con.close();
     }
