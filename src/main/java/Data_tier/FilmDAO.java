@@ -58,9 +58,9 @@ public class FilmDAO {
     public static boolean doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
 
-        String query = "DELETE FROM film WHERE id = " + id;
+        String query = "DELETE FROM film WHERE Id_Film = " + id;
 
-        ResultSet rs = con.createStatement().executeQuery(query);
+        ResultSet rs = con.createStatement().executeUpdate(query);
 
         return rs.next();
     }
