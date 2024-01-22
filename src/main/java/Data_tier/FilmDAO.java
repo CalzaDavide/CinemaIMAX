@@ -55,14 +55,13 @@ public class FilmDAO {
         return null;
     }
 
-    public static boolean doDeleteById(int id) throws SQLException {
+    public static void doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
 
-        String query = "DELETE FROM film WHERE Id_Film = " + id;
-
-        ResultSet rs = con.createStatement().executeUpdate(query);
-
-        return rs.next();
+        PreparedStatement ps = con.prepareStatement("DELETE FROM film WHERE Id_Film = ?");
+        ps.setInt(1, id);
+        if(ps.executeUpdate() != 1)
+            throw new RuntimeException("Errore nell'eliminazione");
     }
 
     public ArrayList<Film> doRetrieveAll() {

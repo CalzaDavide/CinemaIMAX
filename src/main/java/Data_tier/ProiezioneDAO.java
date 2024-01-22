@@ -94,14 +94,13 @@ public class ProiezioneDAO {
         }
     }
 
-    public static boolean doDeleteById(int id) throws SQLException {
+    public static void doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
 
-        String query = "DELETE FROM proiezione WHERE id = " + id;
-
-        ResultSet rs = con.createStatement().executeQuery(query);
-
-        return rs.next();
+        PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE Id_Proiezione = ?");
+        ps.setInt(1, id);
+        if(ps.executeUpdate() != 1)
+            throw new RuntimeException("Errore nell'eliminazione");
     }
 
     public ArrayList<Proiezione> doRetrieveByIdFilm(int id) {
