@@ -108,9 +108,9 @@ public class ProiezioneDAO {
     public static void doDeleteByFilm(int idFilm) throws SQLException {
         Connection con = ConPool.getConnection();
 
-        PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE id_Film = ?");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE id_film = ?");
         ps.setInt(1, idFilm);
-        if(ps.executeUpdate() != 1)
+        if(ps.executeUpdate() == 0)
             throw new RuntimeException("Errore nell'eliminazione");
         con.close();
     }
