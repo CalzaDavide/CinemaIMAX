@@ -63,7 +63,7 @@ public class FilmDAO {
         PreparedStatement ps = con.prepareStatement("DELETE FROM film WHERE Id_Film = ?");
         ps.setInt(1, id);
         if(ps.executeUpdate() != 1)
-            throw new RuntimeException("Errore nell'eliminazione");
+            throw new RuntimeException("Errore nell'eliminazione del film");
         con.close();
     }
 
