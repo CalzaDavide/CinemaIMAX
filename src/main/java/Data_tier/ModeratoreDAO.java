@@ -48,6 +48,7 @@ public class ModeratoreDAO {
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("Update Error.");
             }
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -83,6 +84,7 @@ public class ModeratoreDAO {
             query.setString(2, pass);
 
             ResultSet rs = query.executeQuery();
+            con.close();
             if (rs.next()) {
                 Moderatore moderatore = new Moderatore();
                 moderatore.setId(rs.getInt(1));

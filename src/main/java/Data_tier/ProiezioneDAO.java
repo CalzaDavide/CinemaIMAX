@@ -10,6 +10,7 @@ public class ProiezioneDAO {
         String query = "SELECT * FROM proiezione WHERE Id_Proiezione = " + id;
         ResultSet rs = con.createStatement().executeQuery(query);
         Proiezione pro;
+        con.close();
         if (rs.next()) {
             pro = new Proiezione();
             pro.setId(rs.getInt(1));
@@ -101,6 +102,7 @@ public class ProiezioneDAO {
         ps.setInt(1, id);
         if(ps.executeUpdate() != 1)
             throw new RuntimeException("Errore nell'eliminazione");
+        con.close();
     }
 
     public static void doDeleteByFilm(int idFilm) throws SQLException {
@@ -110,6 +112,7 @@ public class ProiezioneDAO {
         ps.setInt(1, idFilm);
         if(ps.executeUpdate() != 1)
             throw new RuntimeException("Errore nell'eliminazione");
+        con.close();
     }
 
     public ArrayList<Proiezione> doRetrieveByIdFilm(int id) {

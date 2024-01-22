@@ -30,7 +30,7 @@ public class FilmDAO {
             con.close();
         } else {
             //errore popup
-            System.out.println("errore film già esistente");
+            throw new RuntimeException("errore film già esistente");
         }
     }
 
@@ -40,6 +40,7 @@ public class FilmDAO {
         Connection con = ConPool.getConnection();
         String query = "SELECT * FROM film WHERE Id_film = '" + id + "'";
         ResultSet rs = con.createStatement().executeQuery(query);
+        con.close();
         if (rs.next()) {
             Film film = new Film();
             film.setId(rs.getInt(1));
@@ -63,6 +64,7 @@ public class FilmDAO {
         ps.setInt(1, id);
         if(ps.executeUpdate() != 1)
             throw new RuntimeException("Errore nell'eliminazione");
+        con.close();
     }
 
     public ArrayList<Film> doRetrieveAll() {
