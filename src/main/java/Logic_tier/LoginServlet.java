@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             ModeratoreDAO service = new ModeratoreDAO();
-            Moderatore moderatore = ModeratoreDAO.doRetriveByEmailPass(email, pass);
+            Moderatore moderatore = service.doRetriveByEmailPass(email, pass);
 
             if (moderatore != null) {
                 request.getSession().setAttribute("utente", moderatore);

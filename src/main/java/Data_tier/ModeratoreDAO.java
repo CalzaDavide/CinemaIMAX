@@ -8,7 +8,7 @@ import jakarta.servlet.RequestDispatcher;
 
 public class ModeratoreDAO {
 
-    public static void addModeratore(Moderatore m) throws SQLException {
+    public void addModeratore(Moderatore m) throws SQLException {
         Connection con = ConPool.getConnection();
 
         //SERVE PAGINA DOVE INSERIRE I DATI
@@ -83,7 +83,7 @@ public class ModeratoreDAO {
 
     }
 
-    public static Moderatore doRetriveByEmailPass(String email, String pass) throws SQLException {
+    public Moderatore doRetriveByEmailPass(String email, String pass) throws SQLException {
         try {
             Connection con = ConPool.getConnection();
             //String query = "SELECT * FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = SHA1(" + pass.toLowerCase() + ")";
