@@ -35,6 +35,10 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
                 dispatcher.forward(request, response);
 
+            }else{
+                request.setAttribute("logInStatus", "errato");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+                dispatcher.forward(request, response);
             }
         } catch (SQLException e) {
             //ERRORE
