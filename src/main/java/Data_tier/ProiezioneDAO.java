@@ -103,6 +103,15 @@ public class ProiezioneDAO {
             throw new RuntimeException("Errore nell'eliminazione");
     }
 
+    public static void doDeleteByFilm(int idFilm) throws SQLException {
+        Connection con = ConPool.getConnection();
+
+        PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE id_Film = ?");
+        ps.setInt(1, idFilm);
+        if(ps.executeUpdate() != 1)
+            throw new RuntimeException("Errore nell'eliminazione");
+    }
+
     public ArrayList<Proiezione> doRetrieveByIdFilm(int id) {
         ArrayList<Data_tier.Proiezione> proiezioni = new ArrayList<>();
         Statement statement;
