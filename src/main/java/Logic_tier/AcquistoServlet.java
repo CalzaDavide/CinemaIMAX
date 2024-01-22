@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.Proiezione;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,17 +17,17 @@ import java.sql.SQLException;
 public class AcquistoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
+        InterfaceMod interfaceMod = new InterfaceMod();
         int proiezioneId = Integer.parseInt(req.getParameter("proiezione"));
         Proiezione proiezione;
         try {
-            proiezione = proiezioneDAO.doRetriveById(proiezioneId);
+            proiezione = interfaceMod.recuperaProiezioneViaId(proiezioneId);
             if (proiezione != null && proiezione.getPosti() >= Integer.parseInt(req.getParameter("numeroBiglietti"))) {
                 String email = req.getParameter("email");
                 String nome = req.getParameter("nome");
                 String cognome = req.getParameter("cognome");
                 int nPosti = Integer.parseInt(req.getParameter("numeroBiglietti"));
-                proiezioneDAO.acquistBiglietto(email, nome, cognome, proiezione, nPosti);
+                interfaceMod.acquistoBiglietto(email, nome, cognome, proiezione, nPosti);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
                 dispatcher.forward(req, resp);
             }

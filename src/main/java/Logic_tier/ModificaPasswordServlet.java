@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.ModeratoreDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -18,10 +19,10 @@ public class ModificaPasswordServlet extends HttpServlet {
         String email = req.getParameter("email");
         String oldPassword = req.getParameter("oldPassword");
         String newPassword = req.getParameter("newPassword");
-        ModeratoreDAO moderatoreDAO = new ModeratoreDAO();
+        InterfaceMod interfaceMod = new InterfaceMod();
         try {
-            if (moderatoreDAO.doRetriveByEmailPass(email, oldPassword) != null)
-                moderatoreDAO.updatePassword(email, newPassword);
+            if (interfaceMod.recuperaViaEmailPass(email, oldPassword) != null)
+                interfaceMod.modificaModeratore(email, newPassword);
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException e) {

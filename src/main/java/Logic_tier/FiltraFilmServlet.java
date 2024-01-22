@@ -2,6 +2,7 @@ package Logic_tier;
 
 import Data_tier.Film;
 import Data_tier.FilmDAO;
+import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,14 +11,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "FiltraFilm", value = "/filtra-film")
 public class FiltraFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        FilmDAO filmDAO = new FilmDAO();
-        ArrayList<Film> film = filmDAO.doRetrieveAll();
+        InterfaceMod interfaceMod = new InterfaceMod();
+        ArrayList<Film> film;
+        try {
+            film = interfaceMod.recuperaFilms();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         ArrayList<Film> filmFiltrati = new ArrayList<>();
         String filtroTitolo = req.getParameter("filtroTitolo");
         String filtroGeneri = req.getParameter("filtroGeneri");

@@ -31,7 +31,7 @@
     <form id="AggiungiProiezioneContainer" action="aggiungi-Proiezione-Servlet" method="post">
 
 
-        <% ArrayList<Film> film = (new FilmDAO()).doRetrieveAll(); %>
+        <% ArrayList<Film> film = (new InterfaceMod()).recuperaFilms(); %>
         <!-- Film -->
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
@@ -57,7 +57,7 @@
         </div>
 
 
-        <% ArrayList<Sala> sala = (new SalaDAO()).doRetrieveAll(); %>
+        <% ArrayList<Sala> sala = (new InterfaceMod()).recuperaSale(); %>
         <!-- Sala -->
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>

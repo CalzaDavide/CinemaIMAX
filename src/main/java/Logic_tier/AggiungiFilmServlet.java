@@ -24,9 +24,9 @@ public class AggiungiFilmServlet extends HttpServlet {
         film.setTitolo(req.getParameter("titolo"));
         film.setRegista(req.getParameter("regista"));
         film.setLocandina(req.getParameter("immagine"));
-        FilmDAO filmD = new FilmDAO();
+        InterfaceMod interfaceMod = new InterfaceMod();
         try {
-            filmD.addFilm(film);
+            interfaceMod.aggiungiFilm(film);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

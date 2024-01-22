@@ -1,6 +1,7 @@
 <%@ page import="Data_tier.Moderatore" %>
 <%@ page import="Data_tier.ModeratoreDAO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="Data_tier.InterfaceMod" %>
 <html>
 <head>
     <title>Lista Moderatori</title>
@@ -21,7 +22,7 @@
 
 <div id="Contenitore">
 
-    <%ArrayList<Moderatore> moderatori = (new ModeratoreDAO()).doRetrieveModeratori();%>
+    <%ArrayList<Moderatore> moderatori = (new InterfaceMod().recuperaModeratori());%>
     <div id="ListaModeratori">
         <table>
             <tr>

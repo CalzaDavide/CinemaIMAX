@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.FilmDAO;
+import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 public class ModificaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        FilmDAO filmDAO = new FilmDAO();
+        InterfaceMod interfaceMod = new InterfaceMod();
         String attori = req.getParameter("attori");
         String titolo = req.getParameter("titolo");
         String descrizione = req.getParameter("descrizione");
@@ -24,7 +25,7 @@ public class ModificaFilmServlet extends HttpServlet {
         String regista = req.getParameter("regista");
         int durata = Integer.parseInt(req.getParameter("durata"));
         try {
-            filmDAO.doUpdateById(id, titolo, descrizione, regista, attori, generi, durata);
+            interfaceMod.modificaFilm(id, titolo, descrizione, regista, attori, generi, durata);
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);

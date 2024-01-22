@@ -27,7 +27,7 @@
 
 <% ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
     if (film == null)
-        film = (new FilmDAO()).doRetrieveAll();%>
+        film = (new InterfaceMod()).recuperaFilms();%>
 
 
 <% for (Film f : film) {%>
@@ -41,8 +41,8 @@
         </h1>
 
         <%if (moderatore != null && !moderatore.isAdmin()) { %>
-        <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i></a>
 
+        <a href="ModificaFilm.jsp?idFilm=<%= f.getId()%>" id="linkModificaFilm" ><i class="fa-solid fa-pen-to-square"></i></a>
         <form id="eliminaFilmForm<%=f.getId()%>" action="elimina-film" method="post">
             <input type="hidden" value="<%=f.getId()%>" name="film">
             <i id="EliminaFilmPulsante"  class="fa-regular fa-trash-can" onclick="eliminaFilm(<%=f.getId()%>)"></i>
@@ -64,7 +64,7 @@
     <div class="col-5"></div>
 
 
-    <% proiezioni = (new ProiezioneDAO().doRetrieveByIdFilm(f.getId()));%>
+    <% proiezioni = (new InterfaceMod().recuperaProiezioneViaIdFilm(f.getId()));%>
 
     <div class="col-5">
         <h1 style="font-size: 35px">Proiezioni:</h1><br>

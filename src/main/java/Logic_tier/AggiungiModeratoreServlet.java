@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.Moderatore;
 import Data_tier.ModeratoreDAO;
 import jakarta.servlet.RequestDispatcher;
@@ -22,10 +23,9 @@ public class AggiungiModeratoreServlet extends HttpServlet {
         moderatore.setEmail(req.getParameter("Email"));
         moderatore.setPassword(req.getParameter("Pswd"));
 
-        ModeratoreDAO modD = new ModeratoreDAO();
-
+        InterfaceMod interfaceMod = new InterfaceMod();
         try {
-            modD.addModeratore(moderatore);
+            interfaceMod.aggiungiModeratore(moderatore);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

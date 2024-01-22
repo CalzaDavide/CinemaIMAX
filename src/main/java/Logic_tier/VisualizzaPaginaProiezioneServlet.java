@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.Proiezione;
 import Data_tier.ProiezioneDAO;
 import jakarta.servlet.RequestDispatcher;
@@ -16,10 +17,10 @@ import java.sql.SQLException;
 public class VisualizzaPaginaProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
+        InterfaceMod interfaceMod = new InterfaceMod();
         Proiezione p = null;
         try {
-            p = proiezioneDAO.doRetriveById(Integer.parseInt(req.getParameter("idProiezione")));
+            p = interfaceMod.recuperaProiezioneViaId(Integer.parseInt(req.getParameter("idProiezione")));
         } catch (SQLException e) {
             e.printStackTrace();
         }

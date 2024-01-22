@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.FilmDAO;
+import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,8 +17,8 @@ public class EliminaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            FilmDAO filmDAO = new FilmDAO();
-            filmDAO.doDeleteById(Integer.parseInt(req.getParameter("film")));
+            InterfaceMod interfaceMod = new InterfaceMod();
+            interfaceMod.cancellaFilm(Integer.parseInt(req.getParameter("film")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException e) {

@@ -10,13 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.GregorianCalendar;
 
 @WebServlet(name = "aggiungiProiezioneServlet", value = "/aggiungi-Proiezione-Servlet")
 public class AggiungiProiezioneServlet extends HttpServlet {
@@ -26,13 +22,13 @@ public class AggiungiProiezioneServlet extends HttpServlet {
         Film film = null;
 
         try {
-            FilmDAO filmDAO = new FilmDAO();
-            film = filmDAO.doRetriveById(Integer.parseInt(req.getParameter("Film")));
+            InterfaceMod interfaceMod = new InterfaceMod();
+            film = interfaceMod.recuperaFilmViaId(Integer.parseInt(req.getParameter("Film")));
 
             proiezione.setFilm(film);
-            SalaDAO saladao = new SalaDAO();
 
-            Sala sala = saladao.doRetrieveById(Integer.parseInt(req.getParameter("Sala")));
+
+            Sala sala = interfaceMod.recuperaSalaViaId(Integer.parseInt(req.getParameter("Sala")));
             proiezione.setSala(sala);
             proiezione.setPosti(sala.getMaxPosti());
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -43,8 +39,8 @@ public class AggiungiProiezioneServlet extends HttpServlet {
             orario = orario.concat(":00");
             proiezione.setOrario(Time.valueOf(orario));
 
-            ProiezioneDAO proD = new ProiezioneDAO();
-            proD.addProiezione(proiezione);
+            InterfaceMod interfaceMod1 = new InterfaceMod();
+            interfaceMod1.aggiungiProiezione(proiezione);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

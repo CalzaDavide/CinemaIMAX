@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,8 +23,8 @@ public class EliminaModeratoreServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            ModeratoreDAO moderatoreDAO = new ModeratoreDAO();
-            moderatoreDAO.doDeleteById(Integer.parseInt(req.getParameter("id")));
+            InterfaceMod interfaceMod = new InterfaceMod();
+            interfaceMod.cancellaModeratore(Integer.parseInt(req.getParameter("id")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("ListaModeratori.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException e) {

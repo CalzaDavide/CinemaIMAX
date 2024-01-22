@@ -1,6 +1,7 @@
 <%@ page import="Data_tier.Film" %>
 <%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="Data_tier.Moderatore" %>
+<%@ page import="Data_tier.InterfaceMod" %>
 <html>
 <head>
     <title>Modifica Film</title>
@@ -22,8 +23,8 @@
 </header>
 
 
-<% Film film = new FilmDAO().doRetriveById((Integer) session.getAttribute("idFilm")); %>
-<% Film ape = (Film) session.getAttribute("film"); %>
+<%  int idFilm = Integer.parseInt(request.getParameter("idFilm"));
+    Film film = new FilmDAO().doRetriveById(idFilm); %>
 
 
 <div id="Contenitore">
@@ -50,7 +51,7 @@
         <!-- Regista -->
         <div id="RegistaDiv">
             <label for="regista">Regista</label><br>
-            <input required type="text" id="regista" name="regista" value="<%= film.getRegista() %>">
+            <input required type="text" id="regista" name="regista" value="<%= film.getDescrizione() %>">
         </div>
 
         <!-- Attori -->
@@ -76,7 +77,7 @@
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
             <textarea required id="descrizione" rows="10" cols="60"
-                      name="descrizione"><%= film.getDescrizione() %></textarea>
+                      name="descrizione"><%= film.getRegista() %></textarea>
         </div>
 
         <input type="hidden" value="<%= film.getId() %>" name="id">

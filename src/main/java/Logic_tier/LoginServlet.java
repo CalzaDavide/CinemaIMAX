@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.Moderatore;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -27,8 +28,9 @@ public class LoginServlet extends HttpServlet {
         String pass = request.getParameter("password");
 
         try {
-            ModeratoreDAO service = new ModeratoreDAO();
-            Moderatore moderatore = service.doRetriveByEmailPass(email, pass);
+
+            InterfaceMod interfaceMod = new InterfaceMod();
+            Moderatore moderatore = interfaceMod.recuperaViaEmailPass(email, pass);
 
             if (moderatore != null) {
                 request.getSession().setAttribute("utente", moderatore);

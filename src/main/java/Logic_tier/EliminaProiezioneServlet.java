@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceMod;
 import Data_tier.ProiezioneDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,8 +17,8 @@ public class EliminaProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
-            proiezioneDAO.doDeleteById(Integer.parseInt(req.getParameter("proiezione")));
+            InterfaceMod interfaceMod = new InterfaceMod();
+            interfaceMod.cancellaProiezioneViaId(Integer.parseInt(req.getParameter("proiezione")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException e) {
