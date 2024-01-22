@@ -53,17 +53,6 @@ public class ModeratoreDAO {
         }
     }
 
-    public static boolean isRegisteredModeratore(String email, String password) throws SQLException {
-
-        Connection con = ConPool.getConnection();
-
-        String query = "SELECT id FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = '" + password.toLowerCase() + "'";
-
-        ResultSet rs = con.createStatement().executeQuery(query);
-
-        return rs.next();
-    }
-
     public static boolean doDeleteById(int id) throws SQLException {
 
         try {
@@ -109,34 +98,6 @@ public class ModeratoreDAO {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public ArrayList<Moderatore> doRetrieveAll() {
-        ArrayList<Moderatore> moderatori = new ArrayList<>();
-        Statement statement;
-        ResultSet resultSet;
-        Moderatore mod;
-
-        try {
-            Connection con = ConPool.getConnection();
-            statement = con.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM moderatore");
-
-            while (resultSet.next()) {
-                mod = new Moderatore();
-                mod.setId(resultSet.getInt(1));
-                mod.setNome(resultSet.getString(2));
-                mod.setCognome(resultSet.getString(3));
-                mod.setPassword(resultSet.getString(4));
-                mod.setEmail(resultSet.getString(5));
-                moderatori.add(mod);
-            }
-            con.close();
-            return moderatori;
-        } catch (SQLException e) {
-
-            throw new RuntimeException(e);
-        }
     }
 
     public ArrayList<Moderatore> doRetrieveModeratori() {
