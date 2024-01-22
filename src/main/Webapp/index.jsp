@@ -11,7 +11,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -25,29 +27,27 @@
 <% ArrayList<Proiezione> proiezioni;%>
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");%>
 
-<%  ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
-    if(film== null)
+<% ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
+    if (film == null)
         film = (new FilmDAO()).doRetrieveAll();%>
 
 
-<% for (Film f : film){%>
+<% for (Film f : film) {%>
 
 <div class="row text-center" id="ContenitoreFilm">
 
     <div class="col-3"></div>
 
     <div class="col-9" id="ContenitoreTitolo">
-        <h1><%= f.getTitolo() %></h1>
+        <h1><%= f.getTitolo() %>
+        </h1>
 
-        <%if ( moderatore != null && !moderatore.isAdmin()) { %>
-           <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i class="fa-solid fa-pen-to-square"></i> </a>
-        <!--
-            <div id="modificaFilm" onclick="<% session.setAttribute("idFilm", f.getId());%>">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </div>
-        -->
-
-        <%} else{} %>
+        <%if (moderatore != null && !moderatore.isAdmin()) { %>
+        <a href="ModificaFilm.jsp" id="linkProiezione" onclick="(<% session.setAttribute("idFilm", f.getId());%>)"><i
+                class="fa-solid fa-pen-to-square"></i> </a
+        <%
+            } else {}
+        %>
     </div>
 
     <div class="col-3 align-items-center" id="ContenitoreLocandinaFilm">
@@ -55,7 +55,8 @@
     </div>
 
     <div class="col-9" id="ContenitoreDescrizione">
-        <p><%= f.getDescrizione() %></p>
+        <p><%= f.getDescrizione() %>
+        </p>
     </div>
 
     <div class="col-5"></div>
@@ -67,13 +68,13 @@
         <h1 style="font-size: 35px">Proiezioni:</h1><br>
 
         <% for (Proiezione p : proiezioni) {%>
-            <form id="ViusalizzaPaginaProiezione<%= p.getId() %>" action="visualizza-pagina-proiezione" >
-                <div id="proiezione" onclick="inviaFormProiezione(<%= p.getId() %>)">
-                    <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %>
-                        Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
-                        <input type="hidden" name="idProiezione" value="<%= p.getId() %>">
-                </div>
-            </form>
+        <form id="ViusalizzaPaginaProiezione<%= p.getId() %>" action="visualizza-pagina-proiezione">
+            <div id="proiezione" onclick="inviaFormProiezione(<%= p.getId() %>)">
+                <p style="font-size: 17px">Orario: <%= p.getData() %> <%=  p.getOrario().toString().substring(0,5) %>
+                    Sala: <%= p.getSala().getId() %> Posti rimanenti: <%= p.getPosti() %>
+                    <input type="hidden" name="idProiezione" value="<%= p.getId() %>">
+            </div>
+        </form>
         <%}%>
     </div>
 

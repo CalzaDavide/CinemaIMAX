@@ -22,6 +22,6 @@ public class Sala {
 
     public int getPosti() {
 
-        return  maxPosti;
+        return maxPosti;
     }
 }

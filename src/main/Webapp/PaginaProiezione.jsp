@@ -20,8 +20,8 @@
     <jsp:include page="Header.jsp"/>
 </header>
 
-    <% Proiezione proiezione = (Proiezione) request.getAttribute("proiezione"); %>
-    <% Film film = proiezione.getFilm(); %>
+<% Proiezione proiezione = (Proiezione) request.getAttribute("proiezione"); %>
+<% Film film = proiezione.getFilm(); %>
 
 
 <div class="row" id="Contenitore">
@@ -29,7 +29,8 @@
     <div class="col-3"></div>
 
     <div class="col-9 text-center" id="ContenitoreTitolo">
-        <h1><%= film.getTitolo() %></h1>
+        <h1><%= film.getTitolo() %>
+        </h1>
     </div>
 
     <div class="col-3 align-content-center" id="ContenitoreLocandinaFilm">
@@ -37,7 +38,8 @@
     </div>
 
     <div class="col-9 text-center" id="ContenitoreDescrizione">
-        <p><%= film.getRegista() %></p>
+        <p><%= film.getDescrizione() %>
+        </p>
     </div>
 
 
@@ -65,7 +67,7 @@
         <div class="row" id="ContenitoreInformazioniFilm">
             <p class="col-6 big">Generi:</p>  <p class="col-6"><%= film.getGeneri()%></p>
             <p class="col-6 big">Attori:</p>  <p class="col-6"><%= film.getAttori()%></p>
-            <p class="col-6 big">Regista:</p> <p class="col-6"><%= film.getDescrizione()%></p>
+            <p class="col-6 big">Regista:</p> <p class="col-6"><%= film.getRegista()%></p>
         </div>
     </div>
 
@@ -74,27 +76,23 @@
 </div>
 
 
+<script>
+    function calcoloCostoBiglietti() {
+        // Ottieni il valore inserito dall'utente
+        var numeroBiglietti = document.getElementById('numeroBiglietti').value;
 
-
-
-
-    <script>
-        function calcoloCostoBiglietti() {
-            // Ottieni il valore inserito dall'utente
-            var numeroBiglietti = document.getElementById('numeroBiglietti').value;
-
-            // Verifica se l'input è un numero valido
-            if (isNaN(numeroBiglietti)) {
-                document.getElementById('costoBiglietti').innerText = 'Inserisci un numero valido';
-                return;
-            }
-
-            // Effettua la moltiplicazione per 7
-            var risultato = numeroBiglietti * 7;
-
-            // Mostra il risultato senza aggiornare la pagina
-            document.getElementById('costoBiglietti').innerText = risultato + " euro";
+        // Verifica se l'input è un numero valido
+        if (isNaN(numeroBiglietti)) {
+            document.getElementById('costoBiglietti').innerText = 'Inserisci un numero valido';
+            return;
         }
-    </script>
+
+        // Effettua la moltiplicazione per 7
+        var risultato = numeroBiglietti * 7;
+
+        // Mostra il risultato senza aggiornare la pagina
+        document.getElementById('costoBiglietti').innerText = risultato + " euro";
+    }
+</script>
 </body>
 </html>

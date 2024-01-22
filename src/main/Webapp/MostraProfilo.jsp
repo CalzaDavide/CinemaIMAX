@@ -17,8 +17,8 @@
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente"); %>
 
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso, si viene reindirizzati alla homepage-->
-<%  if(moderatore==null){%>
-    <jsp:forward page="index.jsp"></jsp:forward>
+<% if (moderatore == null) {%>
+<jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
 <main>
@@ -31,15 +31,18 @@
 
         <div id="InformazioniPersonali">
             <h2>NOME</h2>
-            <p><%= moderatore.getNome()%></p>
+            <p><%= moderatore.getNome()%>
+            </p>
             <br>
 
             <h2>COGNOME</h2>
-            <p><%= moderatore.getCognome()%></p>
+            <p><%= moderatore.getCognome()%>
+            </p>
             <br>
 
             <h2>EMAIL</h2>
-            <p><%= moderatore.getEmail()%></p> <%-- --%>
+            <p><%= moderatore.getEmail()%>
+            </p> <%-- --%>
             <br>
 
             <h2>PASSWORD</h2>

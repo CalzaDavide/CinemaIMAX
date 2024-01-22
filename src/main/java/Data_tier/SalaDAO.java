@@ -16,7 +16,7 @@ public class SalaDAO {
 
         Sala s;
 
-        try{
+        try {
             Connection con = ConPool.getConnection();
 
             statement = con.createStatement();
@@ -44,14 +44,14 @@ public class SalaDAO {
     }
 
     public Sala doRetrieveById(int id) {
-        try{
+        try {
             Connection con = ConPool.getConnection();
 
             PreparedStatement statement = con.prepareStatement("SELECT * FROM sala WHERE Id_Sala = ?");
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
             Sala s = null;
-            if(rs.next()) {
+            if (rs.next()) {
                 s = new Sala();
 
                 s.setId(rs.getInt(1));

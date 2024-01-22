@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name="AggiungiModeratore", value = "/aggiungi-moderatore")
+@WebServlet(name = "AggiungiModeratore", value = "/aggiungi-moderatore")
 public class AggiungiModeratoreServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

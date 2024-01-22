@@ -6,9 +6,10 @@
 }
 
 #ListaModeratori {
-    position: relative;     /* Viene utilizzata per posizionare un elemento in base alla sua posizione originale all'interno del flusso del documento. Quando si applica
-                              position: relative; a un elemento, è possibile spostarlo rispetto alla sua posizione normale utilizzando le proprietà top, right, bottom e left
-                            */
+    position: relative;
+    /* Viene utilizzata per posizionare un elemento in base alla sua posizione originale all'interno del flusso del documento. Quando si applica
+                             position: relative; a un elemento, è possibile spostarlo rispetto alla sua posizione normale utilizzando le proprietà top, right, bottom e left
+                           */
     background: rgba(208, 208, 208, 0.85);
     margin: 1% auto 5% auto;
     text-align: center;
@@ -17,25 +18,25 @@
     padding: 1%;
 }
 
-table{
+table {
     margin: 5% auto 5% auto;
     line-height: 30px;
 }
 
-table, th, td{
+table, th, td {
     border: 1px solid #000000;
     border-collapse: collapse;
     background: none;
 }
 
-th{
+th {
     padding: 20px;
     margin: auto;
     font-size: 35px;
     color: black;
 }
 
-td{
+td {
     text-transform: uppercase;
     padding: 12px;
     font-size: 18px;
@@ -44,8 +45,7 @@ td{
 }
 
 
-
-.Elimina{
+.Elimina {
     background: none;
     border: none;
     color: black;

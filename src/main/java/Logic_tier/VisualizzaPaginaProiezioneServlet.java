@@ -12,15 +12,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name="VisualizzaPaginaProiezione", value = "/visualizza-pagina-proiezione")
+@WebServlet(name = "VisualizzaPaginaProiezione", value = "/visualizza-pagina-proiezione")
 public class VisualizzaPaginaProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
         Proiezione p = null;
-        try{
+        try {
             p = proiezioneDAO.doRetriveById(Integer.parseInt(req.getParameter("idProiezione")));
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         req.setAttribute("proiezione", p);

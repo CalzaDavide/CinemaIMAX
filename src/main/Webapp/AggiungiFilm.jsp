@@ -16,7 +16,7 @@
 
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore è admin, si viene reindirizzati alla homepage-->
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
-    if(moderatore==null || moderatore.isAdmin()){%>
+    if (moderatore == null || moderatore.isAdmin()) {%>
 <jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
@@ -30,8 +30,10 @@
 
 
     <!-- Avviene prima l'upload dell'immagine -->
-    <%String immagine = (String) request.getAttribute("uploaded");
-        if (immagine == null) {%>
+    <%
+        String immagine = (String) request.getAttribute("uploaded");
+        if (immagine == null) {
+    %>
 
     <div id="CaricaCopertinaDiv">
         <form action="Upload" method="post" enctype="multipart/form-data">
@@ -84,7 +86,8 @@
         <!-- Descrizione <input required type="text" id="descrizione" name="descrizione" placeholder="Descrizione del film"> -->
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
-            <textarea required id="descrizione" rows="10" cols="60" placeholder="Descrizione" name="descrizione"></textarea>
+            <textarea required id="descrizione" rows="10" cols="60" placeholder="Descrizione"
+                      name="descrizione"></textarea>
         </div>
 
 
@@ -97,7 +100,7 @@
     </div>
 
     <script>
-        document.getElementById('pulsanteInvio').addEventListener('click', function() {
+        document.getElementById('pulsanteInvio').addEventListener('click', function () {
             document.getElementById('AggiungiFilmContainer').submit();
         });
     </script>

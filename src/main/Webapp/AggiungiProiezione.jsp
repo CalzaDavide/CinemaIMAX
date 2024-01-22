@@ -16,7 +16,7 @@
 
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore è admin, si viene reindirizzati alla homepage-->
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
-    if(moderatore==null || moderatore.isAdmin()){%>
+    if (moderatore == null || moderatore.isAdmin()) {%>
 <jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
@@ -31,15 +31,14 @@
     <form id="AggiungiProiezioneContainer" action="aggiungi-Proiezione-Servlet">
 
 
-
-
         <% ArrayList<Film> film = (new FilmDAO()).doRetrieveAll(); %>
         <!-- Film -->
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>
             <select required id="Film" name="Film">
-                <% for (Film f : film){%>
-                <option value="<%=f.getId()%>" >Id: (<%=f.getId()%>) <%=f.getTitolo()%></option>
+                <% for (Film f : film) {%>
+                <option value="<%=f.getId()%>">Id: (<%=f.getId()%>) <%=f.getTitolo()%>
+                </option>
                 <%}%>
             </select>
         </div>
@@ -58,14 +57,13 @@
         </div>
 
 
-
         <% ArrayList<Sala> sala = (new SalaDAO()).doRetrieveAll(); %>
         <!-- Sala -->
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>
             <select required id="Sala" name="Sala">
-                <% for (Sala s : sala){%>
-                <option value="<%=s.getId()%>" > Sala <%=s.getId()%> (Numero posti: <%=s.getMaxPosti()%>)</option>
+                <% for (Sala s : sala) {%>
+                <option value="<%=s.getId()%>"> Sala <%=s.getId()%> (Numero posti: <%=s.getMaxPosti()%>)</option>
                 <%}%>
             </select>
 

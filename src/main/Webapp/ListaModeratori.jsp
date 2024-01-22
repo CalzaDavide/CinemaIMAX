@@ -15,37 +15,42 @@
 
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore non è admin, si viene reindirizzati alla homepage-->
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
-    if(moderatore==null || !moderatore.isAdmin()){%>
+    if (moderatore == null || !moderatore.isAdmin()) {%>
 <jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
-    <div id="Contenitore">
+<div id="Contenitore">
 
-        <%ArrayList<Moderatore> moderatori = (new ModeratoreDAO()).doRetrieveModeratori();%>
-        <div id="ListaModeratori">
-            <table>
-                <tr>
-                    <th>NOME</th>
-                    <th>COGNOME</th>
-                    <th>E-MAIL</th>
-                    <th>Eliminare</th>
-                </tr>
+    <%ArrayList<Moderatore> moderatori = (new ModeratoreDAO()).doRetrieveModeratori();%>
+    <div id="ListaModeratori">
+        <table>
+            <tr>
+                <th>NOME</th>
+                <th>COGNOME</th>
+                <th>E-MAIL</th>
+                <th>Eliminare</th>
+            </tr>
 
-                <% for (Moderatore m : moderatori){%>
-                    <tr>
-                        <td><%= m.getNome() %> </td>
-                        <td><%= m.getCognome() %> </td>
-                        <td><%= m.getEmail() %> </td>
-                        <td id="elimina"><form action="elimina-moderatore">
-                            <input type="hidden" name="id" value="<%=m.getId()%>">
-                            <input type="submit" value="elimina">
-                        </form></td>
-                    </tr>
-                <%}%>
-            </table>
-        </div>
-
+            <% for (Moderatore m : moderatori) {%>
+            <tr>
+                <td><%= m.getNome() %>
+                </td>
+                <td><%= m.getCognome() %>
+                </td>
+                <td><%= m.getEmail() %>
+                </td>
+                <td id="elimina">
+                    <form action="elimina-moderatore">
+                        <input type="hidden" name="id" value="<%=m.getId()%>">
+                        <input type="submit" value="elimina">
+                    </form>
+                </td>
+            </tr>
+            <%}%>
+        </table>
     </div>
+
+</div>
 
 </body>
 </html>

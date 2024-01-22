@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "EliminaFilmServlet", value ="/elimina-film")
+@WebServlet(name = "EliminaFilmServlet", value = "/elimina-film")
 public class EliminaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class EliminaFilmServlet extends HttpServlet {
             filmDAO.doDeleteById(Integer.parseInt(req.getParameter("film")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

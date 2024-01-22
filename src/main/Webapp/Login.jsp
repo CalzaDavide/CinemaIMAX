@@ -20,21 +20,21 @@
 
 <main>
 
-        <!-- Controlla c'è stato un tentativo di accesso errato, visualizza un messaggio di errore -->
-        <br/>
-        <div class="form">
+    <!-- Controlla c'è stato un tentativo di accesso errato, visualizza un messaggio di errore -->
+    <br/>
+    <div class="form">
 
-            <% String logInStatus = (String) request.getAttribute("logInStatus");
-                if (logInStatus != null && logInStatus.equals("errato")) {%>
+        <% String logInStatus = (String) request.getAttribute("logInStatus");
+            if (logInStatus != null && logInStatus.equals("errato")) {%>
 
-            <h1 id="errore">CREDENZIALI ERRATE</h1><%}%>
+        <h1 id="errore">CREDENZIALI ERRATE</h1><%}%>
 
-            <form action="login-servlet" >
-                <input required id="email" type="email" name="email" placeholder="Email"><br><br>
-                <input required type="password" name="password" placeholder="Password"><br><br>
-                <button>Accesso</button>
-            </form>
-        </div>
+        <form action="login-servlet">
+            <input required id="email" type="email" name="email" placeholder="Email"><br><br>
+            <input required type="password" name="password" placeholder="Password"><br><br>
+            <button>Accesso</button>
+        </form>
+    </div>
 
 </main>
 

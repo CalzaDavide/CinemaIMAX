@@ -1,5 +1,5 @@
-@media screen and (max-width: 1200px){
-    .form{
+@media screen and (max-width: 1200px) {
+    .form {
         width: 50%;
         margin: 22% auto;
     }
@@ -18,8 +18,9 @@
     }
 
 }
-@media screen and (max-width: 800px){
-    .form{
+
+@media screen and (max-width: 800px) {
+    .form {
         width: 70%;
         margin: 40% auto;
     }
@@ -52,14 +53,13 @@
 
 
 .form input, select {
-    text-transform: uppercase;
     background: #ffffff;
     width: 85%;
     margin: 0 0 8px;
     padding: 17px;
     box-sizing: border-box; /* E' una proprietà CSS che permette di gestire il calcolo della larghezza e dell'altezza totale di un elemento, considerando anche i bordi e il padding.  */
     font-size: 20px;
-    border-radius: 45px;    /* Arrotondare gli angoli di un elemento che sia foto/div ecc  50%= cerchio */
+    border-radius: 45px; /* Arrotondare gli angoli di un elemento che sia foto/div ecc  50%= cerchio */
 }
 
 
@@ -73,7 +73,7 @@ button {
 }
 
 
-button:hover{
+button:hover {
     color: #5d5d5d;
 }
 
@@ -84,7 +84,7 @@ button:hover{
     font-size: 25px;
 }
 
-#errore{
+#errore {
     margin: 3% auto 3% auto;
     color: #ff3838;
     font-size: 40px;

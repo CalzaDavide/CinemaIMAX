@@ -21,13 +21,12 @@ public class EliminaModeratoreServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             ModeratoreDAO moderatoreDAO = new ModeratoreDAO();
             moderatoreDAO.doDeleteById(Integer.parseInt(req.getParameter("id")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("ListaModeratori.jsp");
             dispatcher.forward(req, resp);
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             //Mostra pagina errore
         }
     }

@@ -1,18 +1,19 @@
-@media screen and (max-width: 1200px){
-    header{
+@media screen and (max-width: 1200px) {
+    header {
         margin-left: 12%;
         margin-right: 12%;
     }
 
 }
-@media screen and (max-width: 800px){
-    header{
+
+@media screen and (max-width: 800px) {
+    header {
         margin-left: 2%;
         margin-right: 2%;
     }
 }
 
-#logoSito img{
+#logoSito img {
     margin: auto;
     padding: 15px 0 0 15px;
 }
@@ -33,7 +34,9 @@
     margin: 5px 3px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
-}       /* Lente di ingrandimento della searchbar*/
+}
+
+/* Lente di ingrandimento della searchbar*/
 
 #cercaForm {
     margin: 1% auto 1% auto;
@@ -68,7 +71,7 @@
     display: block;
     transition: 0.3s;
     background: none;
-    border:none;
+    border: none;
 }
 
 #sidebar a:hover {

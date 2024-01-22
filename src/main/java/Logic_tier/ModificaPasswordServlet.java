@@ -24,7 +24,7 @@ public class ModificaPasswordServlet extends HttpServlet {
                 moderatoreDAO.updatePassword(email, newPassword);
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

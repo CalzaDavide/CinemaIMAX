@@ -1,4 +1,5 @@
 package Logic_tier;
+
 import Data_tier.ProiezioneDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "EliminaProiezioneServlet", value ="/elimina-proiezione")
+@WebServlet(name = "EliminaProiezioneServlet", value = "/elimina-proiezione")
 public class EliminaProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,7 +20,7 @@ public class EliminaProiezioneServlet extends HttpServlet {
             proiezioneDAO.doDeleteById(Integer.parseInt(req.getParameter("proiezione")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

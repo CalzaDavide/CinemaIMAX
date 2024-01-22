@@ -7,7 +7,7 @@ import static java.lang.Integer.parseInt;
 
 public class DataChecker {
 
-    public static boolean checkModeratoreData(String email) throws SQLException{
+    public static boolean checkModeratoreData(String email) throws SQLException {
 
         Connection con = ConPool.getConnection();
 
@@ -20,7 +20,7 @@ public class DataChecker {
     }
 
 
-    public static boolean checkFilmData(String titolo) throws  SQLException{
+    public static boolean checkFilmData(String titolo) throws SQLException {
 
         Connection con = ConPool.getConnection();
 
@@ -32,7 +32,7 @@ public class DataChecker {
     }
 
 
-    public static boolean checkProiezioneData(Proiezione p) throws  SQLException{
+    public static boolean checkProiezioneData(Proiezione p) throws SQLException {
 
         ArrayList<Proiezione> proiezioni = new ArrayList<>();
         Statement statement;
@@ -40,7 +40,7 @@ public class DataChecker {
         Proiezione pro;
 
         boolean check = false;
-        try{
+        try {
             Connection con = ConPool.getConnection();
             statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_sala = '" + p.getSala().getId() + "' AND " +
@@ -66,35 +66,34 @@ public class DataChecker {
 
 
         int numeroCheck = 0;
-        if(!resultSet.next()) {
+        if (!resultSet.next()) {
             //se la resultset non è positiva, ovvero non trova spettacoli in quella data e quella sala
             //siginifica che la sala in quel giorno è vuota di spettacoli, e automaticamente
             //può essere inserito una proiezione
             check = true;
 
-        }else{
+        } else {
 
             //altrimenti controlla per ogni proiezione gia inserita
-            for (Proiezione itVar : proiezioni)
-            {
+            for (Proiezione itVar : proiezioni) {
 
-                if(orarioParser(String.valueOf(p.getOrario())) + (p.getFilm().getDurata()/60)*100 < orarioParser(String.valueOf(itVar.getOrario()))){
+                if (orarioParser(String.valueOf(p.getOrario())) + (p.getFilm().getDurata() / 60) * 100 < orarioParser(String.valueOf(itVar.getOrario()))) {
                     //se gli orari non danno problemi
-                    if(numeroCheck < orarioParser(String.valueOf(p.getOrario()))){
+                    if (numeroCheck < orarioParser(String.valueOf(p.getOrario()))) {
                         check = true;
                     }
                 }
-                numeroCheck = orarioParser(String.valueOf(itVar.getOrario()) + itVar.getFilm().getDurata()/60)*100;
+                numeroCheck = orarioParser(String.valueOf(itVar.getOrario()) + itVar.getFilm().getDurata() / 60) * 100;
             }
         }
 
         return check;
     }
 
-    public static int orarioParser(String orario){
+    public static int orarioParser(String orario) {
         //time.toString() --> xx:xx:xx
         int temp;
-        String finale = String.valueOf(orario.charAt(0)+ orario.charAt(1)+ orario.charAt(3)+ orario.charAt(4));
+        String finale = String.valueOf(orario.charAt(0) + orario.charAt(1) + orario.charAt(3) + orario.charAt(4));
         temp = parseInt(finale);
         return temp;
     }

@@ -10,8 +10,8 @@ public class Film {
     String regista;
 
 
-
     String locandina;
+
     public void setId(int id) {
         this.id = id;
     }
@@ -49,7 +49,9 @@ public class Film {
         return titolo;
     }
 
-    public String getDescrizione() {return descrizione;}
+    public String getDescrizione() {
+        return descrizione;
+    }
 
     public String getAttori() {
         return attori;
@@ -66,7 +68,12 @@ public class Film {
     public String getGeneri() {
         return generi;
     }
-    public void setRegista(String regista) { this.regista = regista; }
 
-    public String getRegista() { return regista; }
+    public void setRegista(String regista) {
+        this.regista = regista;
+    }
+
+    public String getRegista() {
+        return regista;
+    }
 }

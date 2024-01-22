@@ -11,6 +11,7 @@ import Data_tier.ModeratoreDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 @WebServlet(name = "loginServlet", value = "/login-servlet")
 public class LoginServlet extends HttpServlet {
     public String message;
@@ -27,15 +28,15 @@ public class LoginServlet extends HttpServlet {
 
         try {
             ModeratoreDAO service = new ModeratoreDAO();
-            Moderatore moderatore = ModeratoreDAO.doRetriveByEmailPass(email,pass);
+            Moderatore moderatore = ModeratoreDAO.doRetriveByEmailPass(email, pass);
 
-            if (moderatore != null){
+            if (moderatore != null) {
                 request.getSession().setAttribute("utente", moderatore);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
                 dispatcher.forward(request, response);
 
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             //ERRORE
             e.printStackTrace();
             System.out.println("err");

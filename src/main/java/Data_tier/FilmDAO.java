@@ -35,12 +35,12 @@ public class FilmDAO {
     }
 
 
-    public Film doRetriveById(int id) throws SQLException{
+    public Film doRetriveById(int id) throws SQLException {
 
-        Connection con = ConPool.getConnection() ;
+        Connection con = ConPool.getConnection();
         String query = "SELECT * FROM film WHERE Id_film = '" + id + "'";
         ResultSet rs = con.createStatement().executeQuery(query);
-        if(rs.next()){
+        if (rs.next()) {
             Film film = new Film();
             film.setId(rs.getInt(1));
             film.setTitolo(rs.getString(2));
@@ -55,7 +55,7 @@ public class FilmDAO {
         return null;
     }
 
-    public static boolean doDeleteById(int id) throws  SQLException{
+    public static boolean doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
 
         String query = "DELETE FROM film WHERE id = " + id;
@@ -71,7 +71,7 @@ public class FilmDAO {
         ResultSet resultSet;
         Film f;
 
-        try{
+        try {
             Connection con = ConPool.getConnection();
             statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM film");
@@ -96,7 +96,7 @@ public class FilmDAO {
         }
     }
 
-    public void doUpdateById(int id, String titolo, String descrizione, String regista, String attori, String generi, int durata) throws SQLException{
+    public void doUpdateById(int id, String titolo, String descrizione, String regista, String attori, String generi, int durata) throws SQLException {
 
         Connection con = ConPool.getConnection();
         PreparedStatement statement = con.prepareStatement(
@@ -109,7 +109,7 @@ public class FilmDAO {
         statement.setString(5, generi);
         statement.setInt(6, durata);
 
-        if(statement.executeUpdate() != 1){
+        if (statement.executeUpdate() != 1) {
             throw new SQLException("Errore nella modifica");
         }
         con.close();

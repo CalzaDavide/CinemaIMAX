@@ -10,7 +10,7 @@ public class ProiezioneDAO {
         String query = "SELECT * FROM proiezione WHERE Id_Proiezione = " + id;
         ResultSet rs = con.createStatement().executeQuery(query);
         Proiezione pro;
-        if(rs.next()){
+        if (rs.next()) {
             pro = new Proiezione();
             pro.setId(rs.getInt(1));
             pro.setData(rs.getDate(2));
@@ -26,7 +26,7 @@ public class ProiezioneDAO {
 
     public void addProiezione(Proiezione p) throws SQLException {
 
-        if(DataChecker.checkProiezioneData(p)) {
+        if (DataChecker.checkProiezioneData(p)) {
 
             Connection con = ConPool.getConnection();
 
@@ -43,7 +43,7 @@ public class ProiezioneDAO {
                 throw new SQLException("Errore nell'acquisto");
             }
             con.close();
-        }else{
+        } else {
             //popup di errore
             System.out.println("errore proiezione non inseribile in questa fascia oraria");
         }
@@ -59,7 +59,7 @@ public class ProiezioneDAO {
         //manda email
         System.out.println(nome + " " + cognome + "\n" + email + "\n" + proiezione.getId() + " " + proiezione.getSala() + " " + proiezione.getData().toString());
 
-        if(statement.executeUpdate() != 1){
+        if (statement.executeUpdate() != 1) {
             throw new SQLException("Errore nell'acquisto");
         }
         con.close();
@@ -71,7 +71,7 @@ public class ProiezioneDAO {
         ResultSet resultSet;
         Proiezione pro;
 
-        try{
+        try {
             Connection con = ConPool.getConnection();
             statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM proiezione");
@@ -94,7 +94,7 @@ public class ProiezioneDAO {
         }
     }
 
-    public static boolean doDeleteById(int id) throws  SQLException{
+    public static boolean doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
 
         String query = "DELETE FROM proiezione WHERE id = " + id;
@@ -110,7 +110,7 @@ public class ProiezioneDAO {
         ResultSet resultSet;
         Data_tier.Proiezione pro;
 
-        try{
+        try {
             Connection con = ConPool.getConnection();
             statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_film = '" + id + "'");

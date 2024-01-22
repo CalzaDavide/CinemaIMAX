@@ -15,8 +15,8 @@
 
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore è admin, si viene reindirizzati alla homepage-->
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
-    if(moderatore==null || moderatore.isAdmin()){%>
-        <jsp:forward page="index.jsp"></jsp:forward>
+    if (moderatore == null || moderatore.isAdmin()) {%>
+<jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
 <header>
@@ -24,7 +24,7 @@
 </header>
 
 
-<% Film film = new FilmDAO().doRetriveById( (Integer) session.getAttribute("idFilm")); %>
+<% Film film = new FilmDAO().doRetriveById((Integer) session.getAttribute("idFilm")); %>
 <% Film ape = (Film) session.getAttribute("film"); %>
 
 
@@ -77,7 +77,8 @@
         <!-- Descrizione <input required type="text" id="descrizione" name="descrizione" placeholder="Descrizione del film"> -->
         <div id="DescrizioneDiv">
             <label for="descrizione">Descrizione</label><br>
-            <textarea required id="descrizione" rows="10" cols="60" name="descrizione" ><%= film.getDescrizione() %></textarea>
+            <textarea required id="descrizione" rows="10" cols="60"
+                      name="descrizione"><%= film.getDescrizione() %></textarea>
         </div>
 
         <input type="hidden" value="<%= film.getId() %>" name="id">

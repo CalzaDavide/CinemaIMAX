@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "FiltraFilm", value="/filtra-film")
+@WebServlet(name = "FiltraFilm", value = "/filtra-film")
 public class FiltraFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,15 +22,15 @@ public class FiltraFilmServlet extends HttpServlet {
         String filtroTitolo = req.getParameter("filtroTitolo");
         String filtroGeneri = req.getParameter("filtroGeneri");
         String[] generiArray = filtroGeneri.trim().split(",");
-        for(Film f : film){
+        for (Film f : film) {
             boolean toBeRemoved = false;
             String gen = f.getGeneri().toLowerCase();
-            for(String g : generiArray)
-                if(!gen.contains(g.toLowerCase())){
+            for (String g : generiArray)
+                if (!gen.contains(g.toLowerCase())) {
                     toBeRemoved = true;
                     break;
                 }
-            if(!toBeRemoved && f.getTitolo().toLowerCase().contains(filtroTitolo.toLowerCase())){
+            if (!toBeRemoved && f.getTitolo().toLowerCase().contains(filtroTitolo.toLowerCase())) {
                 filmFiltrati.add(f);
             }
         }
