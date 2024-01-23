@@ -79,7 +79,7 @@
         <!-- Durata -->
         <div id="DurataDiv">
             <label for="durata">Durata</label><br>
-            <input required type="number" id="durata" name="durata" placeholder="60">
+            <input required type="number" id="durata" name="durata" placeholder="60" min="1">
         </div>
 
 
