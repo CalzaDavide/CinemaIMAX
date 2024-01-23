@@ -39,6 +39,6 @@ public class SalaTest {
     public void testGetPosti() {
         Sala sala = new Sala();
         sala.setMaxPosti(100);
-        assertEquals(100, sala.getPosti());
+        assertEquals(100, sala.getMaxPosti());
     }
 }

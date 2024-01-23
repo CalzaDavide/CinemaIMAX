@@ -25,8 +25,4 @@ public class Sala {
         this.id = id;
     }
 
-    // Metodo getter per recuperare il numero massimo di posti disponibili nella sala (alternativo)
-    public int getPosti() {
-        return maxPosti;
-    }
 }
