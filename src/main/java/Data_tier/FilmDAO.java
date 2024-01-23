@@ -12,7 +12,7 @@ public class FilmDAO {
 
             PreparedStatement statement = con.prepareStatement(
                     "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Generi, Durata, Locandina) VALUES\n"
-                            +"(?, ?, ?, ?, ?, ?, ?)");
+                            + "(?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, f.getTitolo());
             statement.setString(2, f.getDescrizione());
             statement.setString(3, f.getRegista());

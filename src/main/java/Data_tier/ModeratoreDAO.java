@@ -9,8 +9,8 @@ public class ModeratoreDAO {
         Connection con = ConPool.getConnection();
 
         if (!DataChecker.checkModeratoreData(m.getEmail())) {
-            PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n" +
-                    "(?, ?, SHA1(?), ?, ?)");
+            PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n"
+                    + "(?, ?, SHA1(?), ?, ?)");
             statement.setString(1, m.getNome());
             statement.setString(2, m.getCognome());
             statement.setString(3, m.getPassword());

@@ -76,7 +76,7 @@
 <script>
     function calcoloCostoBiglietti() {
         // Ottieni il valore inserito dall'utente
-        var numeroBiglietti = document.getElementById('numeroBiglietti').value;
+        let numeroBiglietti = document.getElementById('numeroBiglietti').value;
 
         // Verifica se l'input è un numero valido
         if (isNaN(numeroBiglietti)) {
@@ -85,7 +85,7 @@
         }
 
         // Effettua la moltiplicazione per 7
-        var risultato = numeroBiglietti * 7;
+        let risultato = numeroBiglietti * 7;
 
         // Mostra il risultato senza aggiornare la pagina
         document.getElementById('costoBiglietti').innerText = risultato + " euro";

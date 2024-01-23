@@ -2,6 +2,7 @@
 <%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="Data_tier.Moderatore" %>
 <%@ page import="Data_tier.InterfaceMod" %>
+<%@ page import="java.sql.SQLException" %>
 <html>
 <head>
     <title>Modifica Film</title>
@@ -24,7 +25,12 @@
 
 
 <%  int idFilm = Integer.parseInt(request.getParameter("idFilm"));
-    Film film = new FilmDAO().doRetriveById(idFilm); %>
+    Film film = null;
+    try {
+        film = new FilmDAO().doRetriveById(idFilm);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    } %>
 
 
 <div id="Contenitore">

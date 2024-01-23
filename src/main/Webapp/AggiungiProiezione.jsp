@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Data_tier.*" %>
+<%@ page import="java.sql.SQLException" %>
 <html>
 <head>
     <title>Aggiungi Proiezione</title>
@@ -31,7 +32,12 @@
     <form id="AggiungiProiezioneContainer" action="aggiungi-Proiezione-Servlet" method="post">
 
 
-        <% ArrayList<Film> film = (new InterfaceMod()).recuperaFilms(); %>
+        <% ArrayList<Film> film = null;
+            try {
+                film = (new InterfaceMod()).recuperaFilms();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } %>
         <!-- Film -->
         <div id="SelezionaFilmDiv">
             <label for="Film">Film</label><br>

@@ -19,7 +19,9 @@
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso, si viene reindirizzati alla homepage-->
 <% if (moderatore == null) {%>
     <jsp:forward page="index.jsp"></jsp:forward>
-<%}%>
+<%}
+    assert moderatore != null;
+%>
 
 <main>
 

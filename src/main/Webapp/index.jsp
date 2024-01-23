@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Data_tier.*" %>
+<%@ page import="java.sql.SQLException" %>
 <!DOCTYPE html>
 
 <html>
@@ -26,8 +27,13 @@
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");%>
 
 <% ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
-    if (film == null)
-        film = (new InterfaceMod()).recuperaFilms();%>
+    if (film == null) {
+        try {
+            film = (new InterfaceMod()).recuperaFilms();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }%>
 
 
 <% for (Film f : film) {%>

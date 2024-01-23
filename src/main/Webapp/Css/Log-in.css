@@ -86,7 +86,7 @@ button:hover {
 
 /* Stili per il messaggio della form */
 
-.form .message {
+.form {
     margin: 15px 0 0;
     color: rgba(179, 179, 179, 0.61);
     font-size: 25px;
