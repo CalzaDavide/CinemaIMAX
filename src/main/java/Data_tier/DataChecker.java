@@ -67,7 +67,7 @@ public class DataChecker {
 
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         int numeroCheck = 0;
-        if(proiezioni.get(0) == null) {
+        if(proiezioni.isEmpty()) {
             //se la resultset non è positiva, ovvero non trova spettacoli in quella data e quella sala
             //siginifica che la sala in quel giorno è vuota di spettacoli, e automaticamente
             //può essere inserito una proiezione
