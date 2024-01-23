@@ -31,7 +31,7 @@ public class DataCheckerTest {
     public void testOrarioParser() {
         // Test case 1: Valid orario string
         String orario = "12:30:00";
-        assertEquals(198, DataChecker.orarioParser(orario));
+        assertEquals(1230, DataChecker.orarioParser(orario));
 
 
     }

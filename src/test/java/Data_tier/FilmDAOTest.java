@@ -12,8 +12,8 @@ public class FilmDAOTest {
     public void testAddFilm() {
         FilmDAO filmDAO = new FilmDAO();
         Film film = new Film();
-        film.setId(11);
-        film.setTitolo("Test Fi");
+        film.setId(12);
+        film.setTitolo("Test Filmeeeeeee");
         film.setDescrizione("This is a test film");
         film.setRegista("Test Director");
         film.setAttori("Test Actor 1, Test Actor 2");
@@ -33,7 +33,7 @@ public class FilmDAOTest {
     @Test
     public void testDoRetriveById() {
         FilmDAO filmDAO = new FilmDAO();
-        int id = 11;
+        int id = 12;
 
         try {
             Film film = filmDAO.doRetriveById(id);
