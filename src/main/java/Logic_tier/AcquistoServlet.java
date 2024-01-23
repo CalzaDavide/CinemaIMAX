@@ -8,11 +8,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import Data_tier.ProiezioneDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
+@SuppressWarnings("ALL")
 @WebServlet(name = "acquistoServlet", value = "/acquisto-servlet")
 public class AcquistoServlet extends HttpServlet {
     @Override
@@ -36,6 +36,7 @@ public class AcquistoServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings("checkstyle:LineLength")
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);

@@ -35,7 +35,6 @@
             <% } else{%>
                 <a href="AggiungiFilm.jsp">Aggiungi Film</a><br>
                 <a href="AggiungiProiezione.jsp">Aggiungi Proiezione</a><br>
-                <a href="ModificaFilm.jsp">Modifica Film</a><br>
             <%}%>
 
             <a href="MostraProfilo.jsp">Mostra Profilo</a><br>

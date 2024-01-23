@@ -1,3 +1,5 @@
+/* Stili per il contenitore degli aggiungi film */
+
 #Contenitore {
     width: 75%;
     height: 80%;
@@ -16,15 +18,14 @@
     "InvioDiv";
 }
 
+/* Stili per il testo nell'aggiungi film */
+
 #AggiungiFilmTextDiv:nth-child(1) {
     grid-area: AggiungiFilmTextDiv;
     text-align: center;
 }
 
-#CaricaCopertinaDiv:nth-child(2) {
-    grid-area: AggiungiFilm;
-}
-
+/* Stili per il contenitore dell'aggiungi film */
 
 #AggiungiFilmContainer:nth-child(2) {
     grid-area: AggiungiFilm;
@@ -37,53 +38,72 @@
     "DivVuoto   DurataDiv"
     "TitoloDiv  DescrizioneDiv"
     "RegistaDiv DescrizioneDiv"
-    "AttoriDiv  DescrizioneDiv"
+    "AttoriDiv  DescrizioneDiv";
 }
+
+/* Stili per il pulsante di invio */
 
 #InvioDiv:nth-child(3) {
     grid-area: InvioDiv;
     margin: 0 auto 1% auto;
 }
 
+/* Stili generici per i div interni */
+
 #AggiungiFilmContainer > div {
     text-align: center;
     padding: 1%;
 }
 
+/* Stili per il div vuoto nell'aggiungi film */
 
 #DivVuoto:nth-child(1) {
     grid-area: DivVuoto;
-
 }
+
+/* Stili per il titolo nell'aggiungi film */
 
 #TitoloDiv:nth-child(2) {
     grid-area: TitoloDiv;
 }
 
+/* Stili per il regista nell'aggiungi film */
+
 #RegistaDiv:nth-child(3) {
     grid-area: RegistaDiv;
 }
+
+/* Stili per gli attori nell'aggiungi film */
 
 #AttoriDiv:nth-child(4) {
     grid-area: AttoriDiv;
 }
 
+/* Stili per il genere nell'aggiungi film */
+
 #GenereDiv:nth-child(5) {
     grid-area: GenereDiv;
 }
+
+/* Stili per la durata nell'aggiungi film */
 
 #DurataDiv:nth-child(6) {
     grid-area: DurataDiv;
 }
 
+/* Stili per la descrizione nell'aggiungi film */
+
 #DescrizioneDiv:nth-child(7) {
     grid-area: DescrizioneDiv;
 }
+
+/* Stili per la textarea nella descrizione dell'aggiungi film */
 
 #DescrizioneDiv > textarea {
     resize: none;
 }
 
+/* Stili per il pulsante di caricamento copertina nell'aggiungi film */
 
 #CaricaCopertinaDiv button {
     background: #77ff5c;
@@ -95,9 +115,13 @@
     margin: auto;
 }
 
+/* Stili per l'effetto hover sul pulsante nell'aggiungi film */
+
 button:hover {
     color: #5d5d5d;
 }
+
+/* Stili per gli input, select e textarea nell'aggiungi film */
 
 #AggiungiFilmContainer input, select, textarea {
     background: #add8e6;
@@ -108,12 +132,15 @@ button:hover {
     margin: auto;
 }
 
+/* Stili per l'etichetta nell'aggiungi film */
 
 #AggiungiFilmContainer label {
     color: black;
     font-size: 30px;
     margin-bottom: 5px;
 }
+
+/* Stili per il pulsante di invio nell'aggiungi film */
 
 #InvioDiv button {
     background: #77ff5c;
@@ -124,4 +151,3 @@ button:hover {
     border-radius: 25px;
     margin: auto;
 }
-

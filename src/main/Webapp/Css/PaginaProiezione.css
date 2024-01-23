@@ -1,3 +1,5 @@
+/* Stili per il contenitore principale */
+
 #Contenitore {
     width: 70%;
     height: auto;
@@ -6,11 +8,14 @@
     border-radius: 35px;
 }
 
+/* Stili per il titolo nel contenitore principale */
 
 #ContenitoreTitolo h1 {
     font-size: 60px;
     text-align: center;
 }
+
+/* Stili per il contenitore dell'immagine del film */
 
 #ContenitoreLocandinaFilm {
     padding: 5% 0 5% 1%;
@@ -23,6 +28,8 @@
     border-radius: 12%;
 }
 
+/* Stili per il contenitore della descrizione del film */
+
 #ContenitoreDescrizione {
     height: auto;
     margin: auto;
@@ -34,28 +41,29 @@
     padding: 5%;
 }
 
+/* Stili per il contenitore delle informazioni sul film e l'acquisto del biglietto */
+
 #AcquistoBiglietto, #ContenitoreInformazioniFilm {
     border-radius: 12px;
     background: rgba(225, 225, 225, 0.87);
-
 }
 
+/* Stili per il testo "big" (grande e grassetto) */
 
 .big {
     font-weight: bold;
     font-size: 25px;
 }
 
+/* Stili per gli input nel contenitore dell'acquisto del biglietto */
+
 #AcquistoBiglietto input {
     border: none;
     border-radius: 20px;
     margin-bottom: 4px;
-
 }
 
-#ContenitoreProiezione {
-    text-align: center;
-}
+/* Stili per la proiezione */
 
 #proiezione {
 }
@@ -63,8 +71,9 @@
 #proiezione:hover {
     background: rgba(255, 255, 255, 0.62);
     border-radius: 10px;
-
 }
+
+/* Stili per il pulsante di acquisto */
 
 #pulsanteAcquista {
     background: rgba(255, 255, 255, 0.62);

@@ -12,7 +12,7 @@ public class InterfaceMod {
 
     private SalaDAO salaDAO;
 
-    public InterfaceMod(){
+    public InterfaceMod() {
         this.filmDao = new FilmDAO();
         this.proDao = new ProiezioneDAO();
         this.modDao = new ModeratoreDAO();
@@ -20,15 +20,15 @@ public class InterfaceMod {
     }
 
     //FUNZIONI MODERATORE
-    public void aggiungiModeratore(Moderatore m) throws SQLException{
+    public void aggiungiModeratore(Moderatore m) throws SQLException {
         modDao.addModeratore(m);
     }
 
-    public void modificaModeratore(String email, String pass) throws SQLException{
+    public void modificaModeratore(String email, String pass) throws SQLException {
         modDao.updatePassword(email, pass);
     }
 
-    public void cancellaModeratore(int id) throws SQLException{
+    public void cancellaModeratore(int id) throws SQLException {
         modDao.doDeleteById(id);
     }
 
@@ -36,7 +36,7 @@ public class InterfaceMod {
         return modDao.doRetriveByEmailPass(email, pass);
     }
 
-    public ArrayList<Moderatore> recuperaModeratori(){
+    public ArrayList<Moderatore> recuperaModeratori() {
         return modDao.doRetrieveModeratori();
     }
 
@@ -46,15 +46,15 @@ public class InterfaceMod {
         filmDao.addFilm(f);
     }
 
-    public void modificaFilm(int id, String titolo, String descrizione, String regista, String attori, String generi, int durata) throws  SQLException{
-        filmDao.doUpdateById(id, titolo,descrizione,regista,attori,generi,durata);
+    public void modificaFilm(int id, String titolo, String descrizione, String regista, String attori, String generi, int durata) throws SQLException {
+        filmDao.doUpdateById(id, titolo, descrizione, regista, attori, generi, durata);
     }
 
-    public void cancellaFilm(int id) throws  SQLException{
+    public void cancellaFilm(int id) throws SQLException {
         filmDao.doDeleteById(id);
     }
 
-    public Film recuperaFilmViaId(int id) throws  SQLException{
+    public Film recuperaFilmViaId(int id) throws SQLException {
         return filmDao.doRetriveById(id);
     }
 
@@ -63,21 +63,20 @@ public class InterfaceMod {
     }
 
 
-
     //FUNZIONI PROIEZIONE
-    public void aggiungiProiezione(Proiezione p) throws SQLException{
+    public void aggiungiProiezione(Proiezione p) throws SQLException {
         proDao.addProiezione(p);
     }
 
-    public void cancellaProiezioneViaId(int id) throws  SQLException{
+    public void cancellaProiezioneViaId(int id) throws SQLException {
         proDao.doDeleteById(id);
     }
 
-    public void acquistoBiglietto(String email, String nome, String cognome, Proiezione proiezione, int n) throws SQLException{
-        proDao.acquistBiglietto(email,nome,cognome,proiezione,n);
+    public void acquistoBiglietto(String email, String nome, String cognome, Proiezione proiezione, int n) throws SQLException {
+        proDao.acquistBiglietto(email, nome, cognome, proiezione, n);
     }
 
-    public Proiezione recuperaProiezioneViaId(int id) throws  SQLException{
+    public Proiezione recuperaProiezioneViaId(int id) throws SQLException {
         return proDao.doRetriveById(id);
     }
 
@@ -86,15 +85,15 @@ public class InterfaceMod {
     }
 
 
-     //FUNZIONI SALA
+    //FUNZIONI SALA
 
-    public ArrayList<Sala> recuperaSale(){
+    public ArrayList<Sala> recuperaSale() {
 
         return salaDAO.doRetrieveAll();
     }
 
-    public Sala recuperaSalaViaId(int id) throws SQLException{
+    public Sala recuperaSalaViaId(int id) throws SQLException {
         return salaDAO.doRetrieveById(id);
     }
 
- }
+}

@@ -1,3 +1,5 @@
+/* Stili per il contenitore delle aggiunte moderatori */
+
 #Contenitore {
     width: 60%;
     height: 80%;
@@ -16,11 +18,14 @@
     "InvioDiv";
 }
 
+/* Stili per il testo nell'aggiunta moderatore */
+
 #AggiungiModeratoreTextDiv:nth-child(1) {
     grid-area: AggiungiModeratoreTextDiv;
     text-align: center;
 }
 
+/* Stili per il contenitore dell'aggiunta moderatore */
 
 #AggiungiModeratoreContainer:nth-child(2) {
     grid-area: AggiungiModeratore;
@@ -34,39 +39,54 @@
     "NomeDiv"
     "CognomeDiv"
     "PswdDiv"
-    "EmailDiv"
+    "EmailDiv";
 }
+
+/* Stili per il pulsante di invio */
 
 #InvioDiv:nth-child(3) {
     grid-area: InvioDiv;
     margin: 0 auto 1% auto;
 }
 
+/* Stili generici per i div interni */
+
 #AggiungiModeratoreContainer > div {
     text-align: center;
     padding: 1%;
 }
 
+/* Stili per il nome dell'aggiunta moderatore */
 
 #NomeDiv:nth-child(1) {
     grid-area: NomeDiv;
 }
 
+/* Stili per il cognome dell'aggiunta moderatore */
+
 #CognomeDiv:nth-child(2) {
     grid-area: CognomeDiv;
 }
+
+/* Stili per la password dell'aggiunta moderatore */
 
 #PswdDiv:nth-child(3) {
     grid-area: PswdDiv;
 }
 
+/* Stili per l'email dell'aggiunta moderatore */
+
 #EmailDiv:nth-child(4) {
     grid-area: EmailDiv;
 }
 
+/* Stili per l'effetto hover sul pulsante */
+
 button:hover {
     color: #5d5d5d;
 }
+
+/* Stili per gli input, select e textarea nell'aggiunta moderatore */
 
 #AggiungiModeratoreContainer input, select, textarea {
     background: #add8e6;
@@ -77,11 +97,15 @@ button:hover {
     margin: auto;
 }
 
+/* Stili per l'etichetta nell'aggiunta moderatore */
+
 #AggiungiModeratoreContainer label {
     color: black;
     font-size: 30px;
     margin-bottom: 12px;
 }
+
+/* Stili per il pulsante di invio */
 
 #InvioDiv button {
     background: #77ff5c;
@@ -92,4 +116,3 @@ button:hover {
     border-radius: 25px;
     margin: auto;
 }
-

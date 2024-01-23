@@ -1,3 +1,5 @@
+/* Stili per il contenitore delle aggiunte proiezioni */
+
 #Contenitore {
     width: 60%;
     height: 80%;
@@ -16,15 +18,20 @@
     "InvioDiv";
 }
 
+/* Stili per il testo nell'aggiunta proiezione */
+
 #AggiungiProiezioneTextDiv:nth-child(1) {
     grid-area: AggiungiProiezioneTextDiv;
     text-align: center;
 }
 
+/* Stili per il caricamento della copertina */
+
 #CaricaCopertinaDiv:nth-child(2) {
     grid-area: AggiungiProiezione;
 }
 
+/* Stili per il contenitore dell'aggiunta proiezione */
 
 #AggiungiProiezioneContainer:nth-child(2) {
     grid-area: AggiungiProiezione;
@@ -38,39 +45,54 @@
     "SelezionaFilmDiv"
     "DataDiv"
     "OrarioDiv"
-    "SalaDiv"
+    "SalaDiv";
 }
+
+/* Stili per il pulsante di invio */
 
 #InvioDiv:nth-child(3) {
     grid-area: InvioDiv;
     margin: 0 auto 1% auto;
 }
 
+/* Stili generici per i div interni */
+
 #AggiungiProiezioneContainer > div {
     text-align: center;
     padding: 1%;
 }
 
+/* Stili per la selezione del film */
 
 #SelezionaFilmDiv:nth-child(1) {
     grid-area: SelezionaFilmDiv;
 }
 
+/* Stili per la data dell'aggiunta proiezione */
+
 #DataDiv:nth-child(2) {
     grid-area: DataDiv;
 }
+
+/* Stili per l'orario dell'aggiunta proiezione */
 
 #OrarioDiv:nth-child(3) {
     grid-area: OrarioDiv;
 }
 
+/* Stili per la sala dell'aggiunta proiezione */
+
 #SalaDiv:nth-child(4) {
     grid-area: SalaDiv;
 }
 
+/* Stili per l'effetto hover sul pulsante */
+
 button:hover {
     color: #5d5d5d;
 }
+
+/* Stili per gli input, select e textarea nell'aggiunta proiezione */
 
 #AggiungiProiezioneContainer input, select, textarea {
     background: #add8e6;
@@ -81,15 +103,21 @@ button:hover {
     margin: auto;
 }
 
+/* Stili specifici per il select */
+
 #AggiungiProiezioneContainer select {
     margin-top: 5px;
 }
+
+/* Stili per l'etichetta nell'aggiunta proiezione */
 
 #AggiungiProiezioneContainer label {
     color: black;
     font-size: 30px;
     margin-bottom: 12px;
 }
+
+/* Stili per il pulsante di invio */
 
 #InvioDiv button {
     background: #77ff5c;
@@ -100,4 +128,3 @@ button:hover {
     border-radius: 25px;
     margin: auto;
 }
-

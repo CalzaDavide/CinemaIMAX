@@ -3,15 +3,10 @@ package Data_tier;
 import java.sql.*;
 import java.util.ArrayList;
 
-import Data_tier.DataChecker;
-import jakarta.servlet.RequestDispatcher;
-
 public class ModeratoreDAO {
 
     public void addModeratore(Moderatore m) throws SQLException {
         Connection con = ConPool.getConnection();
-
-        //SERVE PAGINA DOVE INSERIRE I DATI
 
         if (!DataChecker.checkModeratoreData(m.getEmail())) {
             PreparedStatement statement = con.prepareStatement("INSERT  INTO MODERATORE(Nome, Cognome, Pswd, Email, isAdmin) VALUES\n" +
@@ -21,11 +16,6 @@ public class ModeratoreDAO {
             statement.setString(3, m.getPassword());
             statement.setString(4, m.getEmail());
             statement.setBoolean(5, false);
-
-
-            //TEST
-            String insert = "INSERT INTO MODERATORE(Nome, Cognome, Pswd, Email) VALUES\n" +
-                    "('silvio', 'berlusconi', SHA1('silvietto'), 'mio.padre@cinemaimax.it');";
 
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("Errore nell'aggiunta del moderatore");
@@ -76,8 +66,6 @@ public class ModeratoreDAO {
     public Moderatore doRetriveByEmailPass(String email, String pass) throws SQLException {
         try {
             Connection con = ConPool.getConnection();
-            //String query = "SELECT * FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = SHA1(" + pass.toLowerCase() + ")";
-            //String query = "SELECT * FROM moderatore WHERE LOWER(Email) = '" + email.toLowerCase() + "' AND LOWER(Pswd) = '" + pass.toLowerCase() + "'";
 
             PreparedStatement query = con.prepareStatement("SELECT * FROM moderatore WHERE LOWER(Email) = ? AND LOWER(Pswd) = SHA1(?)");
             query.setString(1, email);

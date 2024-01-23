@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class ProiezioneDAO {
 
+    // Recupera una proiezione dal database dato il suo ID
     public Proiezione doRetriveById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
         String query = "SELECT * FROM proiezione WHERE Id_Proiezione = " + id;
@@ -24,13 +25,10 @@ public class ProiezioneDAO {
         return null;
     }
 
-
+    // Aggiunge una nuova proiezione nel database
     public void addProiezione(Proiezione p) throws SQLException {
-
         if (DataChecker.checkProiezioneData(p)) {
-
             Connection con = ConPool.getConnection();
-
             PreparedStatement statement = con.prepareStatement(
                     "INSERT INTO PROIEZIONE(Data_Proiezione, Orario_Proiezione, Posti_Disponibili, Id_film, Id_sala) VALUES\n" +
                             "(?, ?, ?, ?, ?)");
@@ -45,19 +43,18 @@ public class ProiezioneDAO {
             }
             con.close();
         } else {
-            //popup di errore
-            System.out.println("errore proiezione non inseribile in questa fascia oraria");
+            // Gestisce l'errore se la proiezione non può essere inserita in quella fascia oraria
+            System.out.println("Errore: proiezione non inseribile in questa fascia oraria");
         }
     }
 
-
+    // Acquista un biglietto per una proiezione e aggiorna il numero di posti disponibili
     public void acquistBiglietto(String email, String nome, String cognome, Proiezione proiezione, int n) throws SQLException {
         Connection con = ConPool.getConnection();
-
         PreparedStatement statement = con.prepareStatement("UPDATE proiezione SET posti_disponibili = ? WHERE id_proiezione = ?");
         statement.setInt(1, proiezione.getPosti() - n);
         statement.setInt(2, proiezione.getId());
-        //manda email
+        // Manda una email
         System.out.println(nome + " " + cognome + "\n" + email + "\n" + proiezione.getId() + " " + proiezione.getSala() + " " + proiezione.getData().toString());
 
         if (statement.executeUpdate() != 1) {
@@ -66,55 +63,27 @@ public class ProiezioneDAO {
         con.close();
     }
 
-    public ArrayList<Proiezione> doRetrieveAll() {
-        ArrayList<Proiezione> proiezioni = new ArrayList<>();
-        Statement statement;
-        ResultSet resultSet;
-        Proiezione pro;
-
-        try {
-            Connection con = ConPool.getConnection();
-            statement = con.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM proiezione");
-
-            while (resultSet.next()) {
-                pro = new Proiezione();
-                pro.setId(resultSet.getInt(1));
-                pro.setData(resultSet.getDate(2));
-                pro.setOrario(resultSet.getTime(3));
-                pro.setPosti(resultSet.getInt(4));
-                pro.film.setId(resultSet.getInt(5));
-                pro.sala.setId(resultSet.getInt(6));
-                proiezioni.add(pro);
-            }
-            con.close();
-            return proiezioni;
-        } catch (SQLException e) {
-
-            throw new RuntimeException(e);
-        }
-    }
-
+    // Elimina una proiezione dato il suo ID
     public static void doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
-
         PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE Id_Proiezione = ?");
         ps.setInt(1, id);
-        if(ps.executeUpdate() == 0)
+        if (ps.executeUpdate() == 0)
             throw new RuntimeException("Errore nell'eliminazione della proiezione");
         con.close();
     }
 
+    // Elimina tutte le proiezioni relative a un determinato film
     public static void doDeleteByFilm(int idFilm) throws SQLException {
         Connection con = ConPool.getConnection();
-
         PreparedStatement ps = con.prepareStatement("DELETE FROM proiezione WHERE id_film = ?");
         ps.setInt(1, idFilm);
-        if(ps.executeUpdate() == 0)
+        if (ps.executeUpdate() == 0)
             throw new RuntimeException("Errore nell'eliminazione");
         con.close();
     }
 
+    // Recupera tutte le proiezioni relative a un determinato film
     public ArrayList<Proiezione> doRetrieveByIdFilm(int id) {
         ArrayList<Data_tier.Proiezione> proiezioni = new ArrayList<>();
         Statement statement;
@@ -139,7 +108,6 @@ public class ProiezioneDAO {
             con.close();
             return proiezioni;
         } catch (SQLException e) {
-
             throw new RuntimeException(e);
         }
     }

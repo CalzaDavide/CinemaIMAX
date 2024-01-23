@@ -1,20 +1,23 @@
+/* Stili per il contenitore principale "main" */
+
 main {
     width: 55%;
     height: 65%;
     margin: 3% auto 3% auto;
 }
 
+/* Stili per il contenitore del profilo "MostraProfilo" */
 
 #MostraProfilo {
     position: relative;
-    /* Viene utilizzata per posizionare un elemento in base alla sua posizione originale all'interno del flusso del documento. Quando si applica
-                             "position: relative;" a un elemento, è possibile spostarlo rispetto alla sua posizione normale utilizzando le proprietà top, right, bottom e left */
     background: rgba(208, 208, 208, 0.85);
     margin: 0 auto 100px;
     padding: 2px 45px 45px 45px;
     text-align: center;
     border-radius: 50px;
 }
+
+/* Stili per il messaggio di benvenuto "Benvenuto" */
 
 #Benvenuto {
     margin: 3px auto;
@@ -26,6 +29,8 @@ main {
     color: #000000;
     margin-bottom: 7%;
 }
+
+/* Stili per le informazioni personali "InformazioniPersonali" */
 
 #InformazioniPersonali h2 {
     color: #000000;
@@ -40,6 +45,8 @@ main {
     margin: 2% auto 2% 1%;
 }
 
+/* Stili per il form di modifica "modificaForm" */
+
 #modificaForm input {
     background: #add8e6;
     width: 20%;
@@ -49,8 +56,7 @@ main {
     margin: 1% auto;
 }
 
-
-
+/* Media queries per dispositivi con larghezza massima di 1200px */
 
 @media screen and (max-width: 1200px) {
     main {
@@ -70,6 +76,8 @@ main {
     }
 }
 
+/* Media queries per dispositivi con larghezza massima di 800px */
+
 @media screen and (max-width: 800px) {
     main {
         width: 90%;
@@ -87,7 +95,3 @@ main {
         font-size: 20px;
     }
 }
-
-
-
-

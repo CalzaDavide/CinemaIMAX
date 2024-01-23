@@ -1,6 +1,5 @@
 package Logic_tier;
 
-import Data_tier.FilmDAO;
 import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -1,3 +1,5 @@
+/* Stili per la form in base alla larghezza dello schermo */
+
 @media screen and (max-width: 1200px) {
     .form {
         width: 50%;
@@ -16,8 +18,9 @@
         font-size: 20px;
         border-radius: 30px;
     }
-
 }
+
+/* Stili alternativi per schermi più piccoli */
 
 @media screen and (max-width: 800px) {
     .form {
@@ -39,6 +42,7 @@
     }
 }
 
+/* Stili comuni per la form */
 
 .form {
     width: 35%;
@@ -51,17 +55,19 @@
     border-radius: 60px;
 }
 
+/* Stili per gli input e select della form */
 
 .form input, select {
     background: #ffffff;
     width: 85%;
     margin: 0 0 8px;
     padding: 17px;
-    box-sizing: border-box; /* E' una proprietà CSS che permette di gestire il calcolo della larghezza e dell'altezza totale di un elemento, considerando anche i bordi e il padding.  */
+    box-sizing: border-box;
     font-size: 20px;
-    border-radius: 45px; /* Arrotondare gli angoli di un elemento che sia foto/div ecc  50%= cerchio */
+    border-radius: 45px;
 }
 
+/* Stili per il pulsante della form */
 
 button {
     background: #77ff5c;
@@ -72,17 +78,21 @@ button {
     border-radius: 30px;
 }
 
+/* Stili per l'effetto hover sul pulsante */
 
 button:hover {
     color: #5d5d5d;
 }
 
+/* Stili per il messaggio della form */
 
 .form .message {
     margin: 15px 0 0;
     color: rgba(179, 179, 179, 0.61);
     font-size: 25px;
 }
+
+/* Stili per il messaggio di errore */
 
 #errore {
     margin: 0 auto 5% auto;

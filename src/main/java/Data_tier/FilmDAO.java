@@ -9,13 +9,10 @@ public class FilmDAO {
 
         if (!DataChecker.checkFilmData(f.getTitolo())) {
             Connection con = ConPool.getConnection();
-            //TEST
-            //String insert = "INSERT INTO FILM(Titolo, Descrizione, Attori, Generi, Durata, Locandina) VALUES\n" +
-            //        "('King Kong', 'la scimmia gigante', 'Dwayne Johnson, Morgan Freeman', 'azione', 120, 'bimbumbam')";
 
             PreparedStatement statement = con.prepareStatement(
-                    "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Generi, Durata, Locandina) VALUES\n" +
-                            "(?, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO FILM(Titolo, Descrizione, Regista, Attori, Generi, Durata, Locandina) VALUES\n"
+                            +"(?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, f.getTitolo());
             statement.setString(2, f.getDescrizione());
             statement.setString(3, f.getRegista());
@@ -62,7 +59,7 @@ public class FilmDAO {
         proiezioneDAO.doDeleteByFilm(id);
         PreparedStatement ps = con.prepareStatement("DELETE FROM film WHERE Id_Film = ?");
         ps.setInt(1, id);
-        if(ps.executeUpdate() != 1)
+        if (ps.executeUpdate() != 1)
             throw new RuntimeException("Errore nell'eliminazione del film");
         con.close();
     }

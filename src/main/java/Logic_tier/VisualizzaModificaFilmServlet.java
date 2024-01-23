@@ -14,21 +14,35 @@ import java.sql.SQLException;
 
 @WebServlet(name = "VisualizzaModificaFilm", value = "/visualizza-modifica-film")
 public class VisualizzaModificaFilmServlet extends HttpServlet {
+
+    // Metodo invocato quando una richiesta di tipo GET viene ricevuta
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
         InterfaceMod interfaceMod = new InterfaceMod();
+
         try {
+            // Recupero del film utilizzando l'ID fornito come parametro nella richiesta
             Film film = interfaceMod.recuperaFilmViaId(Integer.parseInt(req.getParameter("idFilm")));
+
+            // Impostazione dell'attributo "film" nella richiesta con l'oggetto Film ottenuto
             req.setAttribute("film", film);
+
+            // Ottenimento del dispatcher per la pagina "ModificaFilm.jsp"
             RequestDispatcher dispatcher = req.getRequestDispatcher("ModificaFilm.jsp");
+
+            // Inoltro della richiesta alla pagina "ModificaFilm.jsp"
             dispatcher.forward(req, resp);
         } catch (SQLException e) {
+            // Gestione dell'eccezione se si verifica un errore durante l'accesso ai dati
             throw new RuntimeException(e);
         }
     }
 
+    // Metodo invocato quando una richiesta di tipo POST viene ricevuta
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Richiamo del metodo doGet per gestire la richiesta anche quando è di tipo POST
         doGet(req, resp);
     }
 }

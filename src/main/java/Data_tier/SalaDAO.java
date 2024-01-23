@@ -1,7 +1,5 @@
 package Data_tier;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
-
 import java.sql.*;
 import java.util.ArrayList;
 

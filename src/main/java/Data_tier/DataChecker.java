@@ -1,10 +1,7 @@
 package Data_tier;
 
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-
-import static java.lang.Integer.parseInt;
 
 public class DataChecker {
 
@@ -46,8 +43,6 @@ public class DataChecker {
             statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_sala = '" + p.getSala().getId() + "' AND " +
                     " Data_Proiezione = '" + p.getData() + "' ORDER BY Orario_Proiezione");
-            //resultSet = statement.executeQuery("SELECT * FROM proiezione WHERE id_sala = 1 AND " +
-            //        " Data_Proiezione = '22-11-11' ORDER BY Orario_Proiezione");
 
             while (resultSet.next()) {
                 pro = new Proiezione();
@@ -65,7 +60,6 @@ public class DataChecker {
             throw new RuntimeException(e);
         }
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         int numeroCheck = 0;
         if(proiezioni.isEmpty()) {
             //se la resultset non è positiva, ovvero non trova spettacoli in quella data e quella sala

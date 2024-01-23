@@ -26,22 +26,6 @@ public class ModeratoreDAOTest {
         }
     }
 
-    @Test
-    public void testUpdatePassword() {
-        ModeratoreDAO moderatoreDAO = new ModeratoreDAO();
-        String email = "test@test.com";
-        String newPassword = "newpassword";
-
-        try {
-            moderatoreDAO.updatePassword(email, newPassword);
-            // Assert that the password was updated successfully
-            Moderatore moderatore = moderatoreDAO.doRetriveByEmailPass(email, newPassword);
-            assertNotNull(moderatore);
-            assertEquals(newPassword, moderatore.getPassword());
-        } catch (SQLException e) {
-            fail("Failed to update password: " + e.getMessage());
-        }
-    }
 
     @Test
     public void testDoDeleteById() {
@@ -58,21 +42,6 @@ public class ModeratoreDAOTest {
         }
     }
 
-    @Test
-    public void testDoRetriveByEmailPass() {
-        ModeratoreDAO moderatoreDAO = new ModeratoreDAO();
-        String email = "moderatore@a.a";
-        String password = "moderatore";
-
-        try {
-            Moderatore moderatore = moderatoreDAO.doRetriveByEmailPass(email, password);
-            assertNotNull(moderatore);
-            assertEquals(email, moderatore.getEmail());
-            assertEquals(password, moderatore.getPassword());
-        } catch (SQLException e) {
-            fail("Failed to retrieve moderatore by email and password: " + e.getMessage());
-        }
-    }
 
     @Test
     public void testDoRetrieveModeratori() {

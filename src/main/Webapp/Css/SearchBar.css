@@ -1,9 +1,10 @@
+/* Stili per la gestione della responsività del layout */
+
 @media screen and (max-width: 1200px) {
     header {
         margin-left: 12%;
         margin-right: 12%;
     }
-
 }
 
 @media screen and (max-width: 800px) {
@@ -13,11 +14,14 @@
     }
 }
 
+/* Stili per il logo del sito */
+
 #logoSito img {
     margin: auto;
     padding: 15px 0 0 15px;
 }
 
+/* Stili per la barra di ricerca */
 
 #cercaForm input[type="text"] {
     margin: 1% 0 1% 4%;
@@ -28,7 +32,6 @@
     border-radius: 30px;
 }
 
-
 #cerca {
     float: right;
     margin: 5px 3px;
@@ -36,7 +39,7 @@
     background-color: rgba(255, 255, 255, 0);
 }
 
-/* Lente di ingrandimento della searchbar*/
+/* Stili per la lente di ingrandimento della barra di ricerca */
 
 #cercaForm {
     margin: 1% auto 1% auto;
@@ -46,9 +49,10 @@
 }
 
 #cercaInput {
-    flex: 1; /* E'utilizzato per far sì che un elemento flessibile si espanda e si contragga in modo dinamico all'interno del flex container, occupando tutto lo spazio disponibile*/
+    flex: 1; /* Utilizzato per far sì che un elemento flessibile si espanda e si contragga in modo dinamico all'interno del flex container, occupando tutto lo spazio disponibile */
 }
 
+/* Stili per la barra laterale */
 
 #sidebar {
     height: 100%;
@@ -87,7 +91,3 @@
     z-index: 2;
     color: black;
 }
-
-
-
-
