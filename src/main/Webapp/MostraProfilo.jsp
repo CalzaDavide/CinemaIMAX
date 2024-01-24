@@ -49,8 +49,8 @@
 
             <form action="modifica-password" method="post" id="modificaForm">
                 <input type="hidden" name="email" value="<%= moderatore.getEmail()%>">
-                <input type="password" name="oldPassword" placeholder="Vecchia Password"><br>
-                <input type="password" name="newPassword" placeholder="Nuova Password"><br>
+                <input required type="password" name="oldPassword" placeholder="Vecchia Password"><br>
+                <input required type="password" name="newPassword" placeholder="Nuova Password"><br>
                 <input type="submit" value="invia">
             </form>
 

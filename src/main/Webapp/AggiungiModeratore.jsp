@@ -16,7 +16,7 @@
 <!-- Se si accede a questa pagina senza aver effettuato l'accesso o se il moderatore non è admin, si viene reindirizzati alla homepage-->
 <% Moderatore moderatore = (Moderatore) session.getAttribute("utente");
     if (moderatore == null || !moderatore.isAdmin()) {%>
-        <jsp:forward page="index.jsp"></jsp:forward>
+<jsp:forward page="index.jsp"></jsp:forward>
 <%}%>
 
 
@@ -54,19 +54,10 @@
             <input required type="text" id="Email" name="Email" placeholder="Email">
         </div>
 
-
+        <div id="InvioDiv">
+            <button type="submit" id="pulsanteInvio">Invia</button>
+        </div>
     </form>
-
-    <!-- Invio -->
-    <div id="InvioDiv">
-        <button type="submit" id="pulsanteInvio">Invia</button>
-    </div>
-
-    <script>
-        document.getElementById('pulsanteInvio').addEventListener('click', function () {
-            document.getElementById('AggiungiModeratoreContainer').submit();
-        });
-    </script>
 
 
 </div>

@@ -75,18 +75,10 @@
 
         </div>
 
+        <div id="InvioDiv">
+            <button type="submit" id="pulsanteInvio">Invia</button>
+        </div>
     </form>
-
-    <!-- Invio -->
-    <div id="InvioDiv">
-        <button type="submit" id="pulsanteInvio">Invia</button>
-    </div>
-
-    <script>
-        document.getElementById('pulsanteInvio').addEventListener('click', function () {
-            document.getElementById('AggiungiProiezioneContainer').submit();
-        });
-    </script>
 
 
 </div>

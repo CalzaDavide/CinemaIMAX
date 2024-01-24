@@ -59,7 +59,6 @@
 
 #AggiungiProiezioneContainer > div {
     text-align: center;
-    padding: 1%;
 }
 
 /* Stili per la selezione del film */
@@ -118,6 +117,10 @@ button:hover {
 }
 
 /* Stili per il pulsante di invio */
+
+#InvioDiv{
+    padding: 1% 43%;
+}
 
 #InvioDiv button {
     background: #77ff5c;
