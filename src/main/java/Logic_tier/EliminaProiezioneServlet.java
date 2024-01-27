@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.InterfaceMod;
+import Data_tier.InterfacePro;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,10 +20,10 @@ public class EliminaProiezioneServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-            InterfaceMod interfaceMod = new InterfaceMod();
+            InterfacePro interfacePro = new InterfacePro();
 
             // Cancella la proiezione utilizzando l'ID fornito come parametro nella richiesta
-            interfaceMod.cancellaProiezioneViaId(Integer.parseInt(req.getParameter("proiezione")));
+            interfacePro.cancellaProiezioneViaId(Integer.parseInt(req.getParameter("proiezione")));
 
             // Ottenimento del dispatcher per la pagina "index.jsp"
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");

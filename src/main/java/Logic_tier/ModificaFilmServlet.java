@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceFilm;
 import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -18,7 +19,7 @@ public class ModificaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-        InterfaceMod interfaceMod = new InterfaceMod();
+        InterfaceFilm interfaceFilm = new InterfaceFilm();
 
         // Ottiene i parametri dalla richiesta
         String attori = req.getParameter("attori");
@@ -31,7 +32,7 @@ public class ModificaFilmServlet extends HttpServlet {
 
         try {
             // Modifica le informazioni del film utilizzando i parametri forniti
-            interfaceMod.modificaFilm(id, titolo, descrizione, regista, attori, generi, durata);
+            interfaceFilm.modificaFilm(id, titolo, descrizione, regista, attori, generi, durata);
 
             // Ottenimento del dispatcher per la pagina "index.jsp"
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");

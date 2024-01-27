@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.Film;
+import Data_tier.InterfaceFilm;
 import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -19,11 +20,11 @@ public class VisualizzaModificaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-        InterfaceMod interfaceMod = new InterfaceMod();
+        InterfaceFilm interfaceFilm = new InterfaceFilm();
 
         try {
             // Recupero del film utilizzando l'ID fornito come parametro nella richiesta
-            Film film = interfaceMod.recuperaFilmViaId(Integer.parseInt(req.getParameter("idFilm")));
+            Film film = interfaceFilm.recuperaFilmViaId(Integer.parseInt(req.getParameter("idFilm")));
 
             // Impostazione dell'attributo "film" nella richiesta con l'oggetto Film ottenuto
             req.setAttribute("film", film);

@@ -31,10 +31,10 @@ public class AggiungiFilmServlet extends HttpServlet {
         film.setLocandina(req.getParameter("immagine"));
 
         // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-        InterfaceMod interfaceMod = new InterfaceMod();
+        InterfaceFilm interfaceFilm = new InterfaceFilm();
         try {
             // Aggiunta del film nel database
-            interfaceMod.aggiungiFilm(film);
+            interfaceFilm.aggiungiFilm(film);
         } catch (SQLException e) {
             // Gestione dell'eccezione se si verifica un errore durante l'accesso ai dati
             throw new RuntimeException(e);

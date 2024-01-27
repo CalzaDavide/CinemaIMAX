@@ -50,8 +50,8 @@ public class DataChecker {
                 pro.setData(resultSet.getDate(2));
                 pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
-                pro.setFilm((new InterfaceMod()).recuperaFilmViaId(resultSet.getInt(5)));
-                pro.setSala((new InterfaceMod()).recuperaSalaViaId(resultSet.getInt(6)));
+                pro.setFilm((new InterfaceFilm()).recuperaFilmViaId(resultSet.getInt(5)));
+                pro.setSala((new InterfacePro()).recuperaSalaViaId(resultSet.getInt(6)));
                 proiezioni.add(pro);
 
             }

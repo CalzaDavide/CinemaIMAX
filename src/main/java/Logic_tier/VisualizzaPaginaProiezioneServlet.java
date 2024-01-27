@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.InterfaceMod;
+import Data_tier.InterfacePro;
 import Data_tier.Proiezione;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -19,14 +20,14 @@ public class VisualizzaPaginaProiezioneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-        InterfaceMod interfaceMod = new InterfaceMod();
+        InterfacePro interfacePro = new InterfacePro();
 
         // Inizializzazione di una variabile Proiezione a null
         Proiezione p = null;
 
         try {
             // Recupero della proiezione utilizzando l'ID fornito come parametro nella richiesta
-            p = interfaceMod.recuperaProiezioneViaId(Integer.parseInt(req.getParameter("idProiezione")));
+            p = interfacePro.recuperaProiezioneViaId(Integer.parseInt(req.getParameter("idProiezione")));
         } catch (SQLException e) {
             // Gestione dell'eccezione se si verifica un errore durante l'accesso ai dati
             e.printStackTrace();

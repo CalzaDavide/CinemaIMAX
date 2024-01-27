@@ -29,7 +29,7 @@
 <% ArrayList<Film> film = (ArrayList<Film>) request.getAttribute("film");
     if (film == null) {
         try {
-            film = (new InterfaceMod()).recuperaFilms();
+            film = (new InterfaceFilm()).recuperaFilms();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -70,7 +70,7 @@
     <div class="col-5"></div>
 
 
-    <% proiezioni = (new InterfaceMod().recuperaProiezioneViaIdFilm(f.getId()));%>
+    <% proiezioni = (new InterfacePro().recuperaProiezioneViaIdFilm(f.getId()));%>
 
     <div class="col-5">
         <h1 style="font-size: 35px">Proiezioni:</h1><br>

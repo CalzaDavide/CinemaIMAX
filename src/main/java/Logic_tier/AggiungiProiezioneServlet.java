@@ -26,14 +26,15 @@ public class AggiungiProiezioneServlet extends HttpServlet {
 
         try {
             // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-            InterfaceMod interfaceMod = new InterfaceMod();
+            InterfacePro interfacePro = new InterfacePro();
+            InterfaceFilm interfaceFilm = new InterfaceFilm();
 
             // Recupero del film utilizzando l'ID fornito come parametro nella richiesta
-            film = interfaceMod.recuperaFilmViaId(Integer.parseInt(req.getParameter("Film")));
+            film = interfaceFilm.recuperaFilmViaId(Integer.parseInt(req.getParameter("Film")));
             proiezione.setFilm(film);
 
             // Recupero della sala utilizzando l'ID fornito come parametro nella richiesta
-            Sala sala = interfaceMod.recuperaSalaViaId(Integer.parseInt(req.getParameter("Sala")));
+            Sala sala = interfacePro.recuperaSalaViaId(Integer.parseInt(req.getParameter("Sala")));
             proiezione.setSala(sala);
 
             // Impostazione del numero di posti sulla base del numero massimo di posti disponibili nella sala
@@ -51,10 +52,10 @@ public class AggiungiProiezioneServlet extends HttpServlet {
             proiezione.setOrario(Time.valueOf(orario));
 
             // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-            InterfaceMod interfaceMod1 = new InterfaceMod();
+            InterfacePro interfacepro = new InterfacePro();
 
             // Aggiunta della proiezione nel database
-            interfaceMod1.aggiungiProiezione(proiezione);
+            interfacepro.aggiungiProiezione(proiezione);
         } catch (Exception e) {
             // Gestione dell'eccezione se si verifica un errore durante l'esecuzione delle operazioni
             throw new RuntimeException(e);

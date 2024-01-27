@@ -18,8 +18,8 @@ public class ProiezioneDAO {
             pro.setData(rs.getDate(2));
             pro.setOrario(rs.getTime(3));
             pro.setPosti(rs.getInt(4));
-            pro.setFilm((new InterfaceMod()).recuperaFilmViaId(rs.getInt(5)));
-            pro.setSala((new InterfaceMod()).recuperaSalaViaId(rs.getInt(6)));
+            pro.setFilm((new InterfaceFilm()).recuperaFilmViaId(rs.getInt(5)));
+            pro.setSala((new InterfacePro()).recuperaSalaViaId(rs.getInt(6)));
             return pro;
         }
         return null;
@@ -101,8 +101,8 @@ public class ProiezioneDAO {
                 pro.setData(resultSet.getDate(2));
                 pro.setOrario(resultSet.getTime(3));
                 pro.setPosti(resultSet.getInt(4));
-                pro.setFilm((new InterfaceMod()).recuperaFilmViaId(resultSet.getInt(5)));
-                pro.setSala((new InterfaceMod()).recuperaSalaViaId(resultSet.getInt(6)));
+                pro.setFilm((new InterfaceFilm()).recuperaFilmViaId(resultSet.getInt(5)));
+                pro.setSala((new InterfacePro()).recuperaSalaViaId(resultSet.getInt(6)));
                 proiezioni.add(pro);
             }
             con.close();

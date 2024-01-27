@@ -1,6 +1,7 @@
 package Logic_tier;
 
 import Data_tier.Film;
+import Data_tier.InterfaceFilm;
 import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -20,11 +21,11 @@ public class FiltraFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Creazione di un'istanza di InterfaceMod per interagire con il livello dati
-        InterfaceMod interfaceMod = new InterfaceMod();
+        InterfaceFilm interfaceFilm = new InterfaceFilm();
         ArrayList<Film> film;
         try {
             // Recupero di tutti i film dal database
-            film = interfaceMod.recuperaFilms();
+            film = interfaceFilm.recuperaFilms();
         } catch (SQLException e) {
             // Gestione dell'eccezione se si verifica un errore durante l'accesso ai dati
             throw new RuntimeException(e);

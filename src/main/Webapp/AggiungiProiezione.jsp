@@ -34,7 +34,7 @@
 
         <% ArrayList<Film> film = null;
             try {
-                film = (new InterfaceMod()).recuperaFilms();
+                film = (new InterfaceFilm()).recuperaFilms();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } %>
@@ -63,7 +63,7 @@
         </div>
 
 
-        <% ArrayList<Sala> sala = (new InterfaceMod()).recuperaSale(); %>
+        <% ArrayList<Sala> sala = (new InterfacePro()).recuperaSale(); %>
         <!-- Sala -->
         <div id="SalaDiv">
             <label for="Sala">Sala</label><br>

@@ -1,5 +1,6 @@
 package Logic_tier;
 
+import Data_tier.InterfaceFilm;
 import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,8 +17,8 @@ public class EliminaFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            InterfaceMod interfaceMod = new InterfaceMod();
-            interfaceMod.cancellaFilm(Integer.parseInt(req.getParameter("film")));
+            InterfaceFilm interfaceFilm = new InterfaceFilm();
+            interfaceFilm.cancellaFilm(Integer.parseInt(req.getParameter("film")));
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req, resp);
         } catch (SQLException e) {
