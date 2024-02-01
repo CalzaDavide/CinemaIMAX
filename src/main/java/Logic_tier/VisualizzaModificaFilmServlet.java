@@ -2,7 +2,6 @@ package Logic_tier;
 
 import Data_tier.Film;
 import Data_tier.InterfaceFilm;
-import Data_tier.InterfaceMod;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

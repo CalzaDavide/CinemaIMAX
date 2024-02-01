@@ -1,6 +1,5 @@
 package Logic_tier;
 
-import Data_tier.InterfaceMod;
 import Data_tier.InterfacePro;
 import Data_tier.Proiezione;
 import jakarta.servlet.RequestDispatcher;

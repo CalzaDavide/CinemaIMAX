@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class InterfaceMod {
 
-    private ModeratoreDAO modDao;
+    private final ModeratoreDAO modDao;
 
     public InterfaceMod() {
 
@@ -22,11 +22,16 @@ public class InterfaceMod {
     }
 
     public void cancellaModeratore(int id) throws SQLException {
-        modDao.doDeleteById(id);
+        ModeratoreDAO.doDeleteById(id);
     }
 
     public Moderatore recuperaViaEmailPass(String email, String pass) throws SQLException {
         return modDao.doRetriveByEmailPass(email, pass);
     }
+
+    public ArrayList<Moderatore> recuperaModeratori() throws SQLException {
+        return modDao.doRetrieveModeratori();
+    }
+    
 
 }

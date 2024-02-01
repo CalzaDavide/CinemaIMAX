@@ -55,8 +55,7 @@ public class FilmDAO {
 
     public static void doDeleteById(int id) throws SQLException {
         Connection con = ConPool.getConnection();
-        ProiezioneDAO proiezioneDAO = new ProiezioneDAO();
-        proiezioneDAO.doDeleteByFilm(id);
+        ProiezioneDAO.doDeleteByFilm(id);
         PreparedStatement ps = con.prepareStatement("DELETE FROM film WHERE Id_Film = ?");
         ps.setInt(1, id);
         if (ps.executeUpdate() != 1)

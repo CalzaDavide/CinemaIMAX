@@ -32,7 +32,7 @@
     <form id="AggiungiProiezioneContainer" action="aggiungi-Proiezione-Servlet" method="post">
 
 
-        <% ArrayList<Film> film = null;
+        <% ArrayList<Film> film;
             try {
                 film = (new InterfaceFilm()).recuperaFilms();
             } catch (SQLException e) {

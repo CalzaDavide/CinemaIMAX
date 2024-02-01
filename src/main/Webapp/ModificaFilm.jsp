@@ -1,7 +1,7 @@
 <%@ page import="Data_tier.Film" %>
 <%@ page import="Data_tier.FilmDAO" %>
 <%@ page import="Data_tier.Moderatore" %>
-<%@ page import="Data_tier.InterfaceMod" %>
+<%@ page import=" Data_tier.InterfaceMod" %>
 <%@ page import="java.sql.SQLException" %>
 <html>
 <head>
@@ -25,7 +25,7 @@
 
 
 <%  int idFilm = Integer.parseInt(request.getParameter("idFilm"));
-    Film film = null;
+    Film film;
     try {
         film = new FilmDAO().doRetriveById(idFilm);
     } catch (SQLException e) {

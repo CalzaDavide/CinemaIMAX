@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class InterfacePro {
 
-    private ProiezioneDAO proDao;
+    private final ProiezioneDAO proDao;
 
-    private SalaDAO salaDao;
+    private final SalaDAO salaDao;
 
     public InterfacePro(){
         this.proDao = new ProiezioneDAO();
@@ -19,7 +19,7 @@ public class InterfacePro {
     }
 
     public void cancellaProiezioneViaId(int id) throws SQLException {
-        proDao.doDeleteById(id);
+        ProiezioneDAO.doDeleteById(id);
     }
 
     public void acquistoBiglietto(String email, String nome, String cognome, Proiezione proiezione, int n) throws SQLException {

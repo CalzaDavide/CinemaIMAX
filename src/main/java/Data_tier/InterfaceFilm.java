@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class InterfaceFilm {
 
-    private FilmDAO filmDao;
+    private final FilmDAO filmDao;
 
     public InterfaceFilm(){
         this.filmDao = new FilmDAO();
@@ -20,7 +20,7 @@ public class InterfaceFilm {
     }
 
     public void cancellaFilm(int id) throws SQLException {
-        filmDao.doDeleteById(id);
+        FilmDAO.doDeleteById(id);
     }
 
     public Film recuperaFilmViaId(int id) throws SQLException {

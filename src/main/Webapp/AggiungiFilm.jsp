@@ -1,5 +1,5 @@
 <%@ page import="Data_tier.Moderatore" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Aggiungi Film</title>
